@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Persona Quiz: Discover Your Subatomic Self</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="quiz-container">
+        <div id="home-page">
+            <h1>Particle Persona Quiz: Discover Your Subatomic Self</h1>
+            <p>Embark on a quantum journey to uncover your subatomic alter ego! This quirky quiz will reveal which
+                particle best matches your personality. Are you as elusive as a neutrino or as influential as a Higgs
+                boson? Let's find out!</p>
+            <button id="start-quiz">Let's Begin!</button>
+        </div>
+
+        <div id="question-page" style="display: none;">
+            <h2 id="question-text"></h2>
+            <div id="answer-buttons"></div>
+        </div>
+
+        <div id="results-page" style="display: none;">
+            <h2>Your Particle Persona Is:</h2>
+            <img id="result-image" src="" alt="Your Particle Persona">
+            <p id="result-description"></p>
+            <button id="restart-quiz">Take the Quiz Again</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "If you could live in a fictional universe, which would you choose?",
+                answers: [
+                    { text: "A world where magic is real, and you are a skilled sorcerer", types: ["INFP", "ENFP", "ISFP", "ESFP", "ENFJ"] },
+                    { text: "A futuristic society with advanced technology and space travel", types: ["INTJ", "INTP", "ENTP", "ENTJ", "ISTP", "ESTP"] },
+                    { text: "A peaceful utopia where everyone lives in harmony with nature", types: ["INFJ", "ISFJ", "ESFJ", "ISTJ", "ESTJ"] }
+                ]
+            },
+            {
+                question: "When making a big life decision, you are more likely to:",
+                answers: [
+                    { text: "Consult your closest friends and family for advice", types: ["ESFJ", "ISFJ", "ENFJ", "ESFP", "ISFP"] },
+                    { text: "Rely on your intuition and gut feelings", types: ["INFJ", "INTJ", "ENFP", "INFP", "ENTP"] },
+                    { text: "Research extensively and weigh all possible outcomes", types: ["ISTJ", "ESTJ", "INTP", "ENTJ", "ISTP", "ESTP"] }
+                ]
+            },
+            {
+                question: "If you could have dinner with any historical figure, who would it be?",
+                answers: [
+                    { text: "Albert Einstein, to discuss the mysteries of the universe", types: ["INTP", "INTJ", "ENTP", "INFJ", "ISTP"] },
+                    { text: "Leonardo da Vinci, to explore his diverse genius", types: ["ENFP", "INFP", "ISFP", "ENFJ", "ESFP"] },
+                    { text: "Mahatma Gandhi, to learn about his philosophy of nonviolence and peace", types: ["ISFJ", "ESFJ", "ISTJ", "ESTJ", "ESTP", "ENTJ"] }
+                ]
+            },
+            {
+                question: "Which best describes your ideal work environment?",
+                answers: [
+                    { text: "A high-energy startup with constant change and innovation", types: ["ENTP", "ENFP", "ESTP", "ENTJ", "ESFP"] },
+                    { text: "A stable, established company with clear routines and policies", types: ["ISTJ", "ESTJ", "ISFJ", "ESFJ", "ISFP"] },
+                    { text: "A creative studio with flexible hours and a focus on artistic projects", types: ["INFP", "INFJ", "ISTP", "INTP", "INTJ", "ENFJ"] }
+                ]
+            },
+            {
+                question: "If you were to write a book, it would be:",
+                answers: [
+                    { text: "A thrilling mystery novel with unexpected twists", types: ["ISTP", "INTJ", "ENTP", "ESTP", "ESFP"] },
+                    { text: "A self-help guide offering practical advice for personal growth", types: ["ENFJ", "ESFJ", "ESTJ", "ISFJ", "ISTJ"] },
+                    { text: "A science fiction or fantasy epic exploring new possibilities", types: ["ENFP", "ENTJ", "ISFP", "INFP", "INTP", "INFJ"] }
+                ]
+            },
+            {
+                question: "What do you value more in a partner?",
+                answers: [
+                    { text: "Intellectual compatibility and stimulating conversations", types: ["INTJ", "INTP", "ENTP", "ENTJ", "INFJ"] },
+                    { text: "Emotional support and a deep, affectionate bond", types: ["INFP", "ISFJ", "ESFJ", "ENFJ", "ISFP"] },
+                    { text: "Shared adventures and a love for spontaneity", types: ["ESTP", "ESFP", "ENFP", "ISTP", "ESTJ", "ISTJ"] }
+                ]
+            },
+            {
+                question: "If you had to choose a superpower, which would it be?",
+                answers: [
+                    { text: "The ability to read minds and understand everyone's thoughts", types: ["INFJ", "ENFJ", "INTJ", "ENTP", "INTP"] },
+                    { text: "The power to manipulate time and relive moments", types: ["INFP", "ISFP", "ESFP", "ISTP", "ESTP"] },
+                    { text: "The ability to heal any injury or disease", types: ["ISFJ", "ESFJ", "ENFP", "ESTJ", "ENTJ", "ISTJ"] }
+                ]
+            },
+            {
+                question: "In a group project, you are most likely to:",
+                answers: [
+                    { text: "Take charge and organize everyone's tasks", types: ["ENTJ", "ESTJ", "ENFJ", "ESTP", "ISTJ"] },
+                    { text: "Support others and contribute where you see a need", types: ["ISFJ", "ESFJ", "ENFP", "ISFP", "ESFP"] },
+                    { text: "Challenge ideas and push for creative solutions", types: ["ENTP", "INTP", "INTJ", "INFJ", "ISTP", "INFP"] }
+                ]
+            },
+            {
+                question: "How do you prefer to approach your personal goals?",
+                answers: [
+                    { text: "Setting ambitious, long-term goals with detailed plans", types: ["INTJ", "ENTJ", "ESTJ", "ISTJ", "ISFJ"] },
+                    { text: "Focusing on small, immediate actions that add up over time", types: ["ESFJ", "ISTP", "ISFP", "ENFJ", "INFJ"] },
+                    { text: "Staying flexible and adapting your goals as you go", types: ["ENTP", "ENFP", "INFP", "ESTP", "ESFP", "INTP"] }
+                ]
+            },
+            {
+                question: "If you could only listen to one genre of music for the rest of your life, what would it be?",
+                answers: [
+                    { text: "Classical music, for its complexity and emotional depth", types: ["INTJ", "INFJ", "ISTJ", "ISFJ", "INTP"] },
+                    { text: "Rock music, for its energy and rebellious spirit", types: ["ESTP", "ISTP", "ENTP", "ESFP", "ENTJ"] },
+                    { text: "Jazz, for its improvisational style and variety", types: ["ENFP", "INFP", "ISFP", "ENFJ", "ESFJ", "ESTJ"] }
+                ]
+            },
+            {
+                question: "If you had to be stranded on a deserted island, who would you take with you?",
+                answers: [
+                    { text: "A survival expert to help you navigate the challenges", types: ["ISTP", "ESTP", "ESTJ", "ISTJ", "ENTJ"] },
+                    { text: "A close friend for emotional support and companionship", types: ["ESFJ", "ISFJ", "ENFJ", "INFP", "ISFP", "ESFP"] },
+                    { text: "A skilled engineer to help build necessary tools and shelters", types: ["INTJ", "INTP", "ENTP", "ENFP", "INFJ"] }
+                ]
+            },
+            {
+                question: "Which artistic endeavor appeals to you more?",
+                answers: [
+                    { text: "Painting or sculpting, to express visual creativity", types: ["ISFP", "INFP", "ESFP", "ENFP", "ISTP"] },
+                    { text: "Writing, to explore complex ideas and emotions", types: ["INFJ", "INTJ", "INTP", "ENFJ", "ISTJ"] },
+                    { text: "Acting, to embody different characters and tell stories through performance", types: ["ENTP", "ESTP", "ESFJ", "ISFJ", "ENTJ", "ESTJ"] }
+                ]
+            },
+            {
+                question: "If you could instantly learn a new skill, it would be:",
+                answers: [
+                    { text: "Mastering a musical instrument", types: ["ISFP", "INFP", "ENFP", "ESFP", "ISTP"] },
+                    { text: "Speaking a new language fluently", types: ["ENFJ", "INFJ", "ENTP", "INTJ", "INTP"] },
+                    { text: "Becoming a top-level athlete in a sport of your choice", types: ["ESTP", "ESTJ", "ENTJ", "ISTJ", "ESFJ", "ISFJ"] }
+                ]
+            },
+            {
+                question: "What kind of leadership style do you resonate with?",
+                answers: [
+                    { text: "Authoritative, providing clear direction and expectations", types: ["ENTJ", "ESTJ", "INTJ", "ESTP", "ISTJ"] },
+                    { text: "Democratic, encouraging team input and collaboration", types: ["ENFJ", "ESFJ", "ENTP", "ISFJ", "ENFP"] },
+                    { text: "Servant leadership, focusing on the needs of the team members", types: ["INFJ", "ISFP", "INFP", "INTP", "ISTP", "ESFP"] }
+                ]
+            },
+            {
+                question: "If you were to join a reality TV show, you would prefer:",
+                answers: [
+                    { text: "A survival challenge in the wilderness", types: ["ESTP", "ISTP", "ENTJ", "ISTJ", "ESTJ"] },
+                    { text: "A cooking competition showcasing your culinary skills", types: ["ESFJ", "ISFJ", "ISFP", "ENFJ", "ESFP"] },
+                    { text: "A talent show highlighting your unique abilities", types: ["ENFP", "ENTP", "INFP", "INTJ", "INTP", "INFJ"] }
+                ]
+            },
+            {
+                question: "When thinking about success, do you focus more on:",
+                answers: [
+                    { text: "Financial stability and career achievements", types: ["ESTJ", "ENTJ", "ISTJ", "INTJ", "ISTP"] },
+                    { text: "Personal fulfillment and happiness", types: ["INFP", "ISFP", "ENFP", "ESFP", "INTP"] },
+                    { text: "Making a positive impact on others and society", types: ["ENFJ", "INFJ", "ESFJ", "ISFJ", "ENTP", "ESTP"] }
+                ]
+            },
+            {
+                question: "If you could transform into any animal at will, which would you choose?",
+                answers: [
+                    { text: "An eagle, to soar above the world and see everything from a new perspective", types: ["INTJ", "ENTJ", "ENTP", "INFJ", "INTP"] },
+                    { text: "A dolphin, to explore the depths of the ocean and communicate with marine life", types: ["ENFP", "ESFP", "ISFP", "INFP", "ENFJ"] },
+                    { text: "A wolf, to experience life as a part of a pack in the wilderness", types: ["ESTP", "ISTP", "ESTJ", "ISTJ", "ESFJ", "ISFJ"] }
+                ]
+            },
+            {
+                question: "How do you handle failure?",
+                answers: [
+                    { text: "Reflect on what went wrong and try to learn from it", types: ["INTJ", "INFJ", "INTP", "ISTJ", "ISTP"] },
+                    { text: "Move on quickly and focus on the next opportunity", types: ["ESTP", "ESFP", "ENTP", "ENFP", "ENTJ"] },
+                    { text: "Seek feedback from others to improve for the future", types: ["ENFJ", "ESFJ", "ISFJ", "ESTJ", "ISFP", "INFP"] }
+                ]
+            },
+            {
+                question: "If you had to choose between fame and anonymity, you would prefer:",
+                answers: [
+                    { text: "Fame, to have a platform to influence and inspire others", types: ["ENFJ", "ENFP", "ENTJ", "ESFP", "ESTP", "ENTP"] },
+                    { text: "Anonymity, to live a peaceful life without public scrutiny", types: ["ISFP", "INFP", "ISFJ", "ISTJ", "ISTP", "INTP"] },
+                    { text: "Selective recognition, known only within a specific community or field", types: ["INTJ", "ESTJ", "ESFJ", "INFJ"] }
+                ]
+            },
+            {
+                question: "Which type of vacation appeals to you more?",
+                answers: [
+                    { text: "A backpacking adventure through a foreign country", types: ["ESTP", "ISTP", "ENFP", "ENTP", "ESFP"] },
+                    { text: "A relaxing stay at a luxury resort", types: ["ESFJ", "ISFJ", "ESTJ", "ISFP", "ISTJ"] },
+                    { text: "A cultural tour visiting historic sites and landmarks", types: ["INFJ", "INTJ", "ENTJ", "ENFJ", "INFP", "INTP"] }
+                ]
+            },
+            {
+                question: "In a heated debate, you are more likely to:",
+                answers: [
+                    { text: "Stand your ground and argue passionately for your viewpoint", types: ["ENTJ", "ESTJ", "ENTP", "ESTP", "ENFJ"] },
+                    { text: "Seek common ground and try to mediate between differing opinions", types: ["ESFJ", "INFJ", "ISFJ", "ENFP", "INFP"] },
+                    { text: "Listen carefully and ask questions to understand the other side", types: ["INTP", "INTJ", "ISTP", "ISFP", "ISTJ", "ESFP"] }
+                ]
+            },
+            {
+                question: "If you could relive a period of history, which would you choose?",
+                answers: [
+                    { text: "The Renaissance, to witness the birth of art and science", types: ["INFP", "INTP", "ENTP", "ENFP", "INTJ"] },
+                    { text: "The 1960s, to experience cultural revolutions and social change", types: ["ENFJ", "ESFP", "ISFP", "ESTP", "ENTP"] },
+                    { text: "The Industrial Revolution, to see the rise of modern technology", types: ["ENTJ", "ISTP", "ESTJ", "ISTJ", "ISFJ", "ESFJ"] }
+                ]
+            },
+            {
+                question: "What type of stories do you prefer to watch or read?",
+                answers: [
+                    { text: "Complex narratives that challenge your thinking and emotions", types: ["INTJ", "INFJ", "INTP", "ENTP", "INFP"] },
+                    { text: "Light-hearted tales that provide comfort and amusement", types: ["ESFP", "ISFP", "ESFJ", "ISFJ", "ENFP"] },
+                    { text: "True stories based on real-life events and experiences", types: ["ISTJ", "ESTJ", "ESTP", "ISTP", "ENTJ", "ENFJ"] }
+                ]
+            },
+            {
+                question: "If you had to choose an unusual profession, it would be:",
+                answers: [
+                    { text: "A treasure hunter, seeking lost artifacts and exploring mysteries", types: ["ESTP", "ISTP", "ENTP", "ENFP", "ESFP"] },
+                    { text: "A food critic, traveling the world and tasting different cuisines", types: ["ISFP", "ESFJ", "ENFJ", "INFP", "ISFJ"] },
+                    { text: "A storm chaser or paranormal investigator, studying unusual phenomena", types: ["INTJ", "INTP", "ISTJ", "ESTJ", "INFJ", "ENTJ"] }
+                ]
+            },
+            {
+                question: "What drives you more in life?",
+                answers: [
+                    { text: "The pursuit of knowledge and understanding", types: ["INTP", "INTJ", "INFJ", "ENTP", "ISTJ"] },
+                    { text: "The desire for connection and relationships", types: ["ENFJ", "ESFJ", "ISFJ", "ENFP", "ESFP"] },
+                    { text: "The quest for adventure and new experiences", types: ["ESTP", "ISTP", "ISFP", "ENTJ", "ESTJ", "INFP"] }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let personalityScores = {
+            INFP: 0, ENFP: 0, ISFP: 0, ESFP: 0, ENFJ: 0, INTJ: 0, INTP: 0, ENTP: 0, ENTJ: 0,
+            ISTP: 0, ESTP: 0, INFJ: 0, ISFJ: 0, ESFJ: 0, ISTJ: 0, ESTJ: 0
+        };
+
+        document.getElementById('start-quiz').addEventListener('click', startQuiz);
+        document.getElementById('restart-quiz').addEventListener('click', restartQuiz);
+
+        function startQuiz() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('question-page').style.display = 'block';
+            showQuestion(currentQuestion);
+        }
+
+        function showQuestion(index) {
+            const question = questions[index];
+            document.getElementById('question-text').textContent = question.question;
+            const answerButtons = document.getElementById('answer-buttons');
+            answerButtons.innerHTML = '';
+            question.answers.forEach(answer => {
+                const button = document.createElement('button');
+                button.textContent = answer.text;
+                button.addEventListener('click', () => selectAnswer(answer));
+                answerButtons.appendChild(button);
+            });
+        }
+
+        function selectAnswer(answer) {
+            answer.types.forEach(type => personalityScores[type]++);
+            document.querySelectorAll('#answer-buttons button').forEach(button => {
+                button.disabled = true;
+            });
+
+            setTimeout(() => {
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    showQuestion(currentQuestion);
+                } else {
+                    showResults();
+                }
+            }, 1000); // Delay for 1 second before moving to the next question
+        }
+
+        function showResults() {
+            document.getElementById('question-page').style.display = 'none';
+            document.getElementById('results-page').style.display = 'block';
+            const dominantType = Object.keys(personalityScores).reduce((a, b) => personalityScores[a] > personalityScores[b] ? a : b);
+            document.getElementById('result-image').src = `images/${dominantType}.jpg`;
+            document.getElementById('result-description').textContent = `You are most like the ${dominantType} particle!`;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            personalityScores = Object.fromEntries(Object.keys(personalityScores).map(key => [key, 0]));
+            document.getElementById('results-page').style.display = 'none';
+            document.getElementById('home-page').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
