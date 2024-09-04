@@ -11,10 +11,11 @@
 <body>
     <div id="quiz-container">
         <div id="home-page">
-            <h1>Particle Persona Quiz: Discover Your Subatomic Self</h1>
-            <p>Embark on a quantum journey to uncover your subatomic alter ego! This quirky quiz will reveal which
-                particle best matches your personality. Are you as elusive as a neutrino or as influential as a Higgs
-                boson? Let's find out!</p>
+            <h1>Particle Persona Quiz:<br>Discover Your Subatomic Self</h1>
+            <p> Ever wondered if you're more of a quirky quark or a noble neutrino? Are you as elusive as a neutrino or
+                as influential as a Higgs boson? Take this quiz to uncover your subatomic alter ego. <br><br>
+                <strong>Warning:</strong><em> results may be subject to quantum uncertainty!</em>
+            </p>
             <button id="start-quiz">Let's Begin!</button>
         </div>
 
@@ -36,9 +37,9 @@
             {
                 question: "If you could live in a fictional universe, which would you choose?",
                 answers: [
-                    { text: "A world where magic is real, and you are a skilled sorcerer", types: ["INFP", "ENFP", "ISFP", "ESFP", "ENFJ"] },
-                    { text: "A futuristic society with advanced technology and space travel", types: ["INTJ", "INTP", "ENTP", "ENTJ", "ISTP", "ESTP"] },
-                    { text: "A peaceful utopia where everyone lives in harmony with nature", types: ["INFJ", "ISFJ", "ESFJ", "ISTJ", "ESTJ"] }
+                    { text: "A world where magic is real, and you are a skilled sorcerer", types: ["INFP", "ENFP", "INFJ", "ENTP", "ISFP"] },
+                    { text: "A futuristic society with advanced technology and space travel", types: ["INTJ", "INTP", "ENTJ", "ISTP", "ESTJ", "ESTP"] },
+                    { text: "A peaceful utopia where everyone lives in harmony with nature", types: ["ISFJ", "ESFJ", "ISTJ", "ENFJ", "ESFP"] }
                 ]
             },
             {
@@ -52,25 +53,25 @@
             {
                 question: "If you could have dinner with any historical figure, who would it be?",
                 answers: [
-                    { text: "Albert Einstein, to discuss the mysteries of the universe", types: ["INTP", "INTJ", "ENTP", "INFJ", "ISTP"] },
-                    { text: "Leonardo da Vinci, to explore his diverse genius", types: ["ENFP", "INFP", "ISFP", "ENFJ", "ESFP"] },
-                    { text: "Mahatma Gandhi, to learn about his philosophy of nonviolence and peace", types: ["ISFJ", "ESFJ", "ISTJ", "ESTJ", "ESTP", "ENTJ"] }
+                    { text: "Albert Einstein, to discuss the mysteries of the universe", types: ["INTP", "INTJ", "ENTP", "ISTP", "ENTJ"] },
+                    { text: "Leonardo da Vinci, to explore his diverse genius", types: ["ENFP", "INFP", "ISFP", "ENFJ", "INFJ"] },
+                    { text: "Mahatma Gandhi, to learn about his philosophy of nonviolence and peace", types: ["ISFJ", "ESFJ", "ISTJ", "ESTJ", "ESTP", "ESFP"] }
                 ]
             },
             {
                 question: "Which best describes your ideal work environment?",
                 answers: [
-                    { text: "A high-energy startup with constant change and innovation", types: ["ENTP", "ENFP", "ESTP", "ENTJ", "ESFP"] },
-                    { text: "A stable, established company with clear routines and policies", types: ["ISTJ", "ESTJ", "ISFJ", "ESFJ", "ISFP"] },
-                    { text: "A creative studio with flexible hours and a focus on artistic projects", types: ["INFP", "INFJ", "ISTP", "INTP", "INTJ", "ENFJ"] }
+                    { text: "A high-energy startup with constant change and innovation", types: ["ENTP", "ENFP", "ESTP", "ENTJ", "INTJ"] },
+                    { text: "A stable, established company with clear routines and policies", types: ["ISTJ", "ESTJ", "ISFJ", "ESFJ", "ISTP"] },
+                    { text: "A creative studio with flexible hours and a focus on artistic projects", types: ["INFP", "INFJ", "ISFP", "INTP", "ENFJ", "ESFP"] }
                 ]
             },
             {
                 question: "If you were to write a book, it would be:",
                 answers: [
-                    { text: "A thrilling mystery novel with unexpected twists", types: ["ISTP", "INTJ", "ENTP", "ESTP", "ESFP"] },
+                    { text: "A thrilling mystery novel with unexpected twists", types: ["ISTP", "INTJ", "ENTP", "ESTP", "INFJ"] },
                     { text: "A self-help guide offering practical advice for personal growth", types: ["ENFJ", "ESFJ", "ESTJ", "ISFJ", "ISTJ"] },
-                    { text: "A science fiction or fantasy epic exploring new possibilities", types: ["ENFP", "ENTJ", "ISFP", "INFP", "INTP", "INFJ"] }
+                    { text: "A science fiction or fantasy epic exploring new possibilities", types: ["ENFP", "ENTJ", "ISFP", "INFP", "INTP", "ESFP"] }
                 ]
             },
             {
@@ -100,8 +101,8 @@
             {
                 question: "How do you prefer to approach your personal goals?",
                 answers: [
-                    { text: "Setting ambitious, long-term goals with detailed plans", types: ["INTJ", "ENTJ", "ESTJ", "ISTJ", "ISFJ"] },
-                    { text: "Focusing on small, immediate actions that add up over time", types: ["ESFJ", "ISTP", "ISFP", "ENFJ", "INFJ"] },
+                    { text: "Setting ambitious, long-term goals with detailed plans", types: ["INTJ", "ENTJ", "ESTJ", "ISTJ", "ENFJ"] },
+                    { text: "Focusing on small, immediate actions that add up over time", types: ["ESFJ", "ISTP", "ISFP", "ISFJ", "INFJ"] },
                     { text: "Staying flexible and adapting your goals as you go", types: ["ENTP", "ENFP", "INFP", "ESTP", "ESFP", "INTP"] }
                 ]
             },
@@ -124,9 +125,9 @@
             {
                 question: "Which artistic endeavor appeals to you more?",
                 answers: [
-                    { text: "Painting or sculpting, to express visual creativity", types: ["ISFP", "INFP", "ESFP", "ENFP", "ISTP"] },
-                    { text: "Writing, to explore complex ideas and emotions", types: ["INFJ", "INTJ", "INTP", "ENFJ", "ISTJ"] },
-                    { text: "Acting, to embody different characters and tell stories through performance", types: ["ENTP", "ESTP", "ESFJ", "ISFJ", "ENTJ", "ESTJ"] }
+                    { text: "Painting or sculpting, to express visual creativity", types: ["ISFP", "INFP", "ESFP", "ENFP", "INFJ"] },
+                    { text: "Writing, to explore complex ideas and emotions", types: ["INTJ", "INTP", "ENTP", "ENFJ", "ISTJ"] },
+                    { text: "Acting, to embody different characters and tell stories through performance", types: ["ESTP", "ESFJ", "ISFJ", "ENTJ", "ESTJ", "ISTP"] }
                 ]
             },
             {
@@ -205,7 +206,7 @@
                 question: "If you could relive a period of history, which would you choose?",
                 answers: [
                     { text: "The Renaissance, to witness the birth of art and science", types: ["INFP", "INTP", "ENTP", "ENFP", "INTJ"] },
-                    { text: "The 1960s, to experience cultural revolutions and social change", types: ["ENFJ", "ESFP", "ISFP", "ESTP", "ENTP"] },
+                    { text: "The 1960s, to experience cultural revolutions and social change", types: ["ENFJ", "ESFP", "ISFP", "ESTP", "INFJ"] },
                     { text: "The Industrial Revolution, to see the rise of modern technology", types: ["ENTJ", "ISTP", "ESTJ", "ISTJ", "ISFJ", "ESFJ"] }
                 ]
             },
@@ -239,6 +240,25 @@
         let personalityScores = {
             INFP: 0, ENFP: 0, ISFP: 0, ESFP: 0, ENFJ: 0, INTJ: 0, INTP: 0, ENTP: 0, ENTJ: 0,
             ISTP: 0, ESTP: 0, INFJ: 0, ISFJ: 0, ESFJ: 0, ISTJ: 0, ESTJ: 0
+        };
+
+        const particlePersonas = {
+            ISTJ: "Higgs boson",
+            ISTP: "Down antiquark",
+            ISFJ: "Electron antineutrino",
+            ISFP: "Muon antineutrino",
+            INFJ: "Axion",
+            INFP: "Tau antineutrino",
+            INTJ: "Top antiquark",
+            INTP: "Strange antiquark",
+            ESTP: "Up antiquark",
+            ESTJ: "Positron",
+            ESFP: "Charm antiquark",
+            ESFJ: "Antimuon",
+            ENFP: "Bottom antiquark",
+            ENFJ: "Antitau",
+            ENTP: "Dark matter",
+            ENTJ: "Weakly interacting massive Particles (WIMPs)"
         };
 
         document.getElementById('start-quiz').addEventListener('click', startQuiz);
@@ -276,15 +296,16 @@
                 } else {
                     showResults();
                 }
-            }, 1000); // Delay for 1 second before moving to the next question
+            }, 100); // Delay for 0.1 seconds before moving to the next question
         }
 
         function showResults() {
             document.getElementById('question-page').style.display = 'none';
             document.getElementById('results-page').style.display = 'block';
             const dominantType = Object.keys(personalityScores).reduce((a, b) => personalityScores[a] > personalityScores[b] ? a : b);
-            document.getElementById('result-image').src = `images/${dominantType}.jpg`;
-            document.getElementById('result-description').textContent = `You are most like the ${dominantType} particle!`;
+            const particleName = particlePersonas[dominantType];
+            document.getElementById('result-image').src = `images/${particleName.replace(/\s+/g, '_').toLowerCase()}.jpg`;
+            document.getElementById('result-description').textContent = `Your Particle Persona is: ${particleName}!`;
         }
 
         function restartQuiz() {
