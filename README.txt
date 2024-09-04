@@ -1,3 +1,1 @@
-Format
-
-25 Questions
+Particle Persona Quiz: Discover Your Subatomic Self!
