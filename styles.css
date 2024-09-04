@@ -9,7 +9,7 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #94ff92 0%, #4fc3f7 100%);
+    background: #d6d6d6;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,7 +48,7 @@ body {
 }
 
 #quiz-container::after {
-    background-color: #94ff92;
+    background-color: #0032c8;
     bottom: -10px;
     right: -10px;
 }
