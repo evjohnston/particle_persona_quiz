@@ -304,9 +304,8 @@
             document.getElementById('results-page').style.display = 'block';
             const dominantType = Object.keys(personalityScores).reduce((a, b) => personalityScores[a] > personalityScores[b] ? a : b);
             const particleName = particlePersonas[dominantType];
-            document.getElementById('result-image').src = `images/${particleName.replace(/\s+/g, '_').toLowerCase()}.jpg`;
-            document.getElementById('result-description').textContent = `Your Particle Persona is...${particleName}!`;
-            ;
+            document.getElementById('result-image').src = `images/${dominantType}.png`;
+            document.getElementById('result-description').textContent = `Your Particle Persona is... ${particleName}!`;
         }
 
         function restartQuiz() {
