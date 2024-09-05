@@ -165,18 +165,19 @@ button:hover {
     width: 100%;
     height: 80px;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Hide the overflow content */
     margin: 20px 0;
 }
 
 .carousel-inner {
     display: flex;
     position: absolute;
-    width: 200%; /* Double the width to allow for looping */
+    left: 0;
+    transition: transform 1s linear; /* Smooth transition */
 }
 
 .particle-icon {
-    width: 80px;
+    width: 80px; /* Width of each icon */
     height: 80px;
     flex-shrink: 0;
 }

@@ -67,6 +67,31 @@
 
     <script src="questions.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("DOM fully loaded and parsed");
+
+            const carouselInner = document.querySelector('.carousel-inner');
+            const icons = carouselInner.querySelectorAll('.particle-icon');
+            const iconWidth = 80; // Width of each icon
+            const totalIcons = icons.length;
+            const totalWidth = iconWidth * totalIcons;
+            carouselInner.style.width = `${totalWidth}px`;
+
+            let position = 0;
+
+            function move() {
+                position -= .5; // Adjust speed here
+                if (position <= -totalWidth) {
+                    position = 0; // Reset position for smooth loop
+                }
+                carouselInner.style.transform = `translateX(${position}px)`;
+                requestAnimationFrame(move);
+            }
+
+            move(); // Start the animation
+        });
+    </script>
+    <script>
         const particlePersonas = {
             "P01": { name: "Anti-down Quark", mbti: "ISTJ" },
             "P10": { name: "Anti-up Quark", mbti: "ESTJ" },
@@ -105,42 +130,6 @@
         document.getElementById('return-to-results').addEventListener('click', showResultsPage);
         document.getElementById('save-to-file').addEventListener('click', saveToFile);
         document.getElementById('share-results').addEventListener('click', shareResults);
-
-        function initializeCarousel() {
-            const carousel = document.getElementById('particle-carousel');
-            const icons = carousel.querySelectorAll('.particle-icon');
-            const carouselWidth = carousel.offsetWidth;
-            const iconWidth = 80;
-            const visibleWidth = carouselWidth - 120;
-            const spacing = (visibleWidth - (4 * iconWidth)) / 3;
-
-            icons.forEach((icon, index) => {
-                const initialLeft = -iconWidth + (index * (iconWidth + spacing));
-                icon.style.left = `${initialLeft}px`;
-            });
-        }
-
-        function animateCarousel() {
-            const carousel = document.querySelector('.carousel-inner');
-            const iconWidth = 80;
-            const totalIcons = 16;
-            let position = 0;
-
-            function step() {
-                position -= .33;
-                if (position <= -iconWidth * totalIcons) {
-                    position += iconWidth * totalIcons;
-                    carousel.style.transition = 'none';
-                    carousel.style.transform = `translateX(${position}px)`;
-                    carousel.offsetHeight;
-                    carousel.style.transition = 'transform 0.05s linear';
-                }
-                carousel.style.transform = `translateX(${position}px)`;
-                requestAnimationFrame(step);
-            }
-
-            requestAnimationFrame(step);
-        }
 
         function startQuiz() {
             document.getElementById('home-page').style.display = 'none';
@@ -210,10 +199,10 @@
         function showResults() {
             document.getElementById('question-page').style.display = 'none';
             document.getElementById('results-page').style.display = 'block';
-            
+
             const mbtiType = determineMBTIType();
             const [particleKey, particleInfo] = getParticlePersonaByMBTI(mbtiType);
-            
+
             document.getElementById('result-image').src = `profiles/${particleKey}.png`;
             document.getElementById('result-description').textContent = `Your Particle Persona is... ${particleInfo.name}!`;
         }
@@ -272,40 +261,6 @@
             a.click();
             document.body.removeChild(a);
         }
-
-        async function shareResults() {
-            const resultImage = document.getElementById('result-image');
-            const persona = document.querySelector('#result-description').innerText;
-            const shareText = `${persona}\nCheck it out at: ${window.location.href}`;
-
-            try {
-                if (navigator.share) {
-                    await navigator.share({
-                        title: 'My Particle Persona Quiz Results',
-                        text: shareText,
-                        url: window.location.href
-                    });
-                    console.log('Thanks for sharing!');
-                } else {
-                    throw new Error('Web Share API not supported');
-                }
-            } catch (error) {
-                console.error('Error sharing:', error);
-                
-                try {
-                    await navigator.clipboard.writeText(shareText);
-                    alert('Share text copied to clipboard! You can now paste it wherever you want to share.');
-                } catch (clipboardError) {
-                    console.error('Clipboard write failed:', clipboardError);
-                    alert('Unable to share. Please manually copy this text:\n\n' + shareText);
-                }
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            initializeCarousel();
-            setTimeout(animateCarousel, 100);
-        });
     </script>
 </body>
 
