@@ -75,26 +75,35 @@
             document.body.removeChild(a);
         });
 
-        // Function to share results (uses Web Share API if supported)
-        document.getElementById('share-results').addEventListener('click', function () {
+        // Function to share results with clipboard fallback
+        document.getElementById('share-results').addEventListener('click', async function () {
+            const resultImage = document.getElementById('result-image');
             const persona = document.querySelector('#results-page h2').innerText;
             const description = document.getElementById('result-description').innerText;
-            const shareData = {
-                title: 'My Particle Persona Quiz Results',
-                text: `I discovered my Particle Persona! It's: ${persona} - ${description}`,
-                url: window.location.href
-            };
+            const shareText = `I discovered my Particle Persona! It's: ${persona} - ${description}\nCheck it out at: ${window.location.href}`;
 
-            if (navigator.share) {
-                navigator.share(shareData)
-                    .then(() => console.log('Thanks for sharing!'))
-                    .catch((error) => console.error('Error sharing:', error));
-            } else if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-                // Fallback for iOS devices that don't support navigator.share
-                const shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareData.text + ' ' + shareData.url)}`;
-                window.open(shareUrl, '_blank');
-            } else {
-                alert('Your browser does not support the Web Share API. Please copy the link to share your results.');
+            try {
+                if (navigator.share) {
+                    await navigator.share({
+                        title: 'My Particle Persona Quiz Results',
+                        text: shareText,
+                        url: window.location.href
+                    });
+                    console.log('Thanks for sharing!');
+                } else {
+                    throw new Error('Web Share API not supported');
+                }
+            } catch (error) {
+                console.error('Error sharing:', error);
+
+                // Fallback: Copy to clipboard
+                try {
+                    await navigator.clipboard.writeText(shareText);
+                    alert('Share text copied to clipboard! You can now paste it wherever you want to share.');
+                } catch (clipboardError) {
+                    console.error('Clipboard write failed:', clipboardError);
+                    alert('Unable to share. Please manually copy this text:\n\n' + shareText);
+                }
             }
         });
 
