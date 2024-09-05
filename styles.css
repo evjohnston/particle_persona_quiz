@@ -23,7 +23,7 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
     text-align: center;
     position: relative;
@@ -81,7 +81,7 @@ button:hover {
 
 #answer-buttons button {
     width: 100%;
-    max-width: 300px;
+    max-width: 500px;
     margin: 10px 0;
     background-color: #fff;
     color: #333;
