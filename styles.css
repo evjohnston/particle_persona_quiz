@@ -330,7 +330,7 @@ button:hover {
         font-size: 20px;
     }
 
-    button, #start-quiz, #restart-quiz, #save-to-file, #learn-more-start, #learn-more-results, #return-to-start, #return-to-results {
+    #start-quiz, #restart-quiz, #save-to-file, #learn-more-start, #learn-more-results, #return-to-start, #return-to-results {
         font-size: 16px;
         padding: 0px 20px;
         height: 40px;
