@@ -72,6 +72,29 @@ button:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
+/* Uniform button styles for additional buttons */
+#save-to-file, #share-results {
+    background-color: #4fc3f7; /* Matches existing button color */
+    border: none;
+    color: white;
+    padding: 12px 24px; /* Consistent padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px; /* Same font size */
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 25px; /* Rounded corners */
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2); /* Similar shadow effect */
+}
+
+#save-to-file:hover, #share-results:hover {
+    background-color: #03a9f4; /* Hover effect color */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
 /* Answer buttons */
 #answer-buttons {
     display: flex;

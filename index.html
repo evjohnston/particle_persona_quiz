@@ -52,11 +52,48 @@
             <img id="result-image" src="" alt="Your Particle Persona">
             <p id="result-description"></p>
             <button id="restart-quiz">Take the Quiz Again</button>
+            <button id="save-to-file">Save to File</button>
+            <button id="share-results">Share</button>
         </div>
     </div>
 
     <script src="questions.js"></script>
     <script>
+        // Function to save results to a file
+        document.getElementById('save-to-file').addEventListener('click', function () {
+            const resultImage = document.getElementById('result-image');
+            const imageUrl = resultImage.src;
+
+            // Create a hidden anchor element to trigger the download
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = imageUrl;
+            a.download = 'Particle_Persona_Image.png';
+
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
+
+        // Function to share results (uses Web Share API if supported)
+        document.getElementById('share-results').addEventListener('click', function () {
+            const persona = document.querySelector('#results-page h2').innerText;
+            const description = document.getElementById('result-description').innerText;
+            const shareData = {
+                title: 'My Particle Persona Quiz Results',
+                text: `I discovered my Particle Persona! It's: ${persona} - ${description}`,
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData).then(() => {
+                    console.log('Thanks for sharing!');
+                }).catch(console.error);
+            } else {
+                alert('Your browser does not support the Web Share API. Please copy the link to share your results.');
+            }
+        });
+
         const particlePersonas = {
             P01: "Anti-Down Quark",
             P02: "Neutralino",
