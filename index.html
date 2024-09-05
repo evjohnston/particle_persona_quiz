@@ -44,13 +44,14 @@
             <div id="progress-container">
                 <div id="progress-bar"></div>
             </div>
-            <div id="progress-text">Question 1 of 25</div>
+            <div id="progress-text">Question 1 of 50</div>
         </div>
 
         <div id="results-page" style="display: none;">
             <h2>Your Particle Persona Is:</h2>
             <img id="result-image" src="" alt="Your Particle Persona">
             <p id="result-description"></p>
+           <!--<p id="mbti-type"></p>-->> 
             <button id="restart-quiz">Try Again</button>
             <button id="save-to-file">Save Results</button>
             <button id="share-results">Share</button>
@@ -59,71 +60,23 @@
 
     <script src="questions.js"></script>
     <script>
-        // Function to save results to a file
-        document.getElementById('save-to-file').addEventListener('click', function () {
-            const resultImage = document.getElementById('result-image');
-            const imageUrl = resultImage.src;
-
-            // Create a hidden anchor element to trigger the download
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = imageUrl;
-            a.download = 'Particle_Persona_Image.png';
-
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        });
-
-        // Function to share results with clipboard fallback
-        document.getElementById('share-results').addEventListener('click', async function () {
-            const resultImage = document.getElementById('result-image');
-            const persona = document.querySelector('#results-page h2').innerText;
-            const description = document.getElementById('result-description').innerText;
-            const shareText = `I discovered my Particle Persona! It's: ${persona} - ${description}\nCheck it out at: ${window.location.href}`;
-
-            try {
-                if (navigator.share) {
-                    await navigator.share({
-                        title: 'My Particle Persona Quiz Results',
-                        text: shareText,
-                        url: window.location.href
-                    });
-                    console.log('Thanks for sharing!');
-                } else {
-                    throw new Error('Web Share API not supported');
-                }
-            } catch (error) {
-                console.error('Error sharing:', error);
-
-                // Fallback: Copy to clipboard
-                try {
-                    await navigator.clipboard.writeText(shareText);
-                    alert('Share text copied to clipboard! You can now paste it wherever you want to share.');
-                } catch (clipboardError) {
-                    console.error('Clipboard write failed:', clipboardError);
-                    alert('Unable to share. Please manually copy this text:\n\n' + shareText);
-                }
-            }
-        });
-
         const particlePersonas = {
-            P01: "Anti-Down Quark",
-            P02: "Neutralino",
-            P03: "Down Quark",
-            P04: "Electron",
-            P05: "Higgs Boson",
-            P06: "WIMP (Weakly Interacting Massive Particle)",
-            P07: "Gravitino",
-            P08: "Axion",
-            P09: "Antimuon",
-            P10: "Anti-Up Quark",
-            P11: "Positron (antielectron)",
-            P12: "Up Quark",
-            P13: "Electron neutrino",
-            P14: "Electron antineutrino",
-            P15: "Sterile neutrino",
-            P16: "Muon"
+            "P01": { name: "Anti-down Quark", mbti: "ISTJ" },
+            "P10": { name: "Anti-up Quark", mbti: "ESTJ" },
+            "P09": { name: "Antimuon", mbti: "ESTP" },
+            "P08": { name: "Axion", mbti: "INTP" },
+            "P03": { name: "Down Quark", mbti: "ISFJ" },
+            "P04": { name: "Electron", mbti: "ISFP" },
+            "P14": { name: "Electron Antineutrino", mbti: "ENFJ" },
+            "P13": { name: "Electron Neutrino", mbti: "ENFP" },
+            "P07": { name: "Gravitino", mbti: "INTJ" },
+            "P05": { name: "Higgs Boson", mbti: "INFJ" },
+            "P16": { name: "Muon", mbti: "ENTJ" },
+            "P02": { name: "Neutralino", mbti: "ISTP" },
+            "P11": { name: "Positron", mbti: "ESFP" },
+            "P15": { name: "Sterile Neutrino", mbti: "ENTP" },
+            "P12": { name: "Up Quark", mbti: "ESFJ" },
+            "P06": { name: "WIMP", mbti: "INFP" }
         };
 
         const particleIcons = [
@@ -132,10 +85,9 @@
         ];
 
         let currentQuestion = 0;
-        const totalQuestions = 25;
-        let personalityScores = {
-            P1: 0, P2: 0, P3: 0, P4: 0, P5: 0, P6: 0, P7: 0, P8: 0,
-            P9: 0, P10: 0, P11: 0, P12: 0, P13: 0, P14: 0, P15: 0, P16: 0
+        const totalQuestions = 50;
+        let mbtiScores = {
+            E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0
         };
 
         document.getElementById('start-quiz').addEventListener('click', startQuiz);
@@ -201,7 +153,11 @@
         }
 
         function selectAnswer(answer) {
-            answer.types.forEach(type => personalityScores[type]++);
+            answer.types.forEach(type => {
+                if (type in mbtiScores) {
+                    mbtiScores[type]++;
+                }
+            });
             document.querySelectorAll('#answer-buttons button').forEach(button => {
                 button.disabled = true;
             });
@@ -226,22 +182,83 @@
             progressText.textContent = `Question ${currentQuestion + 1} of ${totalQuestions}`;
         }
 
+        function determineMBTIType() {
+            const type = [
+                mbtiScores.E > mbtiScores.I ? 'E' : 'I',
+                mbtiScores.S > mbtiScores.N ? 'S' : 'N',
+                mbtiScores.T > mbtiScores.F ? 'T' : 'F',
+                mbtiScores.J > mbtiScores.P ? 'J' : 'P'
+            ].join('');
+            return type;
+        }
+
+        function getParticlePersonaByMBTI(mbtiType) {
+            return Object.entries(particlePersonas).find(([_, value]) => value.mbti === mbtiType);
+        }
+
         function showResults() {
             document.getElementById('question-page').style.display = 'none';
             document.getElementById('results-page').style.display = 'block';
-            const dominantType = Object.keys(personalityScores).reduce((a, b) => personalityScores[a] > personalityScores[b] ? a : b);
-            const particleName = particlePersonas[dominantType];
-            document.getElementById('result-image').src = `profiles/${dominantType}.png`;
-            document.getElementById('result-description').textContent = `Your Particle Persona is... ${particleName}!`;
+            
+            const mbtiType = determineMBTIType();
+            const [particleKey, particleInfo] = getParticlePersonaByMBTI(mbtiType);
+            
+            document.getElementById('result-image').src = `profiles/${particleKey}.png`;
+            document.getElementById('result-description').textContent = `Your Particle Persona is... ${particleInfo.name}!`;
+            document.getElementById('mbti-type').textContent = `Your MBTI type is ${mbtiType}`;
         }
 
         function restartQuiz() {
             currentQuestion = 0;
-            personalityScores = Object.fromEntries(Object.keys(personalityScores).map(key => [key, 0]));
+            mbtiScores = Object.fromEntries(Object.keys(mbtiScores).map(key => [key, 0]));
             document.getElementById('results-page').style.display = 'none';
             document.getElementById('home-page').style.display = 'block';
             updateProgressBar();
         }
+
+        document.getElementById('save-to-file').addEventListener('click', function () {
+            const resultImage = document.getElementById('result-image');
+            const imageUrl = resultImage.src;
+
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = imageUrl;
+            a.download = 'Particle_Persona_Image.png';
+
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
+
+        document.getElementById('share-results').addEventListener('click', async function () {
+            const resultImage = document.getElementById('result-image');
+            const persona = document.querySelector('#result-description').innerText;
+            const mbtiType = document.getElementById('mbti-type').innerText;
+            const shareText = `${persona}\n${mbtiType}\nCheck it out at: ${window.location.href}`;
+
+            try {
+                if (navigator.share) {
+                    await navigator.share({
+                        title: 'My Particle Persona Quiz Results',
+                        text: shareText,
+                        url: window.location.href
+                    });
+                    console.log('Thanks for sharing!');
+                } else {
+                    throw new Error('Web Share API not supported');
+                }
+            } catch (error) {
+                console.error('Error sharing:', error);
+                
+                try {
+                    await navigator.clipboard.writeText(shareText);
+                    alert('Share text copied to clipboard! You can now paste it wherever you want to share.');
+                } catch (clipboardError) {
+                    console.error('Clipboard write failed:', clipboardError);
+                    alert('Unable to share. Please manually copy this text:\n\n' + shareText);
+                }
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
             initializeCarousel();
