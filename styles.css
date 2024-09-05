@@ -30,28 +30,6 @@ body {
     overflow: hidden;
 }
 
-/* Particle decoration */
-#quiz-container::before, #quiz-container::after {
-    content: "";
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    opacity: 0.6;
-}
-
-#quiz-container::before {
-    background-color: #4fc3f7;
-    top: -10px;
-    left: -10px;
-}
-
-#quiz-container::after {
-    background-color: #0032c8;
-    bottom: -10px;
-    right: -10px;
-}
-
 /* Typography */
 h1 {
     font-size: 28px;
