@@ -64,8 +64,6 @@ button {
     border-radius: 25px;
     transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    height: 50px; /* Set a fixed height for all buttons */
-    line-height: 26px; /* Align text vertically within buttons */
 }
 
 button:hover {
@@ -74,9 +72,14 @@ button:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
+#start-quiz, #restart-quiz {
+    height: 40px;
+}
+
 /* Uniform button styles for additional buttons */
 #save-to-file, #share-results, #learn-more-start, #learn-more-results, #return-to-start, #return-to-results {
     background-color: #4fc3f7;
+    height: 40px;
     border: none;
     color: white;
     padding: 12px 24px;
@@ -89,8 +92,6 @@ button:hover {
     border-radius: 25px;
     transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    height: 50px; /* Ensure the same height */
-    line-height: 26px; /* Align text vertically within buttons */
 }
 
 #return-to-start, #return-to-results {
@@ -117,8 +118,6 @@ button:hover {
     background-color: #fff;
     color: #333;
     border: 2px solid #4fc3f7;
-    height: 50px; /* Ensure the same height */
-    line-height: 26px; /* Align text vertically within buttons */
 }
 
 #answer-buttons button:hover {
@@ -299,7 +298,5 @@ button:hover {
     button {
         font-size: 16px;
         padding: 10px 20px;
-        height: 50px; /* Ensure the same height for buttons in responsive design */
-        line-height: 26px; /* Align text vertically within buttons in responsive design */
     }
 }
