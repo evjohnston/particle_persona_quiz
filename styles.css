@@ -330,5 +330,6 @@ button:hover {
     button, #start-quiz, #restart-quiz, #save-to-file, #learn-more-start, #learn-more-results, #return-to-start, #return-to-results {
         font-size: 16px;
         padding: 10px 20px;
+        height: 40px;
     }
 }
