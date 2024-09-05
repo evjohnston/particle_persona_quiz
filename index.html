@@ -35,7 +35,8 @@
                 </div>
             </div>
             <p><strong>Warning:</strong> <em>results may be subject to quantum uncertainty!</em></p>
-            <button id="start-quiz">Let's Begin!</button>
+            <button id="start-quiz">Start the Quiz</button>
+            <button id="learn-more-start">Meet the Gang</button>
         </div>
 
         <div id="question-page" style="display: none;">
@@ -51,10 +52,16 @@
             <h2>Your Particle Persona Is:</h2>
             <img id="result-image" src="" alt="Your Particle Persona">
             <p id="result-description"></p>
-           <!--<p id="mbti-type"></p>-->> 
             <button id="restart-quiz">Try Again</button>
             <button id="save-to-file">Save Results</button>
-            <button id="share-results">Share</button>
+            <button id="learn-more-results">Meet the Gang</button>
+        </div>
+
+        <div id="profiles-page" style="display: none;">
+            <h2>All Particle Personas</h2>
+            <div id="profiles-container"></div>
+            <button id="return-to-start" style="display: none;">Return to Start</button>
+            <button id="return-to-results" style="display: none;">Return to Results</button>
         </div>
     </div>
 
@@ -92,6 +99,12 @@
 
         document.getElementById('start-quiz').addEventListener('click', startQuiz);
         document.getElementById('restart-quiz').addEventListener('click', restartQuiz);
+        document.getElementById('learn-more-start').addEventListener('click', () => showProfilesPage('start'));
+        document.getElementById('learn-more-results').addEventListener('click', () => showProfilesPage('results'));
+        document.getElementById('return-to-start').addEventListener('click', returnToStart);
+        document.getElementById('return-to-results').addEventListener('click', showResultsPage);
+        document.getElementById('save-to-file').addEventListener('click', saveToFile);
+        document.getElementById('share-results').addEventListener('click', shareResults);
 
         function initializeCarousel() {
             const carousel = document.getElementById('particle-carousel');
@@ -109,17 +122,17 @@
 
         function animateCarousel() {
             const carousel = document.querySelector('.carousel-inner');
-            const iconWidth = 80; // Width of each icon
-            const totalIcons = 16; // Number of unique icons
+            const iconWidth = 80;
+            const totalIcons = 16;
             let position = 0;
 
             function step() {
-                position -= .33; // Move 1 pixel to the left each frame
+                position -= .33;
                 if (position <= -iconWidth * totalIcons) {
-                    position += iconWidth * totalIcons; // Reset position seamlessly
+                    position += iconWidth * totalIcons;
                     carousel.style.transition = 'none';
                     carousel.style.transform = `translateX(${position}px)`;
-                    carousel.offsetHeight; // Trigger reflow
+                    carousel.offsetHeight;
                     carousel.style.transition = 'transform 0.05s linear';
                 }
                 carousel.style.transform = `translateX(${position}px)`;
@@ -128,8 +141,6 @@
 
             requestAnimationFrame(step);
         }
-
-        document.addEventListener('DOMContentLoaded', animateCarousel);
 
         function startQuiz() {
             document.getElementById('home-page').style.display = 'none';
@@ -205,7 +216,6 @@
             
             document.getElementById('result-image').src = `profiles/${particleKey}.png`;
             document.getElementById('result-description').textContent = `Your Particle Persona is... ${particleInfo.name}!`;
-            document.getElementById('mbti-type').textContent = `Your MBTI type is ${mbtiType}`;
         }
 
         function restartQuiz() {
@@ -216,7 +226,41 @@
             updateProgressBar();
         }
 
-        document.getElementById('save-to-file').addEventListener('click', function () {
+        function showProfilesPage(source) {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('results-page').style.display = 'none';
+            document.getElementById('profiles-page').style.display = 'block';
+            document.getElementById('return-to-start').style.display = source === 'start' ? 'inline-block' : 'none';
+            document.getElementById('return-to-results').style.display = source === 'results' ? 'inline-block' : 'none';
+            populateProfiles();
+        }
+
+        function returnToStart() {
+            document.getElementById('profiles-page').style.display = 'none';
+            document.getElementById('home-page').style.display = 'block';
+        }
+
+        function showResultsPage() {
+            document.getElementById('profiles-page').style.display = 'none';
+            document.getElementById('results-page').style.display = 'block';
+        }
+
+        function populateProfiles() {
+            const container = document.getElementById('profiles-container');
+            container.innerHTML = '';
+            Object.entries(particlePersonas).forEach(([key, value]) => {
+                const profile = document.createElement('div');
+                profile.className = 'profile';
+                profile.innerHTML = `
+                    <img src="profiles/${key}.png" alt="${value.name}">
+                    <h3>${value.name}</h3>
+                    <p>MBTI: ${value.mbti}</p>
+                `;
+                container.appendChild(profile);
+            });
+        }
+
+        function saveToFile() {
             const resultImage = document.getElementById('result-image');
             const imageUrl = resultImage.src;
 
@@ -228,13 +272,12 @@
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-        });
+        }
 
-        document.getElementById('share-results').addEventListener('click', async function () {
+        async function shareResults() {
             const resultImage = document.getElementById('result-image');
             const persona = document.querySelector('#result-description').innerText;
-            const mbtiType = document.getElementById('mbti-type').innerText;
-            const shareText = `${persona}\n${mbtiType}\nCheck it out at: ${window.location.href}`;
+            const shareText = `${persona}\nCheck it out at: ${window.location.href}`;
 
             try {
                 if (navigator.share) {
@@ -258,7 +301,7 @@
                     alert('Unable to share. Please manually copy this text:\n\n' + shareText);
                 }
             }
-        });
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
             initializeCarousel();
