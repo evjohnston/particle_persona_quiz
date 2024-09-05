@@ -6,6 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Particle Persona Quiz: Discover Your Subatomic Self</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #particle-carousel {
+            width: 100%;
+            height: 120px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+            padding: 0 60px;
+        }
+
+        .particle-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 80px;
+            transition: left 20s linear;
+        }
+
+        #particle-carousel::before,
+        #particle-carousel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 60px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        #particle-carousel::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+        }
+
+        #particle-carousel::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+        }
+    </style>
 </head>
 
 <body>
@@ -13,15 +52,21 @@
         <div id="home-page">
             <h1>Particle Persona Quiz:<br>Discover Your Subatomic Self</h1>
             <p>Ever wondered if you're more of a quirky quark or a noble neutrino? Are you as elusive as a neutrino or
-                as influential as a Higgs boson? Take this quiz to uncover your subatomic alter ego. <br><br>
-                <strong>Warning:</strong><em> results may be subject to quantum uncertainty!</em>
-            </p>
+                as influential as a Higgs boson? Take this quiz to uncover your subatomic alter ego.</p>
+            <div id="particle-carousel">
+                <!-- We'll populate this dynamically with JavaScript -->
+            </div>
+            <p><strong>Warning:</strong> <em>results may be subject to quantum uncertainty!</em></p>
             <button id="start-quiz">Let's Begin!</button>
         </div>
 
         <div id="question-page" style="display: none;">
             <h2 id="question-text"></h2>
             <div id="answer-buttons"></div>
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="progress-text">Question 1 of 25</div>
         </div>
 
         <div id="results-page" style="display: none;">
@@ -53,19 +98,75 @@
             P16: "Muon"
         };
 
+        const particleIcons = [
+            'P01.png', 'P02.png', 'P03.png', 'P04.png', 'P05.png', 'P06.png', 'P07.png', 'P08.png',
+            'P09.png', 'P10.png', 'P11.png', 'P12.png', 'P13.png', 'P14.png', 'P15.png', 'P16.png'
+        ];
+
         let currentQuestion = 0;
+        const totalQuestions = 25;
         let personalityScores = {
-            P6: 0, P13: 0, P4: 0, P11: 0, P14: 0, P7: 0, P8: 0, P15: 0, P16: 0,
-            P2: 0, P9: 0, P5: 0, P3: 0, P12: 0, P1: 0, P10: 0
+            P1: 0, P2: 0, P3: 0, P4: 0, P5: 0, P6: 0, P7: 0, P8: 0,
+            P9: 0, P10: 0, P11: 0, P12: 0, P13: 0, P14: 0, P15: 0, P16: 0
         };
 
         document.getElementById('start-quiz').addEventListener('click', startQuiz);
         document.getElementById('restart-quiz').addEventListener('click', restartQuiz);
 
+        function createCarousel() {
+            const carousel = document.getElementById('particle-carousel');
+            const carouselWidth = carousel.offsetWidth;
+            const iconWidth = 80;
+            const visibleWidth = carouselWidth - 120;
+            const totalIcons = particleIcons.length;
+            const spacing = (visibleWidth - (4 * iconWidth)) / 3;
+
+            particleIcons.forEach((icon, index) => {
+                const img = document.createElement('img');
+                img.src = `particles/${icon}`;
+                img.alt = `Particle ${index + 1}`;
+                img.className = 'particle-icon';
+                
+                const initialLeft = -iconWidth + (index * (iconWidth + spacing));
+                img.style.left = `${initialLeft}px`;
+                
+                carousel.appendChild(img);
+            });
+        }
+
+        function animateCarousel() {
+            const carousel = document.getElementById('particle-carousel');
+            const icons = document.querySelectorAll('.particle-icon');
+            const carouselWidth = carousel.offsetWidth;
+            const iconWidth = 80;
+            const visibleWidth = carouselWidth - 120;
+            const totalWidth = icons.length * iconWidth + (icons.length - 1) * ((visibleWidth - (4 * iconWidth)) / 3);
+            
+            icons.forEach((icon) => {
+                const currentLeft = parseFloat(icon.style.left);
+                let newLeft = currentLeft + totalWidth;
+                
+                if (currentLeft > carouselWidth) {
+                    newLeft = newLeft - totalWidth - iconWidth;
+                }
+                
+                icon.style.transition = 'none';
+                icon.style.left = `${newLeft}px`;
+                
+                icon.offsetHeight;
+                
+                icon.style.transition = 'left 20s linear';
+                icon.style.left = `${newLeft + totalWidth}px`;
+            });
+
+            setTimeout(animateCarousel, 20000);
+        }
+
         function startQuiz() {
             document.getElementById('home-page').style.display = 'none';
             document.getElementById('question-page').style.display = 'block';
             showQuestion(currentQuestion);
+            updateProgressBar();
         }
 
         function showQuestion(index) {
@@ -79,6 +180,7 @@
                 button.addEventListener('click', () => selectAnswer(answer));
                 answerButtons.appendChild(button);
             });
+            updateProgressBar();
         }
 
         function selectAnswer(answer) {
@@ -94,7 +196,17 @@
                 } else {
                     showResults();
                 }
+                updateProgressBar();
             }, 100);
+        }
+
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const progress = (currentQuestion / totalQuestions) * 100;
+
+            progressBar.style.width = `${progress}%`;
+            progressText.textContent = `Question ${currentQuestion + 1} of ${totalQuestions}`;
         }
 
         function showResults() {
@@ -102,7 +214,7 @@
             document.getElementById('results-page').style.display = 'block';
             const dominantType = Object.keys(personalityScores).reduce((a, b) => personalityScores[a] > personalityScores[b] ? a : b);
             const particleName = particlePersonas[dominantType];
-            document.getElementById('result-image').src = `profiles/${dominantType}.png`;
+            document.getElementById('result-image').src = `particles/${dominantType}.png`;
             document.getElementById('result-description').textContent = `Your Particle Persona is... ${particleName}!`;
         }
 
@@ -111,7 +223,13 @@
             personalityScores = Object.fromEntries(Object.keys(personalityScores).map(key => [key, 0]));
             document.getElementById('results-page').style.display = 'none';
             document.getElementById('home-page').style.display = 'block';
+            updateProgressBar();
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createCarousel();
+            setTimeout(animateCarousel, 100);
+        });
     </script>
 </body>
 

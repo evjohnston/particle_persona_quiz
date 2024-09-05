@@ -31,8 +31,7 @@ body {
 }
 
 /* Particle decoration */
-#quiz-container::before,
-#quiz-container::after {
+#quiz-container::before, #quiz-container::after {
     content: "";
     position: absolute;
     width: 40px;
@@ -128,6 +127,76 @@ button:hover {
     font-size: 18px;
     font-weight: bold;
     color: #0277bd;
+}
+
+/* Progress bar styles */
+#progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    height: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#progress-bar {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #4fc3f7, #03a9f4);
+    transition: width 0.3s ease;
+    border-radius: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#progress-text {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Particle carousel styles */
+#particle-carousel {
+    width: 100%;
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+    padding: 0 60px;
+}
+
+.particle-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 80px;
+    transition: left 20s linear;
+}
+
+#particle-carousel::before,
+#particle-carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 2;
+}
+
+#particle-carousel::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+#particle-carousel::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
 }
 
 /* Responsive design */
