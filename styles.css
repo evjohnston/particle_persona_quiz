@@ -89,6 +89,10 @@ button:hover {
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
+#return-to-start, #return-to-results {
+    margin-top: 40px;
+}
+
 #save-to-file:hover, #share-results:hover, #learn-more-start:hover, #learn-more-results:hover, #return-to-start:hover, #return-to-results:hover {
     background-color: #03a9f4;
     transform: translateY(-2px);
@@ -165,7 +169,7 @@ button:hover {
     width: 100%;
     height: 80px;
     position: relative;
-    overflow: hidden; /* Hide the overflow content */
+    overflow: hidden;
     margin: 20px 0;
 }
 
@@ -173,11 +177,11 @@ button:hover {
     display: flex;
     position: absolute;
     left: 0;
-    transition: transform 1s linear; /* Smooth transition */
+    transition: transform 0.05s linear;
 }
 
 .particle-icon {
-    width: 80px; /* Width of each icon */
+    width: 80px;
     height: 80px;
     flex-shrink: 0;
 }
@@ -254,12 +258,18 @@ button:hover {
 /* Animation */
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes float-reverse {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(10px); }
     100% { transform: translateY(0px); }
 }
 
 #start-quiz, #learn-more-start {
-    animation: float 3s ease-in-out infinite;
+    animation: float 2s ease-in-out infinite;
 }
 
 #start-quiz {
@@ -267,7 +277,7 @@ button:hover {
 }
 
 #learn-more-start {
-    animation-delay: 1.5s;
+    animation-delay: 1s;
 }
 
 /* Responsive design */
