@@ -54,7 +54,7 @@ button {
     background-color: #4fc3f7;
     border: none;
     color: white;
-    padding: 12px 24px;
+    padding: 10px 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -327,7 +327,7 @@ button:hover {
         font-size: 20px;
     }
 
-    button {
+    button, #start-quiz, #restart-quiz, #save-to-file, #learn-more-start, #learn-more-results, #return-to-start, #return-to-results {
         font-size: 16px;
         padding: 10px 20px;
     }
