@@ -160,43 +160,24 @@ button:hover {
     font-weight: 500;
 }
 
-/* Particle carousel styles */
 #particle-carousel {
     width: 100%;
-    height: 120px;
+    height: 80px;
     position: relative;
     overflow: hidden;
     margin: 20px 0;
-    padding: 0 60px;
+}
+
+.carousel-inner {
+    display: flex;
+    position: absolute;
+    width: 200%; /* Double the width to allow for looping */
 }
 
 .particle-icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     width: 80px;
     height: 80px;
-    transition: left 20s linear;
-}
-
-#particle-carousel::before,
-#particle-carousel::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 60px;
-    height: 100%;
-    z-index: 2;
-}
-
-#particle-carousel::before {
-    left: 0;
-    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
-}
-
-#particle-carousel::after {
-    right: 0;
-    background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+    flex-shrink: 0;
 }
 
 /* Responsive design */

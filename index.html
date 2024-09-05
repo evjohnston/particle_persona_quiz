@@ -6,45 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Particle Persona Quiz: Discover Your Subatomic Self</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        #particle-carousel {
-            width: 100%;
-            height: 120px;
-            position: relative;
-            overflow: hidden;
-            margin: 20px 0;
-            padding: 0 60px;
-        }
-
-        .particle-icon {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 80px;
-            height: 80px;
-            transition: left 20s linear;
-        }
-
-        #particle-carousel::before,
-        #particle-carousel::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 60px;
-            height: 100%;
-            z-index: 2;
-        }
-
-        #particle-carousel::before {
-            left: 0;
-            background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
-        }
-
-        #particle-carousel::after {
-            right: 0;
-            background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
-        }
-    </style>
 </head>
 
 <body>
@@ -54,7 +15,24 @@
             <p>Ever wondered if you're more of a quirky quark or a noble neutrino? Are you as elusive as a neutrino or
                 as influential as a Higgs boson? Take this quiz to uncover your subatomic alter ego.</p>
             <div id="particle-carousel">
-                <!-- We'll populate this dynamically with JavaScript -->
+                <div class="carousel-inner">
+                    <img src="particles/P01.png" alt="Particle 1" class="particle-icon">
+                    <img src="particles/P02.png" alt="Particle 2" class="particle-icon">
+                    <img src="particles/P03.png" alt="Particle 3" class="particle-icon">
+                    <img src="particles/P04.png" alt="Particle 4" class="particle-icon">
+                    <img src="particles/P05.png" alt="Particle 5" class="particle-icon">
+                    <img src="particles/P06.png" alt="Particle 6" class="particle-icon">
+                    <img src="particles/P07.png" alt="Particle 7" class="particle-icon">
+                    <img src="particles/P08.png" alt="Particle 8" class="particle-icon">
+                    <img src="particles/P09.png" alt="Particle 9" class="particle-icon">
+                    <img src="particles/P10.png" alt="Particle 10" class="particle-icon">
+                    <img src="particles/P11.png" alt="Particle 11" class="particle-icon">
+                    <img src="particles/P12.png" alt="Particle 12" class="particle-icon">
+                    <img src="particles/P13.png" alt="Particle 13" class="particle-icon">
+                    <img src="particles/P14.png" alt="Particle 14" class="particle-icon">
+                    <img src="particles/P15.png" alt="Particle 15" class="particle-icon">
+                    <img src="particles/P16.png" alt="Particle 16" class="particle-icon">
+                </div>
             </div>
             <p><strong>Warning:</strong> <em>results may be subject to quantum uncertainty!</em></p>
             <button id="start-quiz">Let's Begin!</button>
@@ -113,54 +91,43 @@
         document.getElementById('start-quiz').addEventListener('click', startQuiz);
         document.getElementById('restart-quiz').addEventListener('click', restartQuiz);
 
-        function createCarousel() {
+        function initializeCarousel() {
             const carousel = document.getElementById('particle-carousel');
+            const icons = carousel.querySelectorAll('.particle-icon');
             const carouselWidth = carousel.offsetWidth;
             const iconWidth = 80;
             const visibleWidth = carouselWidth - 120;
-            const totalIcons = particleIcons.length;
             const spacing = (visibleWidth - (4 * iconWidth)) / 3;
 
-            particleIcons.forEach((icon, index) => {
-                const img = document.createElement('img');
-                img.src = `particles/${icon}`;
-                img.alt = `Particle ${index + 1}`;
-                img.className = 'particle-icon';
-                
+            icons.forEach((icon, index) => {
                 const initialLeft = -iconWidth + (index * (iconWidth + spacing));
-                img.style.left = `${initialLeft}px`;
-                
-                carousel.appendChild(img);
+                icon.style.left = `${initialLeft}px`;
             });
         }
 
         function animateCarousel() {
-            const carousel = document.getElementById('particle-carousel');
-            const icons = document.querySelectorAll('.particle-icon');
-            const carouselWidth = carousel.offsetWidth;
-            const iconWidth = 80;
-            const visibleWidth = carouselWidth - 120;
-            const totalWidth = icons.length * iconWidth + (icons.length - 1) * ((visibleWidth - (4 * iconWidth)) / 3);
-            
-            icons.forEach((icon) => {
-                const currentLeft = parseFloat(icon.style.left);
-                let newLeft = currentLeft + totalWidth;
-                
-                if (currentLeft > carouselWidth) {
-                    newLeft = newLeft - totalWidth - iconWidth;
-                }
-                
-                icon.style.transition = 'none';
-                icon.style.left = `${newLeft}px`;
-                
-                icon.offsetHeight;
-                
-                icon.style.transition = 'left 20s linear';
-                icon.style.left = `${newLeft + totalWidth}px`;
-            });
+            const carousel = document.querySelector('.carousel-inner');
+            const iconWidth = 80; // Width of each icon
+            const totalIcons = 16; // Number of unique icons
+            let position = 0;
 
-            setTimeout(animateCarousel, 20000);
+            function step() {
+                position -= .33; // Move 1 pixel to the left each frame
+                if (position <= -iconWidth * totalIcons) {
+                    position += iconWidth * totalIcons; // Reset position seamlessly
+                    carousel.style.transition = 'none';
+                    carousel.style.transform = `translateX(${position}px)`;
+                    carousel.offsetHeight; // Trigger reflow
+                    carousel.style.transition = 'transform 0.05s linear';
+                }
+                carousel.style.transform = `translateX(${position}px)`;
+                requestAnimationFrame(step);
+            }
+
+            requestAnimationFrame(step);
         }
+
+        document.addEventListener('DOMContentLoaded', animateCarousel);
 
         function startQuiz() {
             document.getElementById('home-page').style.display = 'none';
@@ -227,7 +194,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            createCarousel();
+            initializeCarousel();
             setTimeout(animateCarousel, 100);
         });
     </script>
