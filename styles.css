@@ -106,7 +106,7 @@ button:hover {
 
 #return-to-start,
 #return-to-results {
-    margin-top: 40px;
+    margin-top: 25px;
 }
 
 #save-to-file:hover,
@@ -125,11 +125,13 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #answer-buttons button {
     width: 100%;
     max-width: 450px;
+    padding: 20px 24px;
     margin: 10px 0;
     background-color: #fff;
     color: #333;
@@ -249,7 +251,7 @@ button:hover {
 .profile h3 {
     font-size: 18px;
     color: #0277bd;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .profile p {
