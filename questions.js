@@ -96,22 +96,6 @@ const questions = [
         ]
     },
     {
-        question: "When learning something new, you prefer:",
-        answers: [
-            { text: "Hands-on experience and practical application", types: ["S"] },
-            { text: "Understanding the underlying theories and concepts", types: ["N"] }
-        ]
-    },
-    {
-        question: "If you had to choose a superpower, which would it be?",
-        answers: [
-            { text: "The ability to read minds and understand thoughts", types: ["N", "F"] },
-            { text: "The power to manipulate time and relive moments", types: ["N", "P"] },
-            { text: "The ability to heal any injury or disease", types: ["S", "F"] },
-            { text: "The power to become invisible at will", types: ["I", "T"] }
-        ]
-    },
-    {
         question: "In group projects, you are most likely to:",
         answers: [
             { text: "Take charge and organize everyone's tasks", types: ["E", "J"] },
@@ -135,12 +119,12 @@ const questions = [
         ]
     },
     {
-        question: "If you could only listen to one genre of music for the rest of your life, what would it be?",
+        question: "If you had to choose a superpower, which would it be?",
         answers: [
-            { text: "Classical music, for its complexity and emotional depth", types: ["I", "N"] },
-            { text: "Rock music, for its energy and rebellious spirit", types: ["E", "P"] },
-            { text: "Jazz, for its improvisational style and variety", types: ["N", "P"] },
-            { text: "Ambient music, for its calming and introspective nature", types: ["I", "F"] }
+            { text: "The ability to read minds and understand thoughts", types: ["N", "F"] },
+            { text: "The power to manipulate time and relive moments", types: ["N", "P"] },
+            { text: "The ability to heal any injury or disease", types: ["S", "F"] },
+            { text: "The power to become invisible at will", types: ["I", "T"] }
         ]
     },
     {
