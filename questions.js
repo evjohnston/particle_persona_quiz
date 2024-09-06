@@ -1,66 +1,101 @@
 const questions = [
     {
+        question: "After a long week, you prefer to:",
+        answers: [
+            { text: "Attend a lively social gathering", types: ["E"] },
+            { text: "Spend a quiet evening at home", types: ["I"] }
+        ]
+    },
+    {
+        question: "When learning something new, you focus more on:",
+        answers: [
+            { text: "Concrete facts and practical applications", types: ["S"] },
+            { text: "Abstract concepts and theoretical possibilities", types: ["N"] }
+        ]
+    },
+    {
+        question: "You've been gifted a mysterious box. What do you do?",
+        answers: [
+            { text: "Carefully examine it from all angles before opening", types: ["S", "J"] },
+            { text: "Shake it and guess what's inside", types: ["N", "P"] },
+            { text: "Open it immediately to satisfy your curiosity", types: ["E", "P"] },
+            { text: "Ask the gift-giver about its contents first", types: ["I", "F"] }
+        ]
+    },
+    {
+        question: "When making decisions, you prioritize:",
+        answers: [
+            { text: "Logic and objective analysis", types: ["T"] },
+            { text: "Personal values and how it affects people", types: ["F"] }
+        ]
+    },
+    {
         question: "You prefer to:",
         answers: [
-            { text: "Keep things in their original state", types: ["S"] },
-            { text: "Make changes, even if it is merely for the sake of change", types: ["N"] }
+            { text: "Have a structured schedule and stick to it", types: ["J"] },
+            { text: "Keep your options open and go with the flow", types: ["P"] }
         ]
     },
     {
-        question: "If you could live in a fictional universe, which would you choose?",
+        question: "If you could have dinner with any fictional character, who would it be?",
         answers: [
-            { text: "A world where magic is real, and you are a skilled sorcerer", types: ["N", "F"] },
-            { text: "A futuristic society with advanced technology and space travel", types: ["N", "T"] },
-            { text: "A peaceful utopia where everyone lives in harmony with nature", types: ["S", "F"] },
-            { text: "A post-apocalyptic world where survival skills are crucial", types: ["S", "T"] }
+            { text: "Sherlock Holmes, to analyze his deductive reasoning", types: ["I", "N", "T"] },
+            { text: "Hermione Granger, to discuss magical theory and ethics", types: ["E", "S", "F"] },
+            { text: "Gandalf, to hear tales of Middle-earth and wisdom", types: ["I", "N", "F"] },
+            { text: "Tony Stark, to brainstorm futuristic inventions", types: ["E", "N", "T"] }
         ]
     },
     {
-        question: "When meeting new people, you typically:",
+        question: "In group discussions, you usually:",
         answers: [
-            { text: "Engage in lively conversation about various topics", types: ["E"] },
-            { text: "Listen more than you speak, observing group dynamics", types: ["I"] }
+            { text: "Speak up readily and share your thoughts", types: ["E"] },
+            { text: "Listen carefully and speak when you have something significant to add", types: ["I"] }
         ]
     },
     {
-        question: "When making a big life decision, you are more likely to:",
+        question: "You're more likely to trust:",
         answers: [
-            { text: "Consult your closest friends and family for advice", types: ["E", "F"] },
-            { text: "Rely on your intuition and gut feelings", types: ["N", "F"] },
-            { text: "Research extensively and weigh all possible outcomes", types: ["S", "T"] },
-            { text: "Reflect deeply on your personal values and goals", types: ["I", "J"] }
+            { text: "Your direct experiences and observations", types: ["S"] },
+            { text: "Your hunches and intuitive insights", types: ["N"] }
         ]
     },
     {
-        question: "Regarding planning and organization, you:",
+        question: "You're in charge of planning a friend's surprise party. Your approach is:",
         answers: [
-            { text: "Enjoy creating detailed lists and schedules", types: ["J"] },
-            { text: "Prefer to keep your options open and adapt as you go", types: ["P"] }
+            { text: "Create a detailed spreadsheet with tasks and timelines", types: ["I", "S", "J"] },
+            { text: "Brainstorm unique ideas to make it unforgettable", types: ["E", "N", "P"] },
+            { text: "Delegate tasks to a small group of close friends", types: ["E", "T", "J"] },
+            { text: "Keep it simple with cake and presents, focusing on the sentiment", types: ["I", "F", "P"] }
         ]
     },
     {
-        question: "If you could have dinner with any historical figure, who would it be?",
+        question: "In conflicts, you tend to:",
         answers: [
-            { text: "Albert Einstein, to discuss the mysteries of the universe", types: ["N", "T"] },
-            { text: "Leonardo da Vinci, to explore his diverse genius", types: ["N", "P"] },
-            { text: "Mahatma Gandhi, to learn about his philosophy of nonviolence", types: ["F", "J"] },
-            { text: "Jane Austen, to analyze societal norms and human nature", types: ["I", "N"] }
+            { text: "Focus on finding a fair and logical resolution", types: ["T"] },
+            { text: "Consider everyone's feelings and seek harmony", types: ["F"] }
         ]
     },
     {
-        question: "In social situations, you usually find yourself:",
+        question: "When it comes to deadlines, you usually:",
         answers: [
-            { text: "Energized by interacting with many people", types: ["E"] },
-            { text: "Drained after extended periods of socializing", types: ["I"] }
+            { text: "Complete tasks well ahead of time", types: ["J"] },
+            { text: "Finish just in time or ask for extensions", types: ["P"] }
         ]
     },
     {
-        question: "Which best describes your ideal work environment?",
+        question: "If you could instantly master any skill, what would it be?",
         answers: [
-            { text: "A high-energy startup with constant change and innovation", types: ["E", "N", "P"] },
-            { text: "A stable, established company with clear routines", types: ["S", "J"] },
-            { text: "A creative studio with flexible hours and artistic focus", types: ["N", "P"] },
-            { text: "A quiet research institution focused on in-depth studies", types: ["I", "S", "J"] }
+            { text: "Mind reading, to understand people better", types: ["I", "N", "F"] },
+            { text: "Time manipulation, to make the most of every moment", types: ["E", "S", "J"] },
+            { text: "Shapeshifting, to experience life from different perspectives", types: ["E", "N", "P"] },
+            { text: "Teleportation, to explore the world effortlessly", types: ["I", "S", "T"] }
+        ]
+    },
+    {
+        question: "You feel most energized when:",
+        answers: [
+            { text: "Interacting with many people throughout the day", types: ["E"] },
+            { text: "Having meaningful one-on-one conversations", types: ["I"] }
         ]
     },
     {
@@ -71,332 +106,164 @@ const questions = [
         ]
     },
     {
-        question: "If you were to write a book, it would be:",
+        question: "You're stranded on a deserted island. The first thing you do is:",
         answers: [
-            { text: "A thrilling mystery novel with unexpected twists", types: ["N", "T"] },
-            { text: "A self-help guide offering practical advice", types: ["S", "F", "J"] },
-            { text: "A science fiction epic exploring new possibilities", types: ["N", "P"] },
-            { text: "A detailed analysis of a niche historical event", types: ["I", "S"] }
+            { text: "Build a shelter to ensure immediate safety", types: ["I", "S", "J"] },
+            { text: "Explore the island to map out resources", types: ["E", "N", "P"] },
+            { text: "Start a signal fire to attract rescue", types: ["E", "S", "T"] },
+            { text: "Find edible plants and fresh water", types: ["I", "N", "F"] }
         ]
     },
     {
-        question: "In conversations, you tend to:",
+        question: "You're more comfortable with:",
         answers: [
-            { text: "Speak as you think, processing ideas out loud", types: ["E"] },
-            { text: "Think before you speak, formulating ideas internally", types: ["I"] }
+            { text: "Critiquing and finding flaws in arguments", types: ["T"] },
+            { text: "Offering support and validation to others", types: ["F"] }
         ]
     },
     {
-        question: "What do you value more in a partner?",
+        question: "Your workspace is typically:",
         answers: [
-            { text: "Intellectual compatibility and stimulating conversations", types: ["N", "T"] },
-            { text: "Emotional support and a deep, affectionate bond", types: ["F"] },
-            { text: "Shared adventures and a love for spontaneity", types: ["E", "P"] },
-            { text: "Mutual respect for personal space and independence", types: ["I", "J"] }
+            { text: "Well-organized with everything in its place", types: ["J"] },
+            { text: "Cluttered but with a system that makes sense to you", types: ["P"] }
         ]
     },
     {
-        question: "In group projects, you are most likely to:",
+        question: "If you were a superhero, your base of operations would be:",
         answers: [
-            { text: "Take charge and organize everyone's tasks", types: ["E", "J"] },
-            { text: "Contribute quietly, focusing on your assigned part", types: ["I", "P"] }
+            { text: "A high-tech skyscraper in the heart of the city", types: ["E", "S", "T"] },
+            { text: "A hidden cave with advanced computer systems", types: ["I", "N", "T"] },
+            { text: "A mobile command center, always on the move", types: ["E", "N", "P"] },
+            { text: "A treehouse sanctuary in an enchanted forest", types: ["I", "S", "F"] }
         ]
     },
     {
-        question: "How do you prefer to approach your personal goals?",
+        question: "At a party, you're more likely to:",
         answers: [
-            { text: "Setting ambitious, long-term goals with detailed plans", types: ["J", "N"] },
-            { text: "Focusing on small, immediate actions that add up over time", types: ["S", "P"] },
-            { text: "Staying flexible and adapting your goals as you go", types: ["P", "N"] },
-            { text: "Setting practical, achievable goals with clear metrics", types: ["S", "T"] }
+            { text: "Mingle with various groups and meet new people", types: ["E"] },
+            { text: "Stick with a small group of familiar friends", types: ["I"] }
         ]
     },
     {
-        question: "You are more comfortable working with:",
+        question: "You're more interested in:",
         answers: [
-            { text: "Concrete facts and observable data", types: ["S"] },
-            { text: "Abstract theories and potential possibilities", types: ["N"] }
+            { text: "What is actual and present", types: ["S"] },
+            { text: "What is possible and future-oriented", types: ["N"] }
         ]
     },
     {
-        question: "If you had to choose a superpower, which would it be?",
+        question: "You've discovered a new species of plant. You name it based on:",
         answers: [
-            { text: "The ability to read minds and understand thoughts", types: ["N", "F"] },
-            { text: "The power to manipulate time and relive moments", types: ["N", "P"] },
-            { text: "The ability to heal any injury or disease", types: ["S", "F"] },
-            { text: "The power to become invisible at will", types: ["I", "T"] }
+            { text: "Its unique physical characteristics", types: ["I", "S", "T"] },
+            { text: "The emotion it evokes when you look at it", types: ["E", "N", "F"] },
+            { text: "The location where you found it", types: ["I", "S", "J"] },
+            { text: "A creative wordplay that sounds scientific", types: ["E", "N", "P"] }
         ]
     },
     {
-        question: "When making decisions, you tend to prioritize:",
+        question: "When giving feedback, you're more likely to be:",
         answers: [
-            { text: "Logic and objective analysis", types: ["T"] },
-            { text: "Personal values and how it affects people", types: ["F"] }
-        ]
-    },
-    {
-        question: "If you had to be stranded on a deserted island, who would you take with you?",
-        answers: [
-            { text: "A survival expert to help navigate challenges", types: ["S", "T"] },
-            { text: "A close friend for emotional support and companionship", types: ["F"] },
-            { text: "A skilled engineer to build necessary tools", types: ["N", "T"] },
-            { text: "No one, preferring to face the challenge alone", types: ["I", "P"] }
-        ]
-    },
-    {
-        question: "Your approach to a new project is usually to:",
-        answers: [
-            { text: "Plan every step before starting", types: ["J"] },
-            { text: "Jump in and figure it out as you go", types: ["P"] }
-        ]
-    },
-    {
-        question: "Which artistic endeavor appeals to you more?",
-        answers: [
-            { text: "Painting or sculpting, to express visual creativity", types: ["S", "F"] },
-            { text: "Writing, to explore complex ideas and emotions", types: ["N", "I"] },
-            { text: "Acting, to embody different characters and stories", types: ["E", "F"] },
-            { text: "Music composition, to create structured yet emotive pieces", types: ["N", "T"] }
-        ]
-    },
-    {
-        question: "When faced with a problem, you first:",
-        answers: [
-            { text: "Analyze the facts and details available", types: ["S"] },
-            { text: "Consider the big picture and potential implications", types: ["N"] }
-        ]
-    },
-    {
-        question: "If you could instantly learn a new skill, it would be:",
-        answers: [
-            { text: "Mastering a musical instrument", types: ["S", "F"] },
-            { text: "Speaking multiple languages fluently", types: ["N", "T"] },
-            { text: "Becoming a top-level athlete in a sport", types: ["S", "J"] },
-            { text: "Mastering meditation and mindfulness techniques", types: ["I", "N"] }
-        ]
-    },
-    {
-        question: "In your free time, you prefer activities that are:",
-        answers: [
-            { text: "Planned and organized in advance", types: ["J"] },
-            { text: "Spontaneous and flexible", types: ["P"] }
-        ]
-    },
-    {
-        question: "What kind of leadership style do you resonate with?",
-        answers: [
-            { text: "Authoritative, providing clear direction", types: ["E", "T", "J"] },
-            { text: "Democratic, encouraging team input and collaboration", types: ["F", "P"] },
-            { text: "Visionary, inspiring others with big ideas", types: ["N", "F"] },
-            { text: "Leading by example, focusing on personal excellence", types: ["I", "J"] }
-        ]
-    },
-    {
-        question: "When understanding a concept, you prefer:",
-        answers: [
-            { text: "Concrete examples and practical applications", types: ["S"] },
-            { text: "Abstract explanations and theoretical frameworks", types: ["N"] }
-        ]
-    },
-    {
-        question: "If you were to join a reality TV show, you would prefer:",
-        answers: [
-            { text: "A survival challenge in the wilderness", types: ["S", "T"] },
-            { text: "A cooking competition showcasing culinary skills", types: ["S", "F"] },
-            { text: "A talent show highlighting unique abilities", types: ["E", "N"] },
-            { text: "A documentary-style show exploring personal growth", types: ["I", "N"] }
-        ]
-    },
-    {
-        question: "In conflicts, you are more inclined to:",
-        answers: [
-            { text: "Focus on the facts and seek a fair resolution", types: ["T"] },
-            { text: "Consider feelings and seek harmony", types: ["F"] }
-        ]
-    },
-    {
-        question: "When thinking about success, do you focus more on:",
-        answers: [
-            { text: "Financial stability and career achievements", types: ["T", "J"] },
-            { text: "Personal fulfillment and happiness", types: ["F", "P"] },
-            { text: "Making a positive impact on others and society", types: ["F", "J"] },
-            { text: "Continuous learning and self-improvement", types: ["I", "N"] }
-        ]
-    },
-    {
-        question: "You feel most energized when:",
-        answers: [
-            { text: "Interacting with many people", types: ["E"] },
-            { text: "Spending time in solitude or small groups", types: ["I"] }
-        ]
-    },
-    {
-        question: "If you could transform into any animal at will, which would you choose?",
-        answers: [
-            { text: "An eagle, to soar and see from new perspectives", types: ["N", "T"] },
-            { text: "A dolphin, to explore oceans and communicate", types: ["N", "F"] },
-            { text: "A wolf, to experience pack life in the wilderness", types: ["S", "F"] },
-            { text: "A cat, for its independence and observant nature", types: ["I", "P"] }
-        ]
-    },
-    {
-        question: "When tackling a new task, you prefer to:",
-        answers: [
-            { text: "Follow established methods and procedures", types: ["S", "J"] },
-            { text: "Experiment with new approaches and techniques", types: ["N", "P"] }
-        ]
-    },
-    {
-        question: "How do you handle failure?",
-        answers: [
-            { text: "Reflect on what went wrong and learn from it", types: ["I", "T"] },
-            { text: "Move on quickly and focus on the next opportunity", types: ["E", "P"] },
-            { text: "Seek feedback from others to improve", types: ["E", "F"] },
-            { text: "Analyze the situation to prevent future mistakes", types: ["S", "J"] }
-        ]
-    },
-    {
-        question: "In decision-making, you trust more in:",
-        answers: [
-            { text: "Past experiences and proven methods", types: ["S"] },
-            { text: "Future possibilities and potential innovations", types: ["N"] }
-        ]
-    },
-    {
-        question: "If you had to choose between fame and anonymity, you would prefer:",
-        answers: [
-            { text: "Fame, to influence and inspire others", types: ["E", "F"] },
-            { text: "Anonymity, to live peacefully without public scrutiny", types: ["I", "T"] },
-            { text: "Selective recognition within a specific field", types: ["I", "J"] },
-            { text: "Temporary fame for a significant achievement", types: ["E", "T"] }
-        ]
-    },
-    {
-        question: "When working on a project, you focus more on:",
-        answers: [
-            { text: "The practical details and immediate results", types: ["S"] },
-            { text: "The overall concept and long-term implications", types: ["N"] }
-        ]
-    },
-    {
-        question: "Which type of vacation appeals to you more?",
-        answers: [
-            { text: "A backpacking adventure through foreign countries", types: ["E", "N", "P"] },
-            { text: "A relaxing stay at a luxury resort", types: ["S", "J"] },
-            { text: "A cultural tour visiting historic sites and landmarks", types: ["N", "J"] },
-            { text: "A solo retreat focused on personal reflection and growth", types: ["I", "F"] }
-        ]
-    },
-    {
-        question: "When giving feedback, you tend to be:",
-        answers: [
-            { text: "Direct and straightforward", types: ["T"] },
+            { text: "Frank and straightforward", types: ["T"] },
             { text: "Tactful and encouraging", types: ["F"] }
         ]
     },
     {
-        question: "In a heated debate, you are more likely to:",
+        question: "You feel more comfortable when:",
         answers: [
-            { text: "Stand your ground and argue passionately for your viewpoint", types: ["E", "T"] },
-            { text: "Seek common ground and try to mediate between differing opinions", types: ["F"] },
-            { text: "Listen carefully and ask questions to understand the other side", types: ["I", "N"] },
-            { text: "Analyze the logical consistency of each argument", types: ["T", "J"] }
+            { text: "Plans are settled and decisions are made", types: ["J"] },
+            { text: "Things are open-ended with room for changes", types: ["P"] }
         ]
     },
     {
-        question: "When learning a new skill, you prefer:",
+        question: "In a parallel universe, your alternate self is:",
         answers: [
-            { text: "Step-by-step instructions and practical examples", types: ["S"] },
-            { text: "Understanding the underlying principles and theories", types: ["N"] }
+            { text: "A nomadic adventurer exploring uncharted territories", types: ["E", "S", "P"] },
+            { text: "A renowned scientist making groundbreaking discoveries", types: ["I", "N", "T"] },
+            { text: "A charismatic leader inspiring social change", types: ["E", "N", "F"] },
+            { text: "A skilled craftsperson preserving traditional arts", types: ["I", "S", "J"] }
         ]
     },
     {
-        question: "If you could relive a period of history, which would you choose?",
+        question: "When tackling a new project, you prefer to:",
         answers: [
-            { text: "The Renaissance, to witness the birth of art and science", types: ["N", "T"] },
-            { text: "The 1960s, to experience cultural revolutions and social change", types: ["E", "F"] },
-            { text: "The Industrial Revolution, to see the rise of modern technology", types: ["S", "T"] },
-            { text: "Ancient Greece, to engage in philosophical discussions", types: ["I", "N"] }
+            { text: "Brainstorm ideas with a group", types: ["E"] },
+            { text: "Reflect on it independently before sharing your thoughts", types: ["I"] }
         ]
     },
     {
-        question: "When analyzing information, you tend to focus on:",
+        question: "In conversations, you tend to focus on:",
         answers: [
             { text: "Specific details and facts", types: ["S"] },
-            { text: "Patterns and overall implications", types: ["N"] }
+            { text: "Overall patterns and connections", types: ["N"] }
         ]
     },
     {
-        question: "What type of stories do you prefer to watch or read?",
+        question: "You're given a magic wand that can solve one global issue. You choose to:",
         answers: [
-            { text: "Complex narratives that challenge your thinking", types: ["N", "T"] },
-            { text: "Light-hearted tales that provide comfort and amusement", types: ["S", "F"] },
-            { text: "True stories based on real-life events and experiences", types: ["S", "J"] },
-            { text: "Introspective works exploring the human psyche", types: ["I", "N"] }
+            { text: "End world hunger by creating self-replicating food", types: ["S", "T", "J"] },
+            { text: "Eliminate all forms of pollution instantly", types: ["N", "F", "P"] },
+            { text: "Establish universal education and access to information", types: ["N", "T", "J"] },
+            { text: "Create a universal language to unite all cultures", types: ["S", "F", "P"] }
         ]
     },
     {
-        question: "In team discussions, you usually:",
+        question: "You find it easier to:",
         answers: [
-            { text: "Contribute actively and share your thoughts readily", types: ["E"] },
-            { text: "Listen attentively and speak when you have something significant to add", types: ["I"] }
+            { text: "Make decisions based on efficiency and logic", types: ["T"] },
+            { text: "Consider how decisions will impact people's emotions", types: ["F"] }
         ]
     },
     {
-        question: "If you had to choose an unusual profession, it would be:",
+        question: "In your daily life, you prefer to:",
         answers: [
-            { text: "A treasure hunter, seeking lost artifacts", types: ["S", "P"] },
-            { text: "A diplomat, negotiating complex international relations", types: ["E", "F"] },
-            { text: "A futurist, predicting and shaping emerging trends", types: ["N", "T"] },
-            { text: "A hermit philosopher, contemplating life's big questions", types: ["I", "N"] }
+            { text: "Follow a routine and have things planned out", types: ["J"] },
+            { text: "Be spontaneous and adapt to situations as they arise", types: ["P"] }
         ]
     },
     {
-        question: "When faced with a difficult situation, you tend to:",
+        question: "If you could turn any everyday object into a time machine, it would be:",
         answers: [
-            { text: "Analyze it logically to find the best solution", types: ["T"] },
-            { text: "Consider how it affects people and their feelings", types: ["F"] }
+            { text: "A mirror, to reflect on different eras", types: ["I", "N", "F"] },
+            { text: "A book, to read between the lines of history", types: ["E", "S", "T"] },
+            { text: "A bicycle, to pedal through the ages", types: ["E", "N", "P"] },
+            { text: "A teacup, to sip the essence of various time periods", types: ["I", "S", "J"] }
         ]
     },
     {
-        question: "What drives you more in life?",
+        question: "Your ideal vacation is:",
         answers: [
-            { text: "The pursuit of knowledge and understanding", types: ["N", "T"] },
-            { text: "The desire for connection and relationships", types: ["F"] },
-            { text: "The quest for new experiences and adventures", types: ["E", "P"] },
-            { text: "The achievement of personal growth and self-mastery", types: ["I", "J"] }
+            { text: "An action-packed trip with lots of social activities", types: ["E"] },
+            { text: "A peaceful retreat with plenty of alone time", types: ["I"] }
         ]
     },
     {
-        question: "In your work or studies, you prefer tasks that:",
+        question: "You're more drawn to:",
         answers: [
-            { text: "Have clear guidelines and expected outcomes", types: ["S", "J"] },
-            { text: "Allow for creativity and multiple approaches", types: ["N", "P"] }
+            { text: "Pragmatic solutions to immediate problems", types: ["S"] },
+            { text: "Exploring hypothetical scenarios and ideas", types: ["N"] }
         ]
     },
     {
-        question: "If you were designing a garden, you would focus on:",
+        question: "You've been chosen to establish the first colony on Mars. Your primary focus is:",
         answers: [
-            { text: "Practical aspects like ease of maintenance and crop yield", types: ["S", "T"] },
-            { text: "Creating a visually pleasing and harmonious space", types: ["N", "F"] },
-            { text: "Incorporating interactive elements for social gatherings", types: ["E", "F"] },
-            { text: "Designing a secluded, meditative retreat", types: ["I", "N"] }
+            { text: "Designing efficient living quarters and life support systems", types: ["I", "S", "T"] },
+            { text: "Creating a governance structure for the new society", types: ["E", "N", "J"] },
+            { text: "Establishing communication protocols with Earth", types: ["E", "S", "F"] },
+            { text: "Developing methods for psychological well-being in isolation", types: ["I", "N", "P"] }
         ]
     },
     {
-        question: "When making plans with friends, you prefer to:",
+        question: "In a team project, you're more focused on:",
         answers: [
-            { text: "Have everything decided and scheduled in advance", types: ["J"] },
-            { text: "Keep things open-ended and decide spontaneously", types: ["P"] }
+            { text: "Achieving goals and maintaining high standards", types: ["T"] },
+            { text: "Ensuring everyone feels heard and appreciated", types: ["F"] }
         ]
     },
     {
-        question: "In a crisis situation, you are more likely to:",
+        question: "When starting a project, you tend to:",
         answers: [
-            { text: "Take charge and give clear directions to others", types: ["E", "J"] },
-            { text: "Adapt quickly to changing circumstances", types: ["P", "N"] },
-            { text: "Focus on comforting and supporting those affected", types: ["F"] },
-            { text: "Calmly assess the situation and plan the next steps", types: ["I", "T"] }
+            { text: "Create a detailed plan before beginning", types: ["J"] },
+            { text: "Jump in and figure things out as you go", types: ["P"] }
         ]
-    }
-];
+    },
+]
