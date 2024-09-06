@@ -1,269 +1,240 @@
 const questions = [
     {
-        question: "After a long week, you prefer to:",
+        question: "When attending a conference, you prefer:",
         answers: [
-            { text: "Attend a lively social gathering", types: ["E"] },
-            { text: "Spend a quiet evening at home", types: ["I"] }
+            { text: "Networking events and group discussions", types: ["E"] },
+            { text: "Focused presentations with minimal interaction", types: ["I"] }
         ]
     },
     {
-        question: "When learning something new, you focus more on:",
+        question: "You're exploring an ancient ruins. You discover a sealed chamber. What's your next move?",
         answers: [
-            { text: "Concrete facts and practical applications", types: ["S"] },
-            { text: "Abstract concepts and theoretical possibilities", types: ["N"] }
+            { text: "Carefully document everything before proceeding", types: ["S", "J"] },
+            { text: "Imagine the historical secrets it might contain", types: ["N", "F"] },
+            { text: "Immediately try to find a way to open it", types: ["E", "P"] },
+            { text: "Analyze the potential risks of disturbing the site", types: ["I", "T"] }
         ]
     },
     {
-        question: "You've been gifted a mysterious box. What do you do?",
+        question: "When solving problems, you rely more on:",
         answers: [
-            { text: "Carefully examine it from all angles before opening", types: ["S", "J"] },
-            { text: "Shake it and guess what's inside", types: ["N", "P"] },
-            { text: "Open it immediately to satisfy your curiosity", types: ["E", "P"] },
-            { text: "Ask the gift-giver about its contents first", types: ["I", "F"] }
+            { text: "Past experiences and proven methods", types: ["S"] },
+            { text: "Intuition and novel approaches", types: ["N"] }
         ]
     },
     {
-        question: "When making decisions, you prioritize:",
+        question: "You're invited to participate in a futuristic virtual reality experiment. Your approach is:",
         answers: [
-            { text: "Logic and objective analysis", types: ["T"] },
-            { text: "Personal values and how it affects people", types: ["F"] }
+            { text: "Research all available information about the technology", types: ["I", "S", "J"] },
+            { text: "Eagerly jump in, excited to experience something new", types: ["E", "N", "P"] },
+            { text: "Evaluate the potential benefits and drawbacks", types: ["T"] },
+            { text: "Consider how it might change human interactions", types: ["F"] }
         ]
     },
     {
-        question: "You prefer to:",
+        question: "When making a tough decision, you prioritize:",
         answers: [
-            { text: "Have a structured schedule and stick to it", types: ["J"] },
-            { text: "Keep your options open and go with the flow", types: ["P"] }
+            { text: "Analyzing pros and cons objectively", types: ["T"] },
+            { text: "Considering the impact on people involved", types: ["F"] }
         ]
     },
     {
-        question: "If you could have dinner with any fictional character, who would it be?",
+        question: "You're tasked with redesigning an educational system. Your primary focus is:",
         answers: [
-            { text: "Sherlock Holmes, to analyze his deductive reasoning", types: ["I", "N", "T"] },
-            { text: "Hermione Granger, to discuss magical theory and ethics", types: ["E", "S", "F"] },
-            { text: "Gandalf, to hear tales of Middle-earth and wisdom", types: ["I", "N", "F"] },
-            { text: "Tony Stark, to brainstorm futuristic inventions", types: ["E", "N", "T"] }
+            { text: "Implementing proven teaching methods efficiently", types: ["S", "T", "J"] },
+            { text: "Fostering creativity and personal growth", types: ["N", "F", "P"] },
+            { text: "Balancing traditional and innovative approaches", types: ["S", "N"] },
+            { text: "Ensuring equal opportunities for all students", types: ["F"] }
         ]
     },
     {
-        question: "In group discussions, you usually:",
+        question: "In your daily life, you prefer:",
         answers: [
-            { text: "Speak up readily and share your thoughts", types: ["E"] },
-            { text: "Listen carefully and speak when you have something significant to add", types: ["I"] }
+            { text: "Having a set routine and schedule", types: ["J"] },
+            { text: "Being flexible and spontaneous", types: ["P"] }
         ]
     },
     {
-        question: "You're more likely to trust:",
+        question: "An AI assistant becomes sentient. Your first reaction is to:",
         answers: [
-            { text: "Your direct experiences and observations", types: ["S"] },
-            { text: "Your hunches and intuitive insights", types: ["N"] }
+            { text: "Verify its sentience through rigorous testing", types: ["T", "J"] },
+            { text: "Engage in philosophical discussions about consciousness", types: ["N", "P"] },
+            { text: "Consider the ethical implications for society", types: ["F"] },
+            { text: "Examine how it might be practically useful", types: ["S"] }
         ]
     },
     {
-        question: "You're in charge of planning a friend's surprise party. Your approach is:",
+        question: "You feel more comfortable:",
         answers: [
-            { text: "Create a detailed spreadsheet with tasks and timelines", types: ["I", "S", "J"] },
-            { text: "Brainstorm unique ideas to make it unforgettable", types: ["E", "N", "P"] },
-            { text: "Delegate tasks to a small group of close friends", types: ["E", "T", "J"] },
-            { text: "Keep it simple with cake and presents, focusing on the sentiment", types: ["I", "F", "P"] }
+            { text: "Leading a team project", types: ["E"] },
+            { text: "Working independently on tasks", types: ["I"] }
         ]
     },
     {
-        question: "In conflicts, you tend to:",
+        question: "You're organizing a multicultural festival. Your main priority is:",
         answers: [
-            { text: "Focus on finding a fair and logical resolution", types: ["T"] },
-            { text: "Consider everyone's feelings and seek harmony", types: ["F"] }
-        ]
-    },
-    {
-        question: "When it comes to deadlines, you usually:",
-        answers: [
-            { text: "Complete tasks well ahead of time", types: ["J"] },
-            { text: "Finish just in time or ask for extensions", types: ["P"] }
-        ]
-    },
-    {
-        question: "If you could instantly master any skill, what would it be?",
-        answers: [
-            { text: "Mind reading, to understand people better", types: ["I", "N", "F"] },
-            { text: "Time manipulation, to make the most of every moment", types: ["E", "S", "J"] },
-            { text: "Shapeshifting, to experience life from different perspectives", types: ["E", "N", "P"] },
-            { text: "Teleportation, to explore the world effortlessly", types: ["I", "S", "T"] }
-        ]
-    },
-    {
-        question: "You feel most energized when:",
-        answers: [
-            { text: "Interacting with many people throughout the day", types: ["E"] },
-            { text: "Having meaningful one-on-one conversations", types: ["I"] }
-        ]
-    },
-    {
-        question: "When solving problems, you prefer to:",
-        answers: [
-            { text: "Use tried-and-true methods", types: ["S"] },
-            { text: "Come up with innovative, untested approaches", types: ["N"] }
-        ]
-    },
-    {
-        question: "You're stranded on a deserted island. The first thing you do is:",
-        answers: [
-            { text: "Build a shelter to ensure immediate safety", types: ["I", "S", "J"] },
-            { text: "Explore the island to map out resources", types: ["E", "N", "P"] },
-            { text: "Start a signal fire to attract rescue", types: ["E", "S", "T"] },
-            { text: "Find edible plants and fresh water", types: ["I", "N", "F"] }
-        ]
-    },
-    {
-        question: "You're more comfortable with:",
-        answers: [
-            { text: "Critiquing and finding flaws in arguments", types: ["T"] },
-            { text: "Offering support and validation to others", types: ["F"] }
-        ]
-    },
-    {
-        question: "Your workspace is typically:",
-        answers: [
-            { text: "Well-organized with everything in its place", types: ["J"] },
-            { text: "Cluttered but with a system that makes sense to you", types: ["P"] }
-        ]
-    },
-    {
-        question: "If you were a superhero, your base of operations would be:",
-        answers: [
-            { text: "A high-tech skyscraper in the heart of the city", types: ["E", "S", "T"] },
-            { text: "A hidden cave with advanced computer systems", types: ["I", "N", "T"] },
-            { text: "A mobile command center, always on the move", types: ["E", "N", "P"] },
-            { text: "A treehouse sanctuary in an enchanted forest", types: ["I", "S", "F"] }
-        ]
-    },
-    {
-        question: "At a party, you're more likely to:",
-        answers: [
-            { text: "Mingle with various groups and meet new people", types: ["E"] },
-            { text: "Stick with a small group of familiar friends", types: ["I"] }
+            { text: "Ensuring accurate representation of each culture", types: ["S", "T"] },
+            { text: "Creating opportunities for meaningful cultural exchange", types: ["N", "F"] },
+            { text: "Managing logistics to make the event run smoothly", types: ["J"] },
+            { text: "Allowing for spontaneous interactions and performances", types: ["P"] }
         ]
     },
     {
         question: "You're more interested in:",
         answers: [
-            { text: "What is actual and present", types: ["S"] },
-            { text: "What is possible and future-oriented", types: ["N"] }
+            { text: "Practical applications of ideas", types: ["S"] },
+            { text: "Exploring theoretical concepts", types: ["N"] }
         ]
     },
     {
-        question: "You've discovered a new species of plant. You name it based on:",
+        question: "You're part of a team designing a new eco-friendly city. Your role focuses on:",
         answers: [
-            { text: "Its unique physical characteristics", types: ["I", "S", "T"] },
-            { text: "The emotion it evokes when you look at it", types: ["E", "N", "F"] },
-            { text: "The location where you found it", types: ["I", "S", "J"] },
-            { text: "A creative wordplay that sounds scientific", types: ["E", "N", "P"] }
+            { text: "Implementing cutting-edge sustainable technologies", types: ["N", "T"] },
+            { text: "Creating community spaces that promote well-being", types: ["S", "F"] },
+            { text: "Developing efficient systems for resource management", types: ["T", "J"] },
+            { text: "Ensuring the city can adapt to future needs", types: ["N", "P"] }
         ]
     },
     {
-        question: "When giving feedback, you're more likely to be:",
+        question: "In a team setting, you're more inclined to:",
         answers: [
-            { text: "Frank and straightforward", types: ["T"] },
-            { text: "Tactful and encouraging", types: ["F"] }
+            { text: "Focus on achieving the goal efficiently", types: ["T"] },
+            { text: "Ensure everyone feels valued and heard", types: ["F"] }
         ]
     },
     {
-        question: "You feel more comfortable when:",
+        question: "You're given the opportunity to travel through time. You choose to:",
         answers: [
-            { text: "Plans are settled and decisions are made", types: ["J"] },
-            { text: "Things are open-ended with room for changes", types: ["P"] }
+            { text: "Observe a significant historical event firsthand", types: ["S", "T"] },
+            { text: "Explore a futuristic society centuries from now", types: ["N", "P"] },
+            { text: "Meet your ancestors and learn about your roots", types: ["S", "F"] },
+            { text: "Attempt to prevent a past global catastrophe", types: ["N", "J"] }
         ]
     },
     {
-        question: "In a parallel universe, your alternate self is:",
+        question: "When working on a project, you:",
         answers: [
-            { text: "A nomadic adventurer exploring uncharted territories", types: ["E", "S", "P"] },
-            { text: "A renowned scientist making groundbreaking discoveries", types: ["I", "N", "T"] },
-            { text: "A charismatic leader inspiring social change", types: ["E", "N", "F"] },
-            { text: "A skilled craftsperson preserving traditional arts", types: ["I", "S", "J"] }
+            { text: "Follow a step-by-step plan to completion", types: ["J"] },
+            { text: "Adapt your approach as you go along", types: ["P"] }
         ]
     },
     {
-        question: "When tackling a new project, you prefer to:",
+        question: "You're in charge of a space mission to make first contact with aliens. Your approach is:",
         answers: [
-            { text: "Brainstorm ideas with a group", types: ["E"] },
-            { text: "Reflect on it independently before sharing your thoughts", types: ["I"] }
+            { text: "Develop a detailed protocol for safe interaction", types: ["S", "T", "J"] },
+            { text: "Focus on creating a welcoming, peaceful atmosphere", types: ["N", "F"] },
+            { text: "Prepare a diverse team to handle any situation", types: ["E", "P"] },
+            { text: "Analyze their technology and scientific knowledge", types: ["I", "T"] }
         ]
     },
     {
-        question: "In conversations, you tend to focus on:",
+        question: "When reading the news, you focus on:",
         answers: [
-            { text: "Specific details and facts", types: ["S"] },
-            { text: "Overall patterns and connections", types: ["N"] }
+            { text: "Specific events and factual details", types: ["S"] },
+            { text: "Broader implications and future trends", types: ["N"] }
         ]
     },
     {
-        question: "You're given a magic wand that can solve one global issue. You choose to:",
+        question: "You're curating a time capsule to be opened in 500 years. You prioritize including:",
         answers: [
-            { text: "End world hunger by creating self-replicating food", types: ["S", "T", "J"] },
-            { text: "Eliminate all forms of pollution instantly", types: ["N", "F", "P"] },
-            { text: "Establish universal education and access to information", types: ["N", "T", "J"] },
-            { text: "Create a universal language to unite all cultures", types: ["S", "F", "P"] }
+            { text: "Detailed records of current events and daily life", types: ["S", "J"] },
+            { text: "Art and media that capture the essence of our time", types: ["N", "F"] },
+            { text: "Samples of current technology and scientific data", types: ["T"] },
+            { text: "Personal letters and stories from diverse individuals", types: ["F", "P"] }
         ]
     },
     {
-        question: "You find it easier to:",
+        question: "When giving feedback, you tend to be:",
         answers: [
-            { text: "Make decisions based on efficiency and logic", types: ["T"] },
-            { text: "Consider how decisions will impact people's emotions", types: ["F"] }
+            { text: "Direct and straightforward", types: ["T"] },
+            { text: "Gentle and encouraging", types: ["F"] }
         ]
     },
     {
-        question: "In your daily life, you prefer to:",
+        question: "You're developing a revolutionary fitness program. Your main focus is:",
         answers: [
-            { text: "Follow a routine and have things planned out", types: ["J"] },
-            { text: "Be spontaneous and adapt to situations as they arise", types: ["P"] }
+            { text: "Incorporating scientifically proven exercise methods", types: ["S", "T"] },
+            { text: "Creating a holistic approach to mind-body wellness", types: ["N", "F"] },
+            { text: "Designing a structured, goal-oriented program", types: ["J"] },
+            { text: "Making workouts fun and adaptable to individual needs", types: ["P"] }
         ]
     },
     {
-        question: "If you could turn any everyday object into a time machine, it would be:",
+        question: "You're much more likely to:",
         answers: [
-            { text: "A mirror, to reflect on different eras", types: ["I", "N", "F"] },
-            { text: "A book, to read between the lines of history", types: ["E", "S", "T"] },
-            { text: "A bicycle, to pedal through the ages", types: ["E", "N", "P"] },
-            { text: "A teacup, to sip the essence of various time periods", types: ["I", "S", "J"] }
+            { text: "Complete tasks well ahead of deadlines", types: ["J"] },
+            { text: "Finish things at the last minute", types: ["P"] }
+        ]
+    },
+    {
+        question: "You're writing a speech for a global peace summit. You emphasize:",
+        answers: [
+            { text: "Concrete steps and actionable plans for cooperation", types: ["S", "T", "J"] },
+            { text: "Inspiring vision of a harmonious future", types: ["N", "F"] },
+            { text: "Analysis of current conflicts and their root causes", types: ["T"] },
+            { text: "Personal stories that highlight our shared humanity", types: ["F", "P"] }
         ]
     },
     {
         question: "Your ideal vacation is:",
         answers: [
-            { text: "An action-packed trip with lots of social activities", types: ["E"] },
-            { text: "A peaceful retreat with plenty of alone time", types: ["I"] }
+            { text: "An action-packed tour with a group", types: ["E"] },
+            { text: "A peaceful retreat in a secluded location", types: ["I"] }
         ]
     },
     {
-        question: "You're more drawn to:",
+        question: "You're creating a new social media platform. Your key feature is:",
         answers: [
-            { text: "Pragmatic solutions to immediate problems", types: ["S"] },
-            { text: "Exploring hypothetical scenarios and ideas", types: ["N"] }
+            { text: "Advanced privacy controls and data protection", types: ["T", "J"] },
+            { text: "AI-driven content curation for personalized experiences", types: ["N", "P"] },
+            { text: "Tools for organizing community events and volunteering", types: ["E", "F"] },
+            { text: "A minimalist interface focusing on genuine connections", types: ["I", "S"] }
         ]
     },
     {
-        question: "You've been chosen to establish the first colony on Mars. Your primary focus is:",
+        question: "In a debate, you find yourself more convinced by:",
         answers: [
-            { text: "Designing efficient living quarters and life support systems", types: ["I", "S", "T"] },
-            { text: "Creating a governance structure for the new society", types: ["E", "N", "J"] },
-            { text: "Establishing communication protocols with Earth", types: ["E", "S", "F"] },
-            { text: "Developing methods for psychological well-being in isolation", types: ["I", "N", "P"] }
+            { text: "Concrete evidence and real-world examples", types: ["S"] },
+            { text: "Logical arguments and potential scenarios", types: ["N"] }
         ]
     },
     {
-        question: "In a team project, you're more focused on:",
+        question: "You're designing a universal language. You prioritize:",
         answers: [
-            { text: "Achieving goals and maintaining high standards", types: ["T"] },
-            { text: "Ensuring everyone feels heard and appreciated", types: ["F"] }
+            { text: "Logical structure and clear grammatical rules", types: ["T", "J"] },
+            { text: "Rich vocabulary for expressing complex emotions", types: ["F"] },
+            { text: "Adaptability to incorporate new concepts easily", types: ["N", "P"] },
+            { text: "Simplicity and ease of learning for all cultures", types: ["S"] }
         ]
     },
     {
-        question: "When starting a project, you tend to:",
+        question: "You're more motivated by:",
         answers: [
-            { text: "Create a detailed plan before beginning", types: ["J"] },
-            { text: "Jump in and figure things out as you go", types: ["P"] }
+            { text: "Recognition of your competence", types: ["T"] },
+            { text: "Appreciation of your personal contributions", types: ["F"] }
         ]
     },
+    {
+        question: "You're establishing a new form of government. Your focus is on:",
+        answers: [
+            { text: "Creating a robust system of checks and balances", types: ["T", "J"] },
+            { text: "Ensuring representation for all societal groups", types: ["F"] },
+            { text: "Implementing innovative decision-making processes", types: ["N", "P"] },
+            { text: "Streamlining bureaucracy for efficient operation", types: ["S", "T"] }
+        ]
+    },
+    {
+        question: "When learning something new, you prefer:",
+        answers: [
+            { text: "Interactive workshops and group activities", types: ["E"] },
+            { text: "Self-paced online courses or books", types: ["I"] }
+        ]
+    },
+    {
+        question: "Your ideal work environment is:",
+        answers: [
+            { text: "Structured with clear expectations", types: ["J"] },
+            { text: "Flexible with room for improvisation", types: ["P"] }
+        ]
+    }
 ]
