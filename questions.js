@@ -8,6 +8,14 @@ const questions = [
         ]
     },
     {
+        // F/T
+        question: "How do you define fairness?",
+        answers: [
+            { text: "Equality: to treat everyone equally", types: ["T"] },
+            { text: "Equity: to treat different people in different ways according to their unique situations", types: ["F"] }
+        ]
+    },
+    {
         // E/I
         question: "How do you like to spend a free evening?",
         answers: [
@@ -37,6 +45,14 @@ const questions = [
         answers: [
             { text: "Letting your feelings guide you and see where it leads", types: ["F"] },
             { text: "Staying open and flexible, learning as you go", types: ["T"] }
+        ]
+    },
+    {
+        // E/I
+        question: "Your interests are:",
+        answers: [
+            { text: "Vast: I am interested in a little bit of everything", types: ["E"] },
+            { text: "Narrow: I like to choose particular interests and research them thoroughly", types: ["I"] }
         ]
     },
     {
@@ -72,11 +88,19 @@ const questions = [
         ]
     },
     {
-        // E/I
-        question: "When you go to a party, which of these situations describes you best?",
+        // N/S
+        question: "When you listen to other people:",
         answers: [
-            { text: "I have conversations with everyone", types: ["E"] },
-            { text: "I only talk to people I know well", types: ["I"] }
+            { text: "It is often difficult for me to understand the implication, reasoning or metaphors used by other people", types: ["S"] },
+            { text: "I can understand the subtext", types: ["N"] }
+        ]
+    },
+    {
+        // E/I
+        question: "How do you feel when you are noticed by other people?",
+        answers: [
+            { text: "I love being the centre of attention. I enjoy feeling like I am in the spotlight", types: ["E"] },
+            { text: "Most of the time I try to avoid being the centre of attention", types: ["I"] }
         ]
     },
     {
@@ -93,6 +117,14 @@ const questions = [
         answers: [
             { text: "I turn them down and finish the task first", types: ["J"] },
             { text: "I play first and then finish the task", types: ["P"] }
+        ]
+    },
+    {
+        // J/P
+        question: "Does punctuality matter?",
+        answers: [
+            { text: "Time is not of much significance to me. There is not a massive difference between 1:30 and 1:45; it is just a rough range.", types: ["P"] },
+            { text: "It is of high importance to me. 1:30 means 1:30, not 1:45. I get annoyed when other people regard punctuality as unimportant", types: ["J"] }
         ]
     },
     {
@@ -137,10 +169,10 @@ const questions = [
     },
     {
         // E/I
-        question: "How do you prefer to engage in conversation at a party?",
+        question: "What do you focus most of your attention on?",
         answers: [
-            { text: "Engage in a lively discussion with a group", types: ["E"] },
-            { text: "Speak one-on-one with a close friend", types: ["I"] }
+            { text: "I focus on the outer world", types: ["E"] },
+            { text: "I focus my attention internally. I dedicate a lot of my time to introspection", types: ["I"] }
         ]
     },
     {
