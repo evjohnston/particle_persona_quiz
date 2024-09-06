@@ -123,8 +123,8 @@ const questions = [
         // J/P
         question: "Does punctuality matter?",
         answers: [
-            { text: "Time is not of much significance to me. There is not a massive difference between 1:30 and 1:45; it is just a rough range.", types: ["P"] },
-            { text: "It is of high importance to me. 1:30 means 1:30, not 1:45. I get annoyed when other people regard punctuality as unimportant", types: ["J"] }
+            { text: "No, there is not a massive difference between 1:30 and 1:45; it is just a rough range.", types: ["P"] },
+            { text: "Yes, 1:30 means 1:30, not 1:45. I get annoyed when other people regard punctuality as unimportant", types: ["J"] }
         ]
     },
     {
