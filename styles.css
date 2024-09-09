@@ -372,14 +372,16 @@ button:hover {
     .modal-content {
         width: auto;
         height: 75vh;
-        padding: 5px;
+        padding: 5px; /* Less padding on smaller screens */
+        border-radius: var(--border-radius);
     }
 
+    /* Update for Modal Image on iPhone */
     #modal-image {
-        width: auto;
-        height: 65vh;
-        object-fit: contain;
-        margin: 0 auto 10px;
+        width: calc(100% - 10px); /* Full width minus padding (5px on each side) */
+        height: calc(100% - 10px); /* Full height minus padding (5px on each side) */
+        object-fit: contain; /* Ensure the image fits without distortion */
+        margin: 0 auto;
     }
 
     /* Reduce profile grid columns */
