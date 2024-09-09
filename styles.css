@@ -320,29 +320,3 @@ button:hover {
 
 #start-quiz { animation-delay: 0s; }
 #learn-more-start { animation-delay: 1s; }
-
-/* Responsive design */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    #start-quiz, #restart-quiz, #restart-quiz-superposition, #save-to-file, #save-to-file-superposition, #learn-more-start, #learn-more-results, #learn-more-results-superposition, #return-to-start, #return-to-results {
-        font-size: 16px;
-        padding: 0px 20px;
-        height: 40px;
-    }
-
-    #superposition-images {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #superposition-images img {
-        max-width: 80%;
-    }
-}
