@@ -81,7 +81,7 @@
                 <img id="modal-image" src="" alt="Particle Persona Profile">
                 <h3 id="modal-title"></h3>
             </div>
-        </div>
+        </div>    
     </div>
 
     <script src="questions.js"></script>
@@ -307,21 +307,6 @@
             }
         }
 
-        function populateProfiles() {
-            const container = document.getElementById('profiles-container');
-            container.innerHTML = '';
-            Object.entries(particlePersonas).forEach(([key, value]) => {
-                const profile = document.createElement('div');
-                profile.className = 'profile';
-                profile.innerHTML = `
-            <img src="profiles/${key}.png" alt="${value.name}">
-            <h3>${value.name}</h3>
-        `;
-                profile.addEventListener('click', () => openModal(key, value.name));
-                container.appendChild(profile);
-            });
-        }
-
         function openModal(key, name) {
             const modal = document.getElementById('profile-modal');
             const modalImg = document.getElementById('modal-image');
@@ -329,7 +314,7 @@
 
             modalImg.src = `profiles/${key}.png`;
             modalTitle.textContent = name;
-            modal.style.display = "block";
+            modal.style.display = "flex";  // Changed from "block" to "flex"
         }
 
         // Close the modal when clicking on <span> (x)
@@ -343,6 +328,22 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+
+        // Make sure this is called only when populating profiles
+        function populateProfiles() {
+            const container = document.getElementById('profiles-container');
+            container.innerHTML = '';
+            Object.entries(particlePersonas).forEach(([key, value]) => {
+                const profile = document.createElement('div');
+                profile.className = 'profile';
+                profile.innerHTML = `
+            <img src="profiles/${key}.png" alt="${value.name}">
+            <h3>${value.name}</h3>
+        `;
+                profile.addEventListener('click', () => openModal(key, value.name));
+                container.appendChild(profile);
+            });
         }
     </script>
 </body>
