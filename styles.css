@@ -429,7 +429,7 @@ button:hover {
 
     /* Further modal adjustments for smaller devices */
     .modal-content {
-        height: 85vh;
+        height: 65vh;
         width: 42vw;
     }
 
