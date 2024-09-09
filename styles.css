@@ -366,7 +366,7 @@ button:hover {
 
     /* Adjust modal for mobile */
     .modal-content {
-        height: 85vh;
+        height: 65vh;
         width: 42vw;
         padding: 15px;
     }
