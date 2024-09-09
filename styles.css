@@ -238,7 +238,7 @@ button:hover {
     background-color: #fefefe;
     padding: 25px;
     border: 1px solid #888;
-    height: 90vh;
+    height: 90vh; /* Full height modal with padding */
     width: auto;
     border-radius: var(--border-radius);
     text-align: center;
@@ -252,8 +252,8 @@ button:hover {
 .close {
     color: #aaa;
     position: absolute;
-    top: -5px;
-    right: 7px;
+    top: -4px;
+    right: 8px;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
@@ -266,17 +266,12 @@ button:hover {
     text-decoration: none;
 }
 
+/* Update for Modal Image */
 #modal-image {
-    width: auto;
-    max-height: 80vh;
-    object-fit: contain;
-    margin: 0 auto 0px;
-}
-
-#modal-title {
-    font-size: 24px;
-    color: var(--primary-color);
-    margin-top: 10px;
+    width: calc(100% - 4px); /* Full width minus padding (25px on each side) */
+    height: calc(100% - 4px); /* Full height minus padding (25px on each side) */
+    object-fit: contain; /* Ensure the image fits without distortion */
+    margin: 0 auto;
 }
 
 /* Superposition Results */
@@ -385,12 +380,6 @@ button:hover {
         height: 65vh;
         object-fit: contain;
         margin: 0 auto 10px;
-    }
-    
-    #modal-title {
-        font-size: 16px;
-        color: var(--primary-color);
-        margin-top: 10px;
     }
 
     /* Reduce profile grid columns */

@@ -78,7 +78,6 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <img id="modal-image" src="" alt="Particle Persona Profile">
-                <h3 id="modal-title"></h3>
             </div>
         </div>
     </div>
@@ -309,10 +308,8 @@
         function openModal(key, name) {
             const modal = document.getElementById('profile-modal');
             const modalImg = document.getElementById('modal-image');
-            const modalTitle = document.getElementById('modal-title');
 
             modalImg.src = `profiles/${key}.png`;
-            modalTitle.textContent = name;
             modal.style.display = "flex";  // Changed from "block" to "flex"
         }
 
