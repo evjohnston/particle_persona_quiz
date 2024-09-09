@@ -243,9 +243,13 @@ button:hover {
     border: 1px solid #888;
     width: 90%;
     max-width: 800px;
+    max-height: 90vh;
     border-radius: var(--border-radius);
     text-align: center;
     position: relative;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .close {
@@ -256,6 +260,7 @@ button:hover {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    z-index: 1;
 }
 
 .close:hover,
@@ -269,11 +274,14 @@ button:hover {
     max-width: 600px;
     height: auto;
     margin-bottom: 15px;
+    object-fit: contain;
+    max-height: 60vh;
 }
 
 #modal-title {
     font-size: 24px;
     color: var(--primary-color);
+    margin-top: 10px;
 }
 
 /* Superposition Results */
@@ -327,6 +335,10 @@ button:hover {
     }
     .profile h3 { font-size: 14px; }
     .superposition-profiles-container { height: 400px; }
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
     #modal-image { max-width: 100%; }
     #modal-title { font-size: 20px; }
 }
@@ -346,4 +358,13 @@ button:hover {
     }
     .profile h3 { font-size: 12px; }
     .superposition-profiles-container { height: 350px; }
+}
+
+@media (max-height: 600px) {
+    .modal-content {
+        max-height: 95vh;
+    }
+    #modal-image {
+        max-height: 50vh;
+    }
 }
