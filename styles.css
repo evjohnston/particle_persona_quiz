@@ -240,7 +240,7 @@ button:hover {
     padding: 25px;
     border: 1px solid #888;
     height: 85vh;
-    width: 42vh;
+    width: 42vw;
     border-radius: var(--border-radius);
     text-align: center;
     position: relative;
@@ -367,7 +367,7 @@ button:hover {
     /* Adjust modal for mobile */
     .modal-content {
         height: 85vh;
-        width: 42vh;
+        width: 42vw;
         padding: 15px;
     }
 
@@ -430,7 +430,7 @@ button:hover {
     /* Further modal adjustments for smaller devices */
     .modal-content {
         height: 85vh;
-        width: 42vh;
+        width: 42vw;
     }
 
     #modal-image {
