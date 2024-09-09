@@ -15,7 +15,8 @@
             <p>Ever wondered if you're as elusive as a neutrino or as influential as a Higgs boson? Maybe you're more of
                 a mischievous muon or an upstanding Up Quark? Whatever your vibe, this quiz will help you
                 <em>collide</em> with your true subatomic self. Let's get <em>charged</em> up and discover what kind of
-                quirky quark you really are!<br><em><strong>~ no physics degree required ~</strong></em></p>
+                quirky quark you really are!<br><em><strong>~ no physics degree required ~</strong></em>
+            </p>
             <div id="particle-carousel">
                 <div class="carousel-inner">
                     <img src="particles/P01.png" alt="Particle 1" class="particle-icon">
@@ -71,6 +72,13 @@
             <div id="profiles-container"></div>
             <button id="return-to-start" style="display: none;">Return to Start</button>
             <button id="return-to-results" style="display: none;">Return to Results</button>
+        </div>
+
+        <div id="profile-modal" class="modal">
+            <div class="modal-content">
+                <img id="modal-image" src="" alt="Large Profile Image">
+                <h3 id="modal-title"></h3>
+            </div>
         </div>
     </div>
 
@@ -304,11 +312,30 @@
                 const profile = document.createElement('div');
                 profile.className = 'profile';
                 profile.innerHTML = `
-                <img src="profiles/${key}.png" alt="${value.name}">
-                <h3>${value.name}</h3>
-            `;
+            <img src="profiles/${key}.png" alt="${value.name}">
+            <h3>${value.name}</h3>
+        `;
+                profile.addEventListener('click', () => openModal(key, value.name));
                 container.appendChild(profile);
             });
+        }
+
+        function openModal(key, name) {
+            const modal = document.getElementById('profile-modal');
+            const modalImg = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+
+            modalImg.src = `profiles/${key}.png`;
+            modalTitle.textContent = name;
+            modal.style.display = "block";
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function (event) {
+            const modal = document.getElementById('profile-modal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
     </script>
 </body>
