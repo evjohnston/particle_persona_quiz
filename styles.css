@@ -368,22 +368,6 @@ button:hover {
         height: 60px;
     }
 
-    /* Ensure modal fits on screen */
-    .modal-content {
-        width: auto;
-        height: 75vh;
-        padding: 5px; /* Less padding on smaller screens */
-        border-radius: var(--border-radius);
-    }
-
-    /* Update for Modal Image on iPhone */
-    #modal-image {
-        width: calc(100% - 10px); /* Full width minus padding (5px on each side) */
-        height: calc(100% - 10px); /* Full height minus padding (5px on each side) */
-        object-fit: contain; /* Ensure the image fits without distortion */
-        margin: 0 auto;
-    }
-
     /* Reduce profile grid columns */
     #profiles-container {
         grid-template-columns: 1fr;
