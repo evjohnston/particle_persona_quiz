@@ -276,5 +276,18 @@ const questions = [
             { text: "A cooperative game where players have to work together to solve a mystery or complete a quest.", types: ["F", "J"] }, // FJ
             { text: "A storytelling game where players create their own characters and explore imaginative scenarios.", types: ["F", "P"] } // FP
         ]
+    },
+    {
+        question: "Schrödinger's Cat is in a box. Do you open the box to check if the cat is alive, or leave it closed?",
+        answers: [
+            { 
+                text: "<strong>Open the box</strong><br><small><em>(Collapse the wave function! Your particle persona will be determined by your answers)</em></small>", 
+                types: ["collapse"] 
+            },
+            { 
+                text: "<strong>Leave it closed</strong><br><small><em>(Embrace superposition! Your final persona could differ from what your answers suggest, but hey, it was never definite until you looked anyway)</em></small>", 
+                types: ["superposition"] 
+            }
+        ]
     }
 ]
