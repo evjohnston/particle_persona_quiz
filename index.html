@@ -12,7 +12,10 @@
     <div id="quiz-container">
         <div id="home-page">
             <h1>Particle Persona Quiz:<br>Discover Your Subatomic Self</h1>
-            <p>Ever wondered if you're as elusive as a neutrino or as influential as a Higgs boson? Maybe you're more of a mischievous muon or an upstanding Up Quark? Whatever your vibe, this quiz will help you <em>collide</em> with your true subatomic self. Let's get <em>charged</em> up and discover what kind of quirky quark you really are!<br><em><strong>~ no physics degree required ~</strong></em></p>
+            <p>Ever wondered if you're as elusive as a neutrino or as influential as a Higgs boson? Maybe you're more of
+                a mischievous muon or an upstanding Up Quark? Whatever your vibe, this quiz will help you
+                <em>collide</em> with your true subatomic self. Let's get <em>charged</em> up and discover what kind of
+                quirky quark you really are!<br><em><strong>~ no physics degree required ~</strong></em></p>
             <div id="particle-carousel">
                 <div class="carousel-inner">
                     <img src="particles/P01.png" alt="Particle 1" class="particle-icon">
@@ -52,7 +55,6 @@
             <img id="result-image" src="" alt="Your Particle Persona">
             <p id="result-description"></p>
             <button id="restart-quiz">Try Again</button>
-            <button id="save-to-file">Save Results</button>
             <button id="learn-more-results">Meet the Gang</button>
         </div>
 
@@ -61,7 +63,6 @@
             <div id="superposition-images"></div>
             <p id="superposition-description"></p>
             <button id="restart-quiz-superposition">Try Again</button>
-            <button id="save-to-file-superposition">Save Results</button>
             <button id="learn-more-results-superposition">Meet the Gang</button>
         </div>
 
@@ -73,266 +74,243 @@
         </div>
     </div>
 
-<script src="questions.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const carouselInner = document.querySelector('.carousel-inner');
-        const icons = carouselInner.querySelectorAll('.particle-icon');
-        const iconWidth = 80;
-        const totalIcons = icons.length;
-        const totalWidth = iconWidth * totalIcons;
-        carouselInner.style.width = `${totalWidth}px`;
+    <script src="questions.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselInner = document.querySelector('.carousel-inner');
+            const icons = carouselInner.querySelectorAll('.particle-icon');
+            const iconWidth = 80;
+            const totalIcons = icons.length;
+            const totalWidth = iconWidth * totalIcons;
+            carouselInner.style.width = `${totalWidth}px`;
 
-        let position = 0;
+            let position = 0;
 
-        function move() {
-            position -= 0.5;
-            if (position <= -totalWidth) {
-                position = 0;
-            }
-            carouselInner.style.transform = `translateX(${position}px)`;
-            requestAnimationFrame(move);
-        }
-
-        move();
-    });
-
-    const particlePersonas = {
-        "P01": { name: "Anti-down Quark", mbti: "ISTJ" },
-        "P10": { name: "Anti-up Quark", mbti: "ESTJ" },
-        "P09": { name: "Antimuon", mbti: "ESTP" },
-        "P08": { name: "Axion", mbti: "INTP" },
-        "P03": { name: "Down Quark", mbti: "ISFJ" },
-        "P04": { name: "Electron", mbti: "ISFP" },
-        "P14": { name: "Electron Antineutrino", mbti: "ENFJ" },
-        "P13": { name: "Electron Neutrino", mbti: "ENFP" },
-        "P07": { name: "Gravitino", mbti: "INTJ" },
-        "P05": { name: "Higgs Boson", mbti: "INFJ" },
-        "P16": { name: "Muon", mbti: "ENTJ" },
-        "P02": { name: "Neutralino", mbti: "ISTP" },
-        "P11": { name: "Positron", mbti: "ESFP" },
-        "P15": { name: "Sterile Neutrino", mbti: "ENTP" },
-        "P12": { name: "Up Quark", mbti: "ESFJ" },
-        "P06": { name: "WIMP", mbti: "INFP" }
-    };
-
-    const particleIcons = [
-        'P01.png', 'P02.png', 'P03.png', 'P04.png', 'P05.png', 'P06.png', 'P07.png', 'P08.png',
-        'P09.png', 'P10.png', 'P11.png', 'P12.png', 'P13.png', 'P14.png', 'P15.png', 'P16.png'
-    ];
-
-    let currentQuestion = 0;
-    const totalQuestions = 35;
-    let mbtiScores = {
-        E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0
-    };
-    let schrodingerAnswer = null;
-
-    document.getElementById('start-quiz').addEventListener('click', startQuiz);
-    document.getElementById('restart-quiz').addEventListener('click', restartQuiz);
-    document.getElementById('restart-quiz-superposition').addEventListener('click', restartQuiz);
-    document.getElementById('learn-more-start').addEventListener('click', () => showProfilesPage('start'));
-    document.getElementById('learn-more-results').addEventListener('click', () => showProfilesPage('results'));
-    document.getElementById('learn-more-results-superposition').addEventListener('click', () => showProfilesPage('results'));
-    document.getElementById('return-to-start').addEventListener('click', returnToStart);
-    document.getElementById('return-to-results').addEventListener('click', showResultsPage);
-    document.getElementById('save-to-file').addEventListener('click', saveToFile);
-    document.getElementById('save-to-file-superposition').addEventListener('click', saveToFile);
-
-    function startQuiz() {
-        document.getElementById('home-page').style.display = 'none';
-        document.getElementById('question-page').style.display = 'block';
-        showQuestion(currentQuestion);
-        updateProgressBar();
-    }
-
-    function showQuestion(index) {
-        const question = questions[index];
-        document.getElementById('question-text').textContent = question.question;
-        const answerButtons = document.getElementById('answer-buttons');
-        answerButtons.innerHTML = '';
-        question.answers.forEach(answer => {
-            const button = document.createElement('button');
-            button.innerHTML = answer.text;
-            button.addEventListener('click', () => selectAnswer(answer));
-            answerButtons.appendChild(button);
-        });
-        updateProgressBar();
-    }
-
-    function selectAnswer(answer) {
-        if (currentQuestion === totalQuestions - 1) {
-            schrodingerAnswer = answer.types[0];
-        } else {
-            answer.types.forEach(type => {
-                if (type in mbtiScores) {
-                    mbtiScores[type]++;
+            function move() {
+                position -= 0.5;
+                if (position <= -totalWidth) {
+                    position = 0;
                 }
-            });
-        }
-
-        document.querySelectorAll('#answer-buttons button').forEach(button => {
-            button.disabled = true;
-        });
-
-        setTimeout(() => {
-            currentQuestion++;
-            if (currentQuestion < totalQuestions) {
-                showQuestion(currentQuestion);
-            } else {
-                showResults();
+                carouselInner.style.transform = `translateX(${position}px)`;
+                requestAnimationFrame(move);
             }
-            updateProgressBar();
-        }, 100);
-    }
 
-    function updateProgressBar() {
-        const progressBar = document.getElementById('progress-bar');
-        const progressText = document.getElementById('progress-text');
-        const progress = (currentQuestion / totalQuestions) * 100;
-
-        progressBar.style.width = `${progress}%`;
-        progressText.textContent = `Question ${currentQuestion + 1} of ${totalQuestions}`;
-    }
-
-    function showResults() {
-        const topTwoPersonas = getTopTwoPersonas();
-
-        if (schrodingerAnswer === 'superposition') {
-            showSuperpositionResults(topTwoPersonas);
-        } else {
-            showCollapseResults(topTwoPersonas[0]);
-        }
-    }
-
-    function showCollapseResults(resultPersona) {
-        document.getElementById('result-image').src = `profiles/${resultPersona.key}.png`;
-        document.getElementById('result-description').textContent = `Your Particle Persona is... ${resultPersona.name}!`;
-        document.getElementById('question-page').style.display = 'none';
-        document.getElementById('results-page').style.display = 'block';
-    }
-
-    function showSuperpositionResults(topTwoPersonas) {
-        const superpositionImages = document.getElementById('superposition-images');
-        superpositionImages.innerHTML = `
-            <img src="profiles/${topTwoPersonas[0].key}.png" alt="${topTwoPersonas[0].name}">
-            <img src="profiles/${topTwoPersonas[1].key}.png" alt="${topTwoPersonas[1].name}">
-        `;
-        document.getElementById('superposition-description').innerHTML = `
-            <p><h2>Congratulations! You've embraced the quantum realm.</h2></p> 
-            <p>Your Particle Persona exists in a superposition of two states:</p>
-            <p><strong>${topTwoPersonas[0].name}</strong> and <strong>${topTwoPersonas[1].name}</strong></p>
-            <p>Just like Schrödinger's cat, you're simultaneously both... until you decide to go back and collapse the wave function!</p>
-        `;
-        document.getElementById('question-page').style.display = 'none';
-        document.getElementById('superposition-results-page').style.display = 'block';
-    }
-
-    function getTopTwoPersonas() {
-        const mbtiType = determineMBTIType();
-        
-        const similarityScores = Object.entries(particlePersonas).map(([key, value]) => {
-            const similarity = calculateMBTISimilarity(mbtiType, value.mbti);
-            return { key, name: value.name, similarity };
+            move();
         });
 
-        return similarityScores.sort((a, b) => b.similarity - a.similarity).slice(0, 2);
-    }
+        const particlePersonas = {
+            "P01": { name: "Anti-down Quark", mbti: "ISTJ" },
+            "P10": { name: "Anti-up Quark", mbti: "ESTJ" },
+            "P09": { name: "Antimuon", mbti: "ESTP" },
+            "P08": { name: "Axion", mbti: "INTP" },
+            "P03": { name: "Down Quark", mbti: "ISFJ" },
+            "P04": { name: "Electron", mbti: "ISFP" },
+            "P14": { name: "Electron Antineutrino", mbti: "ENFJ" },
+            "P13": { name: "Electron Neutrino", mbti: "ENFP" },
+            "P07": { name: "Gravitino", mbti: "INTJ" },
+            "P05": { name: "Higgs Boson", mbti: "INFJ" },
+            "P16": { name: "Muon", mbti: "ENTJ" },
+            "P02": { name: "Neutralino", mbti: "ISTP" },
+            "P11": { name: "Positron", mbti: "ESFP" },
+            "P15": { name: "Sterile Neutrino", mbti: "ENTP" },
+            "P12": { name: "Up Quark", mbti: "ESFJ" },
+            "P06": { name: "WIMP", mbti: "INFP" }
+        };
 
-    function determineMBTIType() {
-        return [
-            mbtiScores.E > mbtiScores.I ? 'E' : 'I',
-            mbtiScores.S > mbtiScores.N ? 'S' : 'N',
-            mbtiScores.T > mbtiScores.F ? 'T' : 'F',
-            mbtiScores.J > mbtiScores.P ? 'J' : 'P'
-        ].join('');
-    }
+        const particleIcons = [
+            'P01.png', 'P02.png', 'P03.png', 'P04.png', 'P05.png', 'P06.png', 'P07.png', 'P08.png',
+            'P09.png', 'P10.png', 'P11.png', 'P12.png', 'P13.png', 'P14.png', 'P15.png', 'P16.png'
+        ];
 
-    function calculateMBTISimilarity(type1, type2) {
-        let similarity = 0;
-        for (let i = 0; i < 4; i++) {
-            if (type1[i] === type2[i]) similarity++;
+        let currentQuestion = 0;
+        const totalQuestions = 35;
+        let mbtiScores = {
+            E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0
+        };
+        let schrodingerAnswer = null;
+
+        document.getElementById('start-quiz').addEventListener('click', startQuiz);
+        document.getElementById('restart-quiz').addEventListener('click', restartQuiz);
+        document.getElementById('restart-quiz-superposition').addEventListener('click', restartQuiz);
+        document.getElementById('learn-more-start').addEventListener('click', () => showProfilesPage('start'));
+        document.getElementById('learn-more-results').addEventListener('click', () => showProfilesPage('results'));
+        document.getElementById('learn-more-results-superposition').addEventListener('click', () => showProfilesPage('results'));
+        document.getElementById('return-to-start').addEventListener('click', returnToStart);
+        document.getElementById('return-to-results').addEventListener('click', showResultsPage);
+
+        function startQuiz() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('question-page').style.display = 'block';
+            showQuestion(currentQuestion);
+            updateProgressBar();
         }
-        return similarity;
-    }
 
-    function restartQuiz() {
-        currentQuestion = 0;
-        mbtiScores = Object.fromEntries(Object.keys(mbtiScores).map(key => [key, 0]));
-        schrodingerAnswer = null;
-        document.getElementById('results-page').style.display = 'none';
-        document.getElementById('superposition-results-page').style.display = 'none';
-        document.getElementById('home-page').style.display = 'block';
-        updateProgressBar();
-    }
+        function showQuestion(index) {
+            const question = questions[index];
+            document.getElementById('question-text').textContent = question.question;
+            const answerButtons = document.getElementById('answer-buttons');
+            answerButtons.innerHTML = '';
+            question.answers.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerHTML = answer.text;
+                button.addEventListener('click', () => selectAnswer(answer));
+                answerButtons.appendChild(button);
+            });
+            updateProgressBar();
+        }
 
-    function showProfilesPage(source) {
-        document.getElementById('home-page').style.display = 'none';
-        document.getElementById('results-page').style.display = 'none';
-        document.getElementById('superposition-results-page').style.display = 'none';
-        document.getElementById('profiles-page').style.display = 'block';
-        document.getElementById('return-to-start').style.display = source === 'start' ? 'inline-block' : 'none';
-        document.getElementById('return-to-results').style.display = source === 'results' ? 'inline-block' : 'none';
-        populateProfiles();
-    }
+        function selectAnswer(answer) {
+            if (currentQuestion === totalQuestions - 1) {
+                schrodingerAnswer = answer.types[0];
+            } else {
+                answer.types.forEach(type => {
+                    if (type in mbtiScores) {
+                        mbtiScores[type]++;
+                    }
+                });
+            }
 
-    function returnToStart() {
-        document.getElementById('profiles-page').style.display = 'none';
-        document.getElementById('home-page').style.display = 'block';
-    }
+            document.querySelectorAll('#answer-buttons button').forEach(button => {
+                button.disabled = true;
+            });
 
-    function showResultsPage() {
-        document.getElementById('profiles-page').style.display = 'none';
-        if (schrodingerAnswer === 'superposition') {
-            document.getElementById('superposition-results-page').style.display = 'block';
-        } else {
+            setTimeout(() => {
+                currentQuestion++;
+                if (currentQuestion < totalQuestions) {
+                    showQuestion(currentQuestion);
+                } else {
+                    showResults();
+                }
+                updateProgressBar();
+            }, 100);
+        }
+
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const progress = (currentQuestion / totalQuestions) * 100;
+
+            progressBar.style.width = `${progress}%`;
+            progressText.textContent = `Question ${currentQuestion + 1} of ${totalQuestions}`;
+        }
+
+        function showResults() {
+            const topTwoPersonas = getTopTwoPersonas();
+
+            if (schrodingerAnswer === 'superposition') {
+                showSuperpositionResults(topTwoPersonas);
+            } else {
+                showCollapseResults(topTwoPersonas[0]);
+            }
+        }
+
+        function showCollapseResults(resultPersona) {
+            document.getElementById('result-image').src = `profiles/${resultPersona.key}.png`;
+            document.getElementById('result-description').textContent = `Your Particle Persona is... ${resultPersona.name}!`;
+            document.getElementById('question-page').style.display = 'none';
             document.getElementById('results-page').style.display = 'block';
         }
-    }
 
-    function populateProfiles() {
-        const container = document.getElementById('profiles-container');
-        container.innerHTML = '';
-        Object.entries(particlePersonas).forEach(([key, value]) => {
-            const profile = document.createElement('div');
-            profile.className = 'profile';
-            profile.innerHTML = `
+        function showSuperpositionResults(topTwoPersonas) {
+            const superpositionImages = document.getElementById('superposition-images');
+            superpositionImages.innerHTML = `
+        <div class="superposition-profiles-container">
+            <div class="profile">
+                <img src="profiles/${topTwoPersonas[0].key}.png" alt="${topTwoPersonas[0].name}">
+                <h3>${topTwoPersonas[0].name}</h3>
+            </div>
+            <div class="profile">
+                <img src="profiles/${topTwoPersonas[1].key}.png" alt="${topTwoPersonas[1].name}">
+                <h3>${topTwoPersonas[1].name}</h3>
+            </div>
+        </div>
+    `;
+            document.getElementById('superposition-description').innerHTML = `
+        <p><h2>Congratulations! You've embraced the quantum realm.</h2></p> 
+        <p>Your Particle Persona exists in a superposition of two states:</p>
+        <p><strong>${topTwoPersonas[0].name}</strong> and <strong>${topTwoPersonas[1].name}</strong></p>
+        <p>Just like Schrödinger's cat, you're simultaneously both... until you decide to go back and collapse the wave function!</p>
+    `;
+            document.getElementById('question-page').style.display = 'none';
+            document.getElementById('superposition-results-page').style.display = 'block';
+        }
+
+        function getTopTwoPersonas() {
+            const mbtiType = determineMBTIType();
+
+            const similarityScores = Object.entries(particlePersonas).map(([key, value]) => {
+                const similarity = calculateMBTISimilarity(mbtiType, value.mbti);
+                return { key, name: value.name, similarity };
+            });
+
+            return similarityScores.sort((a, b) => b.similarity - a.similarity).slice(0, 2);
+        }
+
+        function determineMBTIType() {
+            return [
+                mbtiScores.E > mbtiScores.I ? 'E' : 'I',
+                mbtiScores.S > mbtiScores.N ? 'S' : 'N',
+                mbtiScores.T > mbtiScores.F ? 'T' : 'F',
+                mbtiScores.J > mbtiScores.P ? 'J' : 'P'
+            ].join('');
+        }
+
+        function calculateMBTISimilarity(type1, type2) {
+            let similarity = 0;
+            for (let i = 0; i < 4; i++) {
+                if (type1[i] === type2[i]) similarity++;
+            }
+            return similarity;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            mbtiScores = Object.fromEntries(Object.keys(mbtiScores).map(key => [key, 0]));
+            schrodingerAnswer = null;
+            document.getElementById('results-page').style.display = 'none';
+            document.getElementById('superposition-results-page').style.display = 'none';
+            document.getElementById('home-page').style.display = 'block';
+            updateProgressBar();
+        }
+
+        function showProfilesPage(source) {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('results-page').style.display = 'none';
+            document.getElementById('superposition-results-page').style.display = 'none';
+            document.getElementById('profiles-page').style.display = 'block';
+            document.getElementById('return-to-start').style.display = source === 'start' ? 'inline-block' : 'none';
+            document.getElementById('return-to-results').style.display = source === 'results' ? 'inline-block' : 'none';
+            populateProfiles();
+        }
+
+        function returnToStart() {
+            document.getElementById('profiles-page').style.display = 'none';
+            document.getElementById('home-page').style.display = 'block';
+        }
+
+        function showResultsPage() {
+            document.getElementById('profiles-page').style.display = 'none';
+            if (schrodingerAnswer === 'superposition') {
+                document.getElementById('superposition-results-page').style.display = 'block';
+            } else {
+                document.getElementById('results-page').style.display = 'block';
+            }
+        }
+
+        function populateProfiles() {
+            const container = document.getElementById('profiles-container');
+            container.innerHTML = '';
+            Object.entries(particlePersonas).forEach(([key, value]) => {
+                const profile = document.createElement('div');
+                profile.className = 'profile';
+                profile.innerHTML = `
                 <img src="profiles/${key}.png" alt="${value.name}">
                 <h3>${value.name}</h3>
             `;
-            container.appendChild(profile);
-        });
-    }
-
-    function saveToFile() {
-        const resultImages = document.getElementById('superposition-results-page').style.display === 'none'
-            ? [document.getElementById('result-image')]
-            : document.getElementById('superposition-images').getElementsByTagName('img');
-
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = resultImages.length * 200;
-        canvas.height = 200;
-
-        let loadedImages = 0;
-        Array.from(resultImages).forEach((img, index) => {
-            const tempImg = new Image();
-            tempImg.onload = () => {
-                ctx.drawImage(tempImg, index * 200, 0, 200, 200);
-                loadedImages++;
-                if (loadedImages === resultImages.length) {
-                    const a = document.createElement('a');
-                    a.href = canvas.toDataURL('image/png');
-                    a.download = 'Particle_Persona_Image.png';
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                }
-            };
-            tempImg.src = img.src;
-        });
-    }
-</script>
+                container.appendChild(profile);
+            });
+        }
+    </script>
 </body>
 
 </html>

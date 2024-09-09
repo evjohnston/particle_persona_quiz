@@ -285,7 +285,7 @@ const questions = [
                 types: ["collapse"] 
             },
             { 
-                text: "<strong>Leave it closed</strong><br><small><em>(Embrace superposition! Your final persona could differ from what your answers suggest, but hey, it was never definite until you looked anyway)</em></small>", 
+                text: "<strong>Leave it closed</strong><br><small><em>(Embrace uncertainty! See which two personas exist in superposition as your quantum alter-egos)</em></small>", 
                 types: ["superposition"] 
             }
         ]
