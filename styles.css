@@ -46,7 +46,7 @@ h2 {
 
 p {
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* Buttons */
@@ -54,7 +54,7 @@ button {
     background-color: #4fc3f7;
     border: none;
     color: white;
-    padding: 0px 24px;
+    padding: 10px 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -72,59 +72,6 @@ button:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-#start-quiz,
-#restart-quiz,
-#restart-quiz-superposition {
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 24px;
-}
-
-/* Uniform button styles for additional buttons */
-#save-to-file,
-#save-to-file-superposition,
-#learn-more-start,
-#learn-more-results,
-#learn-more-results-superposition,
-#return-to-start,
-#return-to-results {
-    background-color: #4fc3f7;
-    height: 40px;
-    border: none;
-    color: white;
-    padding: 0px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    margin: 10px 5px;
-    cursor: pointer;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    justify-content: center;
-    align-items: center;
-}
-
-#return-to-start,
-#return-to-results {
-    margin-top: 25px;
-}
-
-#save-to-file:hover,
-#save-to-file-superposition:hover,
-#share-results:hover,
-#learn-more-start:hover,
-#learn-more-results:hover,
-#learn-more-results-superposition:hover,
-#return-to-start:hover,
-#return-to-results:hover {
-    background-color: #03a9f4;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
 /* Answer buttons */
 #answer-buttons {
     display: flex;
@@ -136,7 +83,7 @@ button:hover {
 #answer-buttons button {
     width: 100%;
     max-width: 450px;
-    padding: 20px 24px;
+    padding: 15px 24px;
     margin: 10px 0;
     background-color: #fff;
     color: #333;
@@ -148,7 +95,7 @@ button:hover {
 }
 
 /* Results page */
-#result-image {
+#result-image, #superposition-images img {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
@@ -156,76 +103,9 @@ button:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-#result-description {
+#result-description, #superposition-description {
     font-size: 18px;
     font-weight: bold;
-    color: #0277bd;
-}
-
-/* Superposition Results page */
-#superposition-results-page {
-    text-align: center;
-}
-
-.superposition-profiles-container {
-    width: 90%; /* Increased from 100% to give some margin on the sides */
-    max-width: 800px; /* Increased from 600px to allow for larger images */
-    height: 500px; /* Increased from 400px to show more content */
-    overflow-y: auto;
-    margin: 0 auto 20px;
-    border: 2px solid #4fc3f7;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.superposition-profiles-container .profile {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.superposition-profiles-container .profile img {
-    width: 100%; /* This ensures the image takes up the full width of its container */
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 10px;
-}
-
-.superposition-profiles-container .profile h3 {
-    font-size: 18px;
-    color: #0277bd;
-    margin-bottom: 5px;
-}
-
-/* Scrollbar styles for the superposition profiles container */
-.superposition-profiles-container::-webkit-scrollbar {
-    width: 10px;
-}
-
-.superposition-profiles-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-.superposition-profiles-container::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
-
-.superposition-profiles-container::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-#superposition-description {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-#superposition-description strong {
     color: #0277bd;
 }
 
@@ -260,6 +140,7 @@ button:hover {
     font-weight: 500;
 }
 
+/* Particle carousel */
 #particle-carousel {
     width: 100%;
     height: 80px;
@@ -289,7 +170,7 @@ button:hover {
 
 #profiles-container {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     max-height: 70vh;
     overflow-y: auto;
@@ -305,6 +186,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
 }
 
 .profile:hover {
@@ -314,24 +196,18 @@ button:hover {
 
 .profile img {
     width: 100%;
-    max-width: 600px;
     height: auto;
     object-fit: contain;
     margin-bottom: 10px;
 }
 
 .profile h3 {
-    font-size: 18px;
+    font-size: 16px;
     color: #0277bd;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
 }
 
-.profile p {
-    font-size: 14px;
-    color: #555;
-}
-
-/* Scrollbar styles for the profiles container */
+/* Scrollbar styles */
 #profiles-container::-webkit-scrollbar {
     width: 10px;
 }
@@ -350,52 +226,13 @@ button:hover {
     background: #555;
 }
 
-/* Animation */
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(10px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-@keyframes float-reverse {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(10px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-#start-quiz,
-#learn-more-start {
-    animation: float 2s ease-in-out infinite;
-}
-
-#start-quiz {
-    animation-delay: 0s;
-}
-
-#learn-more-start {
-    animation-delay: 1s;
-}
-
-/* Modal styles */
 .modal {
     display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
-    width: 91%;
+    width: 90%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.8);
@@ -406,7 +243,7 @@ button:hover {
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 90%;
     max-width: 800px;
     border-radius: 10px;
     text-align: center;
@@ -439,34 +276,144 @@ button:hover {
     color: #0277bd;
 }
 
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+
+    #modal-image {
+        max-width: 100%;
+    }
+
+    #modal-title {
+        font-size: 20px;
+    }
+}
+
+/* Superposition Results page */
+.superposition-profiles-container {
+    width: 90%;
+    max-width: 800px;
+    height: 500px;
+    overflow-y: auto;
+    margin: 0 auto 20px;
+    border: 2px solid #4fc3f7;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.superposition-profiles-container .profile {
+    margin-bottom: 15px;
+}
+
+.superposition-profiles-container .profile img {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+#start-quiz, #learn-more-start {
+    animation: float 2s ease-in-out infinite;
+}
+
+#start-quiz { animation-delay: 0s; }
+#learn-more-start { animation-delay: 1s; }
+
 /* Responsive design */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    #quiz-container {
+        padding: 20px;
+    }
+
     h1 {
         font-size: 24px;
     }
 
     h2 {
         font-size: 20px;
-        color: #0277bd;
     }
 
-    #start-quiz, #restart-quiz, #restart-quiz-superposition, #save-to-file, #save-to-file-superposition, #learn-more-start, #learn-more-results, #learn-more-results-superposition, #return-to-start, #return-to-results {
+    p {
+        font-size: 14px;
+    }
+
+    button {
         font-size: 16px;
-        padding: 0px 20px;
-        height: 40px;
+        padding: 8px 20px;
     }
 
-    #superposition-images {
-        flex-direction: column;
-        align-items: center;
+    #answer-buttons button {
+        padding: 12px 20px;
     }
 
-    #superposition-images img {
-        max-width: 80%;
+    #profiles-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .profile h3 {
+        font-size: 14px;
     }
 
     .superposition-profiles-container {
-        width: 95%; /* Slightly wider on mobile for better use of space */
-        height: 400px; /* Slightly shorter on mobile */
+        height: 400px;
+    }
+
+    #modal-image {
+        max-width: 100%;
+    }
+
+    #modal-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #quiz-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    #answer-buttons button {
+        padding: 10px 16px;
+    }
+
+    #profiles-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .profile h3 {
+        font-size: 12px;
+    }
+
+    .superposition-profiles-container {
+        height: 350px;
     }
 }

@@ -74,9 +74,11 @@
             <button id="return-to-results" style="display: none;">Return to Results</button>
         </div>
 
+        <!-- Modal structure -->
         <div id="profile-modal" class="modal">
             <div class="modal-content">
-                <img id="modal-image" src="" alt="Large Profile Image">
+                <span class="close">&times;</span>
+                <img id="modal-image" src="" alt="Particle Persona Profile">
                 <h3 id="modal-title"></h3>
             </div>
         </div>
@@ -328,6 +330,11 @@
             modalImg.src = `profiles/${key}.png`;
             modalTitle.textContent = name;
             modal.style.display = "block";
+        }
+
+        // Close the modal when clicking on <span> (x)
+        document.querySelector('.close').onclick = function () {
+            document.getElementById('profile-modal').style.display = "none";
         }
 
         // Close the modal when clicking outside of it
