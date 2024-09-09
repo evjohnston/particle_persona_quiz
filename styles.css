@@ -413,29 +413,3 @@ button:hover {
         grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
     }
 }
-
-@media (max-width: 480px) {
-    #quiz-container { padding: 15px; }
-    h1 { font-size: 22px; }
-    h2 { font-size: 18px; }
-    p { font-size: 13px; }
-    button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-    #answer-buttons button { padding: 10px 16px; }
-    #profiles-container {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    }
-    .profile h3 { font-size: 12px; }
-    .superposition-profiles-container { height: 350px; }
-}
-
-@media (max-height: 600px) {
-    .modal-content {
-        max-height: 95vh;
-    }
-    #modal-image {
-        max-height: 50vh;
-    }
-}
