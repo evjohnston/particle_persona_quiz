@@ -241,8 +241,8 @@ button:hover {
     background-color: #fefefe;
     padding: 25px;
     border: 1px solid #888;
-    max-width: 800px;
-    max-height: 90vh;
+    height: 85vh;
+    width: 60vh;
     border-radius: var(--border-radius);
     text-align: center;
     position: relative;
@@ -271,9 +271,8 @@ button:hover {
 
 #modal-image {
     width: auto;
-    max-width: 100%;
-    height: auto;
-    max-height: 60vh;
+    max-width: 54vh;
+    max-height: 80vh;
     object-fit: contain;
     margin: 0 auto 15px;
 }
