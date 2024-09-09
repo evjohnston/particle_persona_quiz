@@ -70,6 +70,10 @@ button {
     box-shadow: var(--box-shadow);
 }
 
+#return-to-start, #return-to-results {
+    margin: 45px 5px 0px 5px;
+}
+
 button:hover {
     background-color: #03a9f4;
     transform: translateY(-2px);
