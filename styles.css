@@ -235,6 +235,9 @@ button:hover {
 }
 
 .modal-content {
+    background-color: #fefefe;
+    padding: 25px;
+    border: 1px solid #888;
     height: 90vh; /* Full height modal with padding */
     width: auto;
     border-radius: var(--border-radius);
