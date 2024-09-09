@@ -240,7 +240,7 @@ button:hover {
     padding: 25px;
     border: 1px solid #888;
     height: 85vh;
-    width: 59vw;
+    width: auto;
     border-radius: var(--border-radius);
     text-align: center;
     position: relative;
@@ -324,3 +324,67 @@ button:hover {
 
 #start-quiz { animation-delay: 0s; }
 #learn-more-start { animation-delay: 1s; }
+
+
+/* ------------------------------------------------- */
+/* Add responsive styles for iPhone 15 specifically  */
+/* ------------------------------------------------- */
+
+@media only screen and (max-width: 393px) and (max-height: 852px) {
+    /* Keep gray background visible and adjust the container */
+    #quiz-container {
+        padding: 15px;
+        max-width: 90vw; /* Adjust the width to fit the iPhone screen */
+        height: auto; /* Let the height be flexible */
+        margin: 20px 0; /* Add some margin to keep space around the container */
+        box-shadow: none; /* Simplify shadows on small screens */
+        border-radius: 10px;
+    }
+
+    /* Scale down headings */
+    h1 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    /* Scale down paragraphs */
+    p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    /* Scale buttons */
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+        margin: 8px 4px;
+    }
+
+    /* Reduce size of particle icons */
+    #particle-carousel {
+        height: 60px;
+    }
+
+    .particle-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Ensure modal fits on screen */
+    .modal-content {
+        width: auto;
+        height: 75vh;
+        padding: 15px;
+    }
+
+    /* Reduce profile grid columns */
+    #profiles-container {
+        grid-template-columns: 1fr;
+        padding: 5px;
+    }
+}
