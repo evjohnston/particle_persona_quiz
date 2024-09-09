@@ -328,8 +328,8 @@ button:hover {
 /* Responsive design for mobile devices */
 @media only screen and (max-width: 768px) {
     #quiz-container {
-        padding: 15px;
-        max-width: 90%;
+        padding: 10px;
+        max-width: 80%;
     }
 
     h1 {
