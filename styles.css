@@ -241,7 +241,6 @@ button:hover {
     background-color: #fefefe;
     padding: 25px;
     border: 1px solid #888;
-    width: 55%;
     max-width: 800px;
     max-height: 90vh;
     border-radius: var(--border-radius);
