@@ -326,8 +326,8 @@ button:hover {
     }
 
     #quiz-container {
-        height: 100vh;
-        max-height: 100vh;
+        height: 80vh;
+        max-height: 80vh;
         padding: 10px;
         display: flex;
         flex-direction: column;
