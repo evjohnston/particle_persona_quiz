@@ -240,7 +240,7 @@ button:hover {
     padding: 25px;
     border: 1px solid #888;
     height: 85vh;
-    width: 42vw;
+    width: 67vw;
     border-radius: var(--border-radius);
     text-align: center;
     position: relative;
@@ -253,8 +253,8 @@ button:hover {
 .close {
     color: #aaa;
     position: absolute;
-    top: -7px;
-    right: 5px;
+    top: -5px;
+    right: 7px;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
@@ -324,127 +324,3 @@ button:hover {
 
 #start-quiz { animation-delay: 0s; }
 #learn-more-start { animation-delay: 1s; }
-
-/* Responsive design for mobile devices */
-@media only screen and (max-width: 768px) {
-    #quiz-container {
-        padding: 10px;
-        max-width: 80%;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    p {
-        font-size: 14px;
-    }
-
-    button {
-        font-size: 16px;
-        padding: 8px 20px;
-    }
-
-    #answer-buttons button {
-        max-width: 100%;
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-
-    #particle-carousel {
-        height: 60px;
-    }
-
-    .particle-icon {
-        width: 60px;
-        height: 60px;
-    }
-
-    /* Adjust modal for mobile */
-    .modal-content {
-        height: 65vh;
-        width: 42vw;
-        padding: 15px;
-    }
-
-    #modal-image {
-        max-width: 80vw;
-        max-height: 70vh;
-    }
-
-    #modal-title {
-        font-size: 20px;
-    }
-
-    /* Adjust profile cards */
-    #profiles-container {
-        grid-template-columns: 1fr;
-        padding: 5px;
-    }
-
-    .profile {
-        padding: 10px;
-    }
-
-    .profile h3 {
-        font-size: 14px;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    h1 {
-        font-size: 20px;
-    }
-
-    h2 {
-        font-size: 16px;
-    }
-
-    p {
-        font-size: 13px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 6px 16px;
-    }
-
-    #answer-buttons button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-
-    #particle-carousel {
-        height: 50px;
-    }
-
-    .particle-icon {
-        width: 50px;
-        height: 50px;
-    }
-
-    /* Further modal adjustments for smaller devices */
-    .modal-content {
-        height: 65vh;
-        width: 42vw;
-    }
-
-    #modal-image {
-        max-width: 70vw;
-        max-height: 60vh;
-    }
-
-    /* Profile cards */
-    #profiles-container {
-        grid-template-columns: 1fr;
-        padding: 5px;
-    }
-
-    .profile h3 {
-        font-size: 12px;
-    }
-}
