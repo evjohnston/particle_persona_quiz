@@ -46,7 +46,7 @@ h2 {
 
 p {
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 /* Buttons */
@@ -73,7 +73,8 @@ button:hover {
 }
 
 #start-quiz,
-#restart-quiz {
+#restart-quiz,
+#restart-quiz-superposition {
     height: 40px;
     justify-content: center;
     align-items: center;
@@ -82,8 +83,10 @@ button:hover {
 
 /* Uniform button styles for additional buttons */
 #save-to-file,
+#save-to-file-superposition,
 #learn-more-start,
 #learn-more-results,
+#learn-more-results-superposition,
 #return-to-start,
 #return-to-results {
     background-color: #4fc3f7;
@@ -110,9 +113,11 @@ button:hover {
 }
 
 #save-to-file:hover,
+#save-to-file-superposition:hover,
 #share-results:hover,
 #learn-more-start:hover,
 #learn-more-results:hover,
+#learn-more-results-superposition:hover,
 #return-to-start:hover,
 #return-to-results:hover {
     background-color: #03a9f4;
@@ -154,6 +159,35 @@ button:hover {
 #result-description {
     font-size: 18px;
     font-weight: bold;
+    color: #0277bd;
+}
+
+/* Superposition Results page */
+#superposition-results-page {
+    text-align: center;
+}
+
+#superposition-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#superposition-images img {
+    max-width: 45%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#superposition-description {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#superposition-description strong {
     color: #0277bd;
 }
 
@@ -283,11 +317,9 @@ button:hover {
     0% {
         transform: translateY(0px);
     }
-
     50% {
         transform: translateY(10px);
     }
-
     100% {
         transform: translateY(0px);
     }
@@ -297,11 +329,9 @@ button:hover {
     0% {
         transform: translateY(0px);
     }
-
     50% {
         transform: translateY(10px);
     }
-
     100% {
         transform: translateY(0px);
     }
@@ -328,11 +358,21 @@ button:hover {
 
     h2 {
         font-size: 20px;
+        color: #0277bd;
     }
 
-    #start-quiz, #restart-quiz, #save-to-file, #learn-more-start, #learn-more-results, #return-to-start, #return-to-results {
+    #start-quiz, #restart-quiz, #restart-quiz-superposition, #save-to-file, #save-to-file-superposition, #learn-more-start, #learn-more-results, #learn-more-results-superposition, #return-to-start, #return-to-results {
         font-size: 16px;
         padding: 0px 20px;
         height: 40px;
+    }
+
+    #superposition-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #superposition-images img {
+        max-width: 80%;
     }
 }
