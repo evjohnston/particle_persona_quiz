@@ -382,6 +382,19 @@ button:hover {
         padding: 15px;
     }
 
+    #modal-image {
+        width: auto;
+        height: 70vh;
+        object-fit: contain;
+        margin: 0 auto 15px;
+    }
+    
+    #modal-title {
+        font-size: 16px;
+        color: var(--primary-color);
+        margin-top: 10px;
+    }
+
     /* Reduce profile grid columns */
     #profiles-container {
         grid-template-columns: 1fr;
