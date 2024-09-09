@@ -106,12 +106,6 @@ button:hover {
     box-shadow: var(--box-shadow);
 }
 
-#result-description, #superposition-description {
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
 /* Progress Bar */
 #progress-container {
     width: 100%;
@@ -317,115 +311,28 @@ button:hover {
 #start-quiz { animation-delay: 0s; }
 #learn-more-start { animation-delay: 1s; }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    body {
-        padding: 0;
-        height: 90vh;
-        overflow: hidden;
-    }
-
-    #quiz-container {
-        height: 80vh;
-        max-height: 80vh;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
+/* Responsive design */
+@media (max-width: 480px) {
     h1 {
-        font-size: 5vw;
-        margin-bottom: 2vh;
+        font-size: 24px;
     }
 
     h2 {
-        font-size: 4vw;
-        margin-bottom: 1.5vh;
+        font-size: 20px;
     }
 
-    p {
-        font-size: 3vw;
-        margin-bottom: 1.5vh;
+    #start-quiz, #restart-quiz, #restart-quiz-superposition, #save-to-file, #save-to-file-superposition, #learn-more-start, #learn-more-results, #learn-more-results-superposition, #return-to-start, #return-to-results {
+        font-size: 16px;
+        padding: 0px 20px;
+        height: 40px;
     }
 
-    #particle-carousel {
-        height: 8vh;
-        margin: 1.5vh 0;
+    #superposition-images {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .particle-icon {
-        width: 8vw;
-        height: 8vw;
-    }
-
-    button {
-        font-size: 3.5vw;
-        padding: 1.5vh 4vw;
-        margin: 1vh 2vw;
-    }
-
-    #answer-buttons button {
-        padding: 1.5vh 3vw;
-        font-size: 3vw;
-    }
-
-    #progress-container {
-        margin-top: 1.5vh;
-    }
-
-    #progress-text {
-        font-size: 2.5vw;
-        margin-top: 0.5vh;
-    }
-
-    #profiles-container {
-        grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-        gap: 2vw;
-        max-height: 60vh;
-    }
-
-    .profile h3 {
-        font-size: 2.5vw;
-    }
-
-    .superposition-profiles-container {
-        height: 50vh;
-    }
-
-    .modal-content {
-        padding: 15px;
-        max-height: 90vh;
-    }
-
-    #modal-image {
-        max-height: 50vh;
-    }
-
-    #modal-title {
-        font-size: 4vw;
-    }
-}
-
-/* Additional adjustments for very small screens */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 6vw;
-    }
-
-    p {
-        font-size: 3.5vw;
-    }
-
-    button {
-        font-size: 4vw;
-    }
-
-    #profiles-container {
-        grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-    }
-
-    .profile h3 {
-        font-size: 3vw;
+    #superposition-images img {
+        max-width: 80%;
     }
 }
