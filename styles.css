@@ -241,8 +241,8 @@ button:hover {
     background-color: #fefefe;
     padding: 20px;
     border: 1px solid #888;
-    width: 90%;
-    max-width: 800px;
+    width: 100%;
+    max-width: 600px;
     max-height: 90vh;
     border-radius: var(--border-radius);
     text-align: center;
@@ -322,7 +322,7 @@ button:hover {
 @media (max-width: 768px) {
     body {
         padding: 0;
-        height: 100vh;
+        height: 90vh;
         overflow: hidden;
     }
 
