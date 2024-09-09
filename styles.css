@@ -272,7 +272,7 @@ button:hover {
     max-width: 54vh;
     max-height: 80vh;
     object-fit: contain;
-    margin: 0 auto 15px;
+    margin: 0 auto 0px;
 }
 
 #modal-title {
@@ -379,14 +379,14 @@ button:hover {
     .modal-content {
         width: auto;
         height: 75vh;
-        padding: 15px;
+        padding: 5px;
     }
 
     #modal-image {
         width: auto;
-        height: 70vh;
+        height: 65vh;
         object-fit: contain;
-        margin: 0 auto 15px;
+        margin: 0 auto 10px;
     }
     
     #modal-title {
