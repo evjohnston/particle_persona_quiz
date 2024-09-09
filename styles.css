@@ -290,6 +290,16 @@ button:hover {
     box-shadow: var(--box-shadow);
 }
 
+#superposition-description {
+    font-size: 18px;
+    color: black; /* Set default text color to black */
+}
+
+#superposition-description strong {
+    font-size: 18px;
+    color: var(--primary-color); /* Apply blue color only to strong elements */
+}
+
 .superposition-profiles-container .profile {
     margin-bottom: 15px;
 }
