@@ -255,7 +255,7 @@ button:hover {
 .close {
     color: #aaa;
     position: absolute;
-    top: 5px;
+    top: -7px;
     right: 5px;
     font-size: 28px;
     font-weight: bold;
@@ -321,7 +321,7 @@ button:hover {
 @media (max-width: 768px) {
     body {
         padding: 0;
-        height: 100vh;
+        height: 90vh;
         overflow: hidden;
     }
 
