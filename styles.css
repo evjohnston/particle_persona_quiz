@@ -371,7 +371,7 @@ button:hover {
     /* Enable full-page scrolling */
     body {
         overflow-y: auto; /* Enable vertical scrolling on mobile */
-        height: 100%; /* Ensure body fills the viewport */
+        height: 80%; /* Ensure body fills the viewport */
     }
 
     /* Ensure the quiz container fits the screen */
