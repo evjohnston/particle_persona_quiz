@@ -32,6 +32,14 @@ const questions = [
         ]
     },
     {
+        // E/I
+        question: "Your interests are:",
+        answers: [
+            { text: "Vast: I am interested in a little bit of everything", types: ["E"] },
+            { text: "Narrow: I like to choose particular interests and research them thoroughly", types: ["I"] }
+        ]
+    },
+    {
         // N/S
         question: "When you’re planning a vacation, what’s most important?",
         answers: [
@@ -40,19 +48,27 @@ const questions = [
         ]
     },
     {
+        // J/P
+        question: "Does punctuality matter?",
+        answers: [
+            { text: "No, there is not a massive difference between 1:30 and 1:45; it is just a rough range.", types: ["P"] },
+            { text: "Yes, 1:30 means 1:30, not 1:45. I get annoyed when other people regard punctuality as unimportant", types: ["J"] }
+        ]
+    },
+    {
+        // N/S
+        question: "When you recall your student life, what do you care about the most?",
+        answers: [
+            { text: "Grades (admissions to schools, grades achieved, etc.)", types: ["S"] },
+            { text: "Life experiences", types: ["N"] }
+        ]
+    },
+    {
         // F/T
         question: "You’re trying out a new hobby. What’s your approach?",
         answers: [
             { text: "Exploring what feels rewarding or personally enriching as you learn", types: ["F"] },
             { text: "Researching the most effective methods and testing different strategies", types: ["T"] }
-        ]
-    },
-    {
-        // E/I
-        question: "Your interests are:",
-        answers: [
-            { text: "Vast: I am interested in a little bit of everything", types: ["E"] },
-            { text: "Narrow: I like to choose particular interests and research them thoroughly", types: ["I"] }
         ]
     },
     {
@@ -120,27 +136,11 @@ const questions = [
         ]
     },
     {
-        // J/P
-        question: "Does punctuality matter?",
-        answers: [
-            { text: "No, there is not a massive difference between 1:30 and 1:45; it is just a rough range.", types: ["P"] },
-            { text: "Yes, 1:30 means 1:30, not 1:45. I get annoyed when other people regard punctuality as unimportant", types: ["J"] }
-        ]
-    },
-    {
         // E/I
         question: "Regarding your daily life and social events, you tend to:",
         answers: [
             { text: "Post on social media", types: ["E"] },
             { text: "Only share with a few friends or family", types: ["I"] }
-        ]
-    },
-    {
-        // N/S
-        question: "When you recall your student life, what do you care about the most?",
-        answers: [
-            { text: "Grades (admissions to schools, grades achieved, etc.)", types: ["S"] },
-            { text: "Life experiences", types: ["N"] }
         ]
     },
     {
