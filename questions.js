@@ -35,16 +35,16 @@ const questions = [
         // E/I
         question: "Your interests are:",
         answers: [
-            { text: "Narrow: I like to choose particular interests and research them thoroughly", types: ["I"] }
-            { text: "Vast: I am interested in a little bit of everything", types: ["E"] },
+            { text: "Narrow: I like to choose particular interests and research them thoroughly", types: ["I"] },
+            { text: "Vast: I am interested in a little bit of everything", types: ["E"] }
         ]
     },
     {
         // N/S
         question: "When you’re planning a vacation, what’s most important?",
         answers: [
-            { text: "The detailed itinerary to make sure you see everything", types: ["S"] }
-            { text: "The possibility of adventure and exploring something new", types: ["N"] },
+            { text: "The detailed itinerary to make sure you see everything", types: ["S"] },
+            { text: "The possibility of adventure and exploring something new", types: ["N"] }
         ]
     },
     {
@@ -75,8 +75,8 @@ const questions = [
         // N/S
         question: "When you recall your student life, what do you care about the most?",
         answers: [
-            { text: "Life experiences", types: ["N"] }
-            { text: "Grades (admissions to schools, grades achieved, etc.)", types: ["S"] },
+            { text: "Life experiences", types: ["N"] },
+            { text: "Grades (admissions to schools, grades achieved, etc.)", types: ["S"] }
         ]
     },
     {
@@ -99,8 +99,8 @@ const questions = [
         // E/I
         question: "How do you feel when you are noticed by other people?",
         answers: [
-            { text: "Most of the time I try to avoid being the centre of attention", types: ["I"] }
-            { text: "I love being the centre of attention. I enjoy feeling like I am in the spotlight", types: ["E"] },
+            { text: "Most of the time I try to avoid being the centre of attention", types: ["I"] },
+            { text: "I love being the centre of attention. I enjoy feeling like I am in the spotlight", types: ["E"] }
         ]
     },
     {
@@ -115,8 +115,8 @@ const questions = [
         // F/T
         question: "What are you normally like in relationships?",
         answers: [
-            { text: "Evasive, thoughtful, and I express my thoughts after deliberation", types: ["F"] }
-            { text: "Frank, sincere, and I express my thoughts directly", types: ["T"] },
+            { text: "Evasive, thoughtful, and I express my thoughts after deliberation", types: ["F"] },
+            { text: "Frank, sincere, and I express my thoughts directly", types: ["T"] }
         ]
     },
     {
@@ -147,24 +147,24 @@ const questions = [
         // F/T
         question: "When a friend talks to you about a problem and wants advice, you tend to:",
         answers: [
-            { text: "Think from an objective point of view", types: ["T"] }
-            { text: "Think from your friend's point of view", types: ["F"] },
+            { text: "Think from an objective point of view", types: ["T"] },
+            { text: "Think from your friend's point of view", types: ["F"] }
         ]
     },
     {
         // J/P
         question: "With regards to attention:",
         answers: [
-            { text: "I am able to focus easily. I can change among different items and tasks in my own way.", types: ["P"] }
-            { text: "I prefer to focus on the things I am doing. If it is noisy and chaotic, I cannot focus or relax.", types: ["J"] },
+            { text: "I am able to focus easily. I can change among different items and tasks in my own way.", types: ["P"] },
+            { text: "I prefer to focus on the things I am doing. If it is noisy and chaotic, I cannot focus or relax.", types: ["J"] }
         ]
     },
     {
         // E/I
         question: "What do you focus most of your attention on?",
         answers: [
-            { text: "I focus my attention internally. I dedicate a lot of my time to introspection", types: ["I"] }
-            { text: "I focus on the outer world", types: ["E"] },
+            { text: "I focus my attention internally. I dedicate a lot of my time to introspection", types: ["I"] },
+            { text: "I focus on the outer world", types: ["E"] }
         ]
     },
     {
@@ -179,8 +179,8 @@ const questions = [
         // F/T
         question: "What is more difficult for you?",
         answers: [
-            { text: "Having to say things that you know will hurt the other person", types: ["F"] }
-            { text: "Conscientiously pander to others", types: ["T"] },
+            { text: "Having to say things that you know will hurt the other person", types: ["F"] },
+            { text: "Conscientiously pander to others", types: ["T"] }
         ]
     },
     {
@@ -211,8 +211,8 @@ const questions = [
         // F/T
         question: "You’re tasked with decorating a shared space. What’s your main priority?",
         answers: [
-            { text: "Keeping it adaptable for different needs or occasions", types: ["T"] }
-            { text: "Making it cozy and inviting for everyone to enjoy", types: ["F"] },
+            { text: "Keeping it adaptable for different needs or occasions", types: ["T"] },
+            { text: "Making it cozy and inviting for everyone to enjoy", types: ["F"] }
         ]
     },
     {
