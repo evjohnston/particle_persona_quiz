@@ -326,10 +326,9 @@ button:hover {
 @media only screen and (max-width: 393px) and (max-height: 750px) {
     /* Keep gray background visible and adjust the container */
     #quiz-container {
-        padding: 15px;
         max-width: auto; /* Adjust the width to fit the iPhone screen */
         max-height: 65vh; /* Let the height be flexible */
-        margin: 10px 0; /* Add some margin to keep space around the container */
+        margin: 2px 0; /* Add some margin to keep space around the container */
         box-shadow: none; /* Simplify shadows on small screens */
         border-radius: 10px;
     }
