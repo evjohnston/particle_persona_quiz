@@ -521,7 +521,7 @@ button:hover {
 
     /* Ensure proper scrolling and spacing in results/superposition containers */
     .collapse-profiles-container {
-        height: 60vh;
+        height: 50vh;
         /* Adjust the height to fit content */
         padding: 10px;
         /* Reduce padding for smaller screens */
