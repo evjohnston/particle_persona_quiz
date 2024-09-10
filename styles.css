@@ -356,6 +356,10 @@ button:hover {
         margin: 8px 4px;
     }
 
+    #restart-quiz, #learn-more-results {
+        margin: 0px 0px;
+    }
+
     /* Reduce size of particle icons */
     #particle-carousel {
         height: 60px;
