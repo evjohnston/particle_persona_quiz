@@ -105,6 +105,10 @@ button:hover {
     border: 2px solid var(--secondary-color);
 }
 
+#return-to-start, #return-to-results {
+    margin-top: 60px;
+}
+
 /* Results and Images */
 #result-image, #superposition-images img, .profile img {
     max-width: 100%;
@@ -177,7 +181,7 @@ button:hover {
 
 #profiles-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
     max-height: 60vh;
     overflow-y: auto;
