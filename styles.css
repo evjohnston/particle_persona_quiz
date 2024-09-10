@@ -371,18 +371,18 @@ button:hover {
     /* Ensure the quiz container fits the screen */
     #quiz-container {
         width: 100%; /* Full width on mobile */
-        padding: 15px; /* Adjust padding for smaller screens */
+        padding: 5px; /* Adjust padding for smaller screens */
         max-width: none; /* Remove the max-width restriction */
     }
 
     /* Adjust heading sizes for smaller screens */
     h1, h2 {
-        font-size: 20px; /* Smaller font size for headings */
+        font-size: 18px; /* Smaller font size for headings */
     }
 
     p {
-        font-size: 14px; /* Adjust paragraph font size */
-        padding: 0 10px; /* Add padding to ensure readability */
+        font-size: 12px; /* Adjust paragraph font size */
+        padding: 0 8px; /* Add padding to ensure readability */
     }
 
     /* Make buttons larger and full width */
@@ -407,7 +407,6 @@ button:hover {
     /* Ensure modal content fits on mobile */
     .modal-content {
         width: 90%; /* Full width of the mobile screen */
-        max-width: none; /* Remove any max-width */
         height: auto; /* Allow the modal to adjust its height */
     }
 
