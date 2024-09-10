@@ -8,30 +8,6 @@ const questions = [
         ]
     },
     {
-        // N/S
-        question: "You're exploring a new city. What excites you most?",
-        answers: [
-            { text: "Finding unique, off-the-beaten-path spots with a story", types: ["N"] },
-            { text: "Seeing the famous landmarks and learning their history", types: ["S"] }
-        ]
-    },
-    {
-        // F/T
-        question: "How do you define fairness?",
-        answers: [
-            { text: "Equality: to treat everyone equally", types: ["T"] },
-            { text: "Equity: to treat different people in different ways according to their unique situations", types: ["F"] }
-        ]
-    },
-    {
-        // J/P
-        question: "Does punctuality matter?",
-        answers: [
-            { text: "No, there is not a massive difference between 1:30 and 1:45; it is just a rough range.", types: ["P"] },
-            { text: "Yes, 1:30 means 1:30, not 1:45. I get annoyed when other people regard punctuality as unimportant", types: ["J"] }
-        ]
-    },
-    {
         // E/I
         question: "Your interests are:",
         answers: [
@@ -40,59 +16,11 @@ const questions = [
         ]
     },
     {
-        // N/S
-        question: "When you’re planning a vacation, what’s most important?",
-        answers: [
-            { text: "The detailed itinerary to make sure you see everything", types: ["S"] }
-            { text: "The possibility of adventure and exploring something new", types: ["N"] },
-        ]
-    },
-    {
-        // F/T
-        question: "You’re trying out a new hobby. What’s your approach?",
-        answers: [
-            { text: "Exploring what feels rewarding or personally enriching as you learn", types: ["F"] },
-            { text: "Researching the most effective methods and testing different strategies", types: ["T"] }
-        ]
-    },
-    {
-        // J/P
-        question: "Which of these tasks would you choose from your boss?",
-        answers: [
-            { text: "Task 1: The process is clear, but the difficulty is beyond your abilities", types: ["J"] },
-            { text: "Task 2: The difficulty is just right for you, but process of the task is unknown and you'll need to figure it out while doing it", types: ["P"] }
-        ]
-    }, 
-    {
         // E/I
         question: "You’re at a party, how do you prefer to engage?",
         answers: [
             { text: "Mingling and chatting with everyone you can", types: ["E"] },
             { text: "Having deep conversations with a few close people", types: ["I"] }
-        ]
-    },
-    {
-        // N/S
-        question: "When you recall your student life, what do you care about the most?",
-        answers: [
-            { text: "Life experiences", types: ["N"] }
-            { text: "Grades (admissions to schools, grades achieved, etc.)", types: ["S"] },
-        ]
-    },
-    {
-        // F/T
-        question: "Which of these ideas of law are you more inclined to?",
-        answers: [
-            { text: "The law should be strictly enforced, impartial, and treat everyone equally", types: ["T"] },
-            { text: "The law should be humane and allow for special cases", types: ["F"] }
-        ]
-    },
-    {
-        // J/P
-        question: "When you have to do a task, you often:",
-        answers: [
-            { text: "Complete it as soon as possible", types: ["J"] },
-            { text: "Complete it at the last moment before the deadline", types: ["P"] }
         ]
     },
     {
@@ -104,30 +32,6 @@ const questions = [
         ]
     },
     {
-        // N/S
-        question: "Which company would you prefer to work for?",
-        answers: [
-            { text: "A company with structured rules and a clear process", types: ["S"] },
-            { text: "A company that encourages creativity and innovation", types: ["N"] }
-        ]
-    },
-    {
-        // F/T
-        question: "What are you normally like in relationships?",
-        answers: [
-            { text: "Evasive, thoughtful, and I express my thoughts after deliberation", types: ["F"] }
-            { text: "Frank, sincere, and I express my thoughts directly", types: ["T"] },
-        ]
-    },
-    {
-        // J/P
-        question: "With regards to work and pleasure:",
-        answers: [
-            { text: "I like to finish my work first and then be entertained", types: ["J"] },
-            { text: "I can relax and enjoy some entertainment while working at the same time. Sometimes I tend to even put entertainment before my work", types: ["P"] }
-        ]
-    },
-    {
         // E/I
         question: "Regarding your daily life and social events, you tend to:",
         answers: [
@@ -136,59 +40,11 @@ const questions = [
         ]
     },
     {
-        // N/S
-        question: "You’ve been given the task to brainstorm ideas for a new product. What do you focus on?",
-        answers: [
-            { text: "Unconventional ideas that could push boundaries", types: ["N"] },
-            { text: "How it can be practical and useful right now", types: ["S"] }
-        ]
-    },
-    {
-        // F/T
-        question: "When a friend talks to you about a problem and wants advice, you tend to:",
-        answers: [
-            { text: "Think from an objective point of view", types: ["T"] }
-            { text: "Think from your friend's point of view", types: ["F"] },
-        ]
-    },
-    {
-        // J/P
-        question: "With regards to attention:",
-        answers: [
-            { text: "I am able to focus easily. I can change among different items and tasks in my own way.", types: ["P"] }
-            { text: "I prefer to focus on the things I am doing. If it is noisy and chaotic, I cannot focus or relax.", types: ["J"] },
-        ]
-    },
-    {
         // E/I
         question: "What do you focus most of your attention on?",
         answers: [
             { text: "I focus my attention internally. I dedicate a lot of my time to introspection", types: ["I"] }
             { text: "I focus on the outer world", types: ["E"] },
-        ]
-    },
-    {
-        // N/S
-        question: "When you listen to other people:",
-        answers: [
-            { text: "It is often difficult for me to understand the implication, reasoning or metaphors used by other people", types: ["S"] },
-            { text: "I can understand the subtext", types: ["N"] }
-        ]
-    },
-    {
-        // F/T
-        question: "What is more difficult for you?",
-        answers: [
-            { text: "Having to say things that you know will hurt the other person", types: ["F"] }
-            { text: "Conscientiously pander to others", types: ["T"] },
-        ]
-    },
-    {
-        // J/P
-        question: "I prefer:",
-        answers: [
-            { text: "To make a quick decision. I do not like to keep things pending. I would feel more comfortable after accomplishing the task.", types: ["J"] },
-            { text: "To make a decision after absorbing enough information as I would like to allow for unforeseen circumstances. I would be very apprehensive at the beginning", types: ["P"] }
         ]
     },
     {
@@ -201,6 +57,54 @@ const questions = [
     },  
     {
         // N/S
+        question: "You're exploring a new city. What excites you most?",
+        answers: [
+            { text: "Finding unique, off-the-beaten-path spots with a story", types: ["N"] },
+            { text: "Seeing the famous landmarks and learning their history", types: ["S"] }
+        ]
+    },
+    {
+        // N/S
+        question: "When you’re planning a vacation, what’s most important?",
+        answers: [
+            { text: "The detailed itinerary to make sure you see everything", types: ["S"] }
+            { text: "The possibility of adventure and exploring something new", types: ["N"] },
+        ]
+    },
+    {
+        // N/S
+        question: "When you recall your student life, what do you care about the most?",
+        answers: [
+            { text: "Life experiences", types: ["N"] }
+            { text: "Grades (admissions to schools, grades achieved, etc.)", types: ["S"] },
+        ]
+    },
+    {
+        // N/S
+        question: "Which company would you prefer to work for?",
+        answers: [
+            { text: "A company with structured rules and a clear process", types: ["S"] },
+            { text: "A company that encourages creativity and innovation", types: ["N"] }
+        ]
+    },
+    {
+        // N/S
+        question: "You’ve been given the task to brainstorm ideas for a new product. What do you focus on?",
+        answers: [
+            { text: "Unconventional ideas that could push boundaries", types: ["N"] },
+            { text: "How it can be practical and useful right now", types: ["S"] }
+        ]
+    },
+    {
+        // N/S
+        question: "When you listen to other people:",
+        answers: [
+            { text: "It is often difficult for me to understand the implication, reasoning or metaphors used by other people", types: ["S"] },
+            { text: "I can understand the subtext", types: ["N"] }
+        ]
+    },
+    {
+        // N/S
         question: "What is the most exciting and satisfying moment when implementing a plan of yours?",
         answers: [
             { text: "The first day of the plan", types: ["N"] },
@@ -209,10 +113,106 @@ const questions = [
     },
     {
         // F/T
+        question: "How do you define fairness?",
+        answers: [
+            { text: "Equality: to treat everyone equally", types: ["T"] },
+            { text: "Equity: to treat different people in different ways according to their unique situations", types: ["F"] }
+        ]
+    },
+    {
+        // F/T
+        question: "You’re trying out a new hobby. What’s your approach?",
+        answers: [
+            { text: "Exploring what feels rewarding or personally enriching as you learn", types: ["F"] },
+            { text: "Researching the most effective methods and testing different strategies", types: ["T"] }
+        ]
+    },
+    {
+        // F/T
+        question: "Which of these ideas of law are you more inclined to?",
+        answers: [
+            { text: "The law should be strictly enforced, impartial, and treat everyone equally", types: ["T"] },
+            { text: "The law should be humane and allow for special cases", types: ["F"] }
+        ]
+    },
+    {
+        // F/T
+        question: "What are you normally like in relationships?",
+        answers: [
+            { text: "Evasive, thoughtful, and I express my thoughts after deliberation", types: ["F"] }
+            { text: "Frank, sincere, and I express my thoughts directly", types: ["T"] },
+        ]
+    },
+    {
+        // F/T
+        question: "When a friend talks to you about a problem and wants advice, you tend to:",
+        answers: [
+            { text: "Think from an objective point of view", types: ["T"] }
+            { text: "Think from your friend's point of view", types: ["F"] },
+        ]
+    },
+    {
+        // F/T
+        question: "What is more difficult for you?",
+        answers: [
+            { text: "Having to say things that you know will hurt the other person", types: ["F"] }
+            { text: "Conscientiously pander to others", types: ["T"] },
+        ]
+    },
+    {
+        // F/T
         question: "You’re tasked with decorating a shared space. What’s your main priority?",
         answers: [
             { text: "Keeping it adaptable for different needs or occasions", types: ["T"] }
             { text: "Making it cozy and inviting for everyone to enjoy", types: ["F"] },
+        ]
+    },
+    {
+        // J/P
+        question: "Does punctuality matter?",
+        answers: [
+            { text: "No, there is not a massive difference between 1:30 and 1:45; it is just a rough range.", types: ["P"] },
+            { text: "Yes, 1:30 means 1:30, not 1:45. I get annoyed when other people regard punctuality as unimportant", types: ["J"] }
+        ]
+    },
+    {
+        // J/P
+        question: "Which of these tasks would you choose from your boss?",
+        answers: [
+            { text: "Task 1: The process is clear, but the difficulty is beyond your abilities", types: ["J"] },
+            { text: "Task 2: The difficulty is just right for you, but process of the task is unknown and you'll need to figure it out while doing it", types: ["P"] }
+        ]
+    }, 
+    {
+        // J/P
+        question: "When you have to do a task, you often:",
+        answers: [
+            { text: "Complete it as soon as possible", types: ["J"] },
+            { text: "Complete it at the last moment before the deadline", types: ["P"] }
+        ]
+    },
+    {
+        // J/P
+        question: "With regards to work and pleasure:",
+        answers: [
+            { text: "I like to finish my work first and then be entertained", types: ["J"] },
+            { text: "I can relax and enjoy some entertainment while working at the same time. Sometimes I tend to even put entertainment before my work", types: ["P"] }
+        ]
+    },
+    {
+        // J/P
+        question: "With regards to attention:",
+        answers: [
+            { text: "I am able to focus easily. I can change among different items and tasks in my own way.", types: ["P"] }
+            { text: "I prefer to focus on the things I am doing. If it is noisy and chaotic, I cannot focus or relax.", types: ["J"] },
+        ]
+    },
+    {
+        // J/P
+        question: "I prefer:",
+        answers: [
+            { text: "To make a quick decision. I do not like to keep things pending. I would feel more comfortable after accomplishing the task.", types: ["J"] },
+            { text: "To make a decision after absorbing enough information as I would like to allow for unforeseen circumstances. I would be very apprehensive at the beginning", types: ["P"] }
         ]
     },
     {
