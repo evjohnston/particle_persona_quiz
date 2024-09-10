@@ -388,7 +388,7 @@ button:hover {
 
     /* Make buttons larger and full width */
     button {
-        width: 35%; /* Full width buttons */
+        width: 40%; /* Full width buttons */
         padding: 10px 0; /* Smaller padding */
         font-size: 14px; /* Slightly smaller text */
     }
