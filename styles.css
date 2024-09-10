@@ -442,8 +442,8 @@ button:hover {
 
     /* Adjust particle icons in the carousel */
     .particle-icon {
-        width: 40px; /* Smaller icons for mobile */
-        height: 40px;
+        width: 60px; /* Smaller icons for mobile */
+        height: 60px;
     }
 
     #answer-buttons button {
