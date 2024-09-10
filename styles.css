@@ -368,6 +368,12 @@ button:hover {
 /* Media Queries for better responsiveness */
 @media screen and (max-width: 768px) {
 
+    /* Enable full-page scrolling */
+    body {
+        overflow-y: auto; /* Enable vertical scrolling on mobile */
+        height: 100%; /* Ensure body fills the viewport */
+    }
+
     /* Ensure the quiz container fits the screen */
     #quiz-container {
         width: 95%; /* Full width on mobile */
