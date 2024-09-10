@@ -52,7 +52,7 @@
         </div>
 
         <div id="results-page" style="display: none;">
-            <h2 id="particle-persona-name"></h2> <!-- New heading for particle persona -->
+            <h1 id="particle-persona-name"></h1> <!-- New heading for particle persona -->
             <h2 id="result-description"></h2>
             <div id="result-image-container" class="collapse-profiles-container">
                 <!-- Container for the result profile image -->
@@ -64,7 +64,7 @@
         </div>
 
         <div id="superposition-results-page" style="display: none;">
-            <h2>Your Particle Persona is in Superposition!</h2>
+            <h1>Your Particle Persona is in Superposition!</h1>
             <div id="superposition-images"></div>
             <p id="superposition-description"></p>
             <button id="restart-quiz-superposition">Try Again</button>
@@ -244,7 +244,8 @@
                 </div>
             `;
             document.getElementById('superposition-description').innerHTML = `
-                <p><h2>Congratulations! You've embraced the quantum realm.</h2></p> 
+                <p><h2>Congratulations!</h2></p>
+                <p><h3>You've embraced the quantum realm.</h3></p> 
                 <p>Your Particle Persona exists in a superposition of two states: <strong>${topTwoPersonas[0].name}</strong> and <strong>${topTwoPersonas[1].name}</strong>. Just like Schrödinger's cat, you're simultaneously both... until you decide to go back and collapse the wave function!</p>
             `;
             document.getElementById('question-page').style.display = 'none';
@@ -343,7 +344,7 @@
                 profile.className = 'profile';
                 profile.innerHTML = `
             <img src="profiles/${key}.png" alt="${value.name}">
-            <h3>${value.name}</h3>
+            <h4>${value.name}</h4>
         `;
                 profile.addEventListener('click', () => openModal(key, value.name));
                 container.appendChild(profile);
