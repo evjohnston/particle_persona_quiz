@@ -371,7 +371,7 @@ button:hover {
     /* Ensure the quiz container fits the screen */
     #quiz-container {
         width: 100%; /* Full width on mobile */
-        padding: 5px; /* Adjust padding for smaller screens */
+        padding: 15px; /* Adjust padding for smaller screens */
         max-width: none; /* Remove the max-width restriction */
     }
 
@@ -387,7 +387,7 @@ button:hover {
 
     /* Make buttons larger and full width */
     button {
-        width: 100%; /* Full width buttons */
+        width: 80%; /* Full width buttons */
         padding: 10px 0; /* Smaller padding */
         font-size: 16px; /* Slightly smaller text */
     }
@@ -412,8 +412,7 @@ button:hover {
 
     /* Ensure proper scrolling and spacing in results/superposition containers */
     .collapse-profiles-container, .superposition-profiles-container {
-        height: auto; /* Adjust the height to fit content */
-        overflow-y: visible; /* Disable scrolling within the container */
+        height: 30vh; /* Adjust the height to fit content */
         padding: 10px; /* Reduce padding for smaller screens */
     }
 
