@@ -445,4 +445,8 @@ button:hover {
         width: 40px; /* Smaller icons for mobile */
         height: 40px;
     }
+
+    #answer-buttons button {
+        font-size: clamp(12px, 3.5vw, 14px); /* Dynamically adjust text size */
+    }
 }
