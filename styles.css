@@ -115,24 +115,44 @@ button:hover {
     margin-top: 20px;
 }
 
-/* Results and Images */
-#results-page {
+/* Results Pages */
+#results-page, #superposition-results-page {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-#result-image-container {
-    flex: 1;
-    overflow-y: auto;
-    margin-bottom: 20px;
+#result-description, #superposition-description {
+    margin-bottom: 15px;
 }
 
-#result-image {
+.collapse-profiles-container, .superposition-profiles-container {
+    width: 95%;
+    max-width: 550px;
+    height: 40vh;
+    overflow-y: auto;
+    margin: 0 auto 15px;
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+.profile {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#result-image, .profile img {
     max-width: 100%;
     height: auto;
-    display: block;
-    margin: 0 auto;
+    border-radius: var(--border-radius);
 }
 
 /* Progress Bar */
@@ -206,35 +226,6 @@ button:hover {
     padding: 15px;
 }
 
-.profile {
-    background-color: #fff;
-    border-radius: var(--border-radius);
-    padding: 10px;
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-}
-
-.profile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.profile img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.profile h3 {
-    font-size: 16px;
-    color: var(--primary-color);
-    margin-top: 5px;
-}
-
 /* Modal Styles */
 .modal {
     display: none;
@@ -282,38 +273,6 @@ button:hover {
     height: auto;
     object-fit: contain;
     margin: 0 auto 15px;
-}
-
-/* Superposition Results */
-.superposition-profiles-container {
-    width: 95%;
-    max-width: 550px;
-    height: 60vh;
-    overflow-y: auto;
-    margin: 0 auto 15px;
-    border: 2px solid var(--secondary-color);
-    border-radius: var(--border-radius);
-    padding: 15px;
-    box-shadow: var(--box-shadow);
-}
-
-#superposition-description {
-    font-size: 14px;
-    color: black;
-    margin-bottom: 15px;
-}
-
-#superposition-description strong {
-    font-size: 14px;
-    color: var(--primary-color);
-}
-
-.superposition-profiles-container .profile {
-    margin-bottom: 15px;
-}
-
-.superposition-profiles-container .profile img {
-    max-width: 100%;
 }
 
 /* Animations */
