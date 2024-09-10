@@ -364,3 +364,8 @@ button:hover {
     .superposition-profiles-container { max-width: 700px; }
     .particle-icon { width: 75px; height: 75px; }
 }
+
+/* Media Queries for better responsiveness */
+@media screen and (max-width: 768px) {
+
+}

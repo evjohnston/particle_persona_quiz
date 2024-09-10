@@ -222,9 +222,15 @@
             const collapseImageContainer = document.getElementById('result-image-container');
             collapseImageContainer.innerHTML = `
         <div class="profile">
-            <img src="profiles/${resultPersona.key}.png" alt="${resultPersona.name}">
+            <img id="result-image" src="profiles/${resultPersona.key}.png" alt="${resultPersona.name}">
         </div>
     `;
+
+            // Add event listener to open modal when result image is clicked
+            document.getElementById('result-image').addEventListener('click', function () {
+                openModal(resultPersona.key, resultPersona.name);
+            });
+
             document.getElementById('question-page').style.display = 'none';
             document.getElementById('results-page').style.display = 'block';
         }
@@ -232,20 +238,30 @@
         function showSuperpositionResults(topTwoPersonas) {
             const superpositionImages = document.getElementById('superposition-images');
             superpositionImages.innerHTML = `
-                <div class="superposition-profiles-container">
-                    <div class="profile">
-                        <img src="profiles/${topTwoPersonas[0].key}.png" alt="${topTwoPersonas[0].name}">
-                    </div>
-                    <div class="profile">
-                        <img src="profiles/${topTwoPersonas[1].key}.png" alt="${topTwoPersonas[1].name}">
-                    </div>
-                </div>
-            `;
+        <div class="superposition-profiles-container">
+            <div class="profile">
+                <img id="superposition-image-1" src="profiles/${topTwoPersonas[0].key}.png" alt="${topTwoPersonas[0].name}">
+            </div>
+            <div class="profile">
+                <img id="superposition-image-2" src="profiles/${topTwoPersonas[1].key}.png" alt="${topTwoPersonas[1].name}">
+            </div>
+        </div>
+    `;
+
+            // Add event listeners to open modal when either superposition image is clicked
+            document.getElementById('superposition-image-1').addEventListener('click', function () {
+                openModal(topTwoPersonas[0].key, topTwoPersonas[0].name);
+            });
+
+            document.getElementById('superposition-image-2').addEventListener('click', function () {
+                openModal(topTwoPersonas[1].key, topTwoPersonas[1].name);
+            });
+
             document.getElementById('superposition-description').innerHTML = `
-                <p><h2>Congratulations!</h2></p>
-                <p><h3>You've embraced the quantum realm.</h3></p> 
-                <p>Your Particle Persona exists in a superposition of two states: <strong>${topTwoPersonas[0].name}</strong> and <strong>${topTwoPersonas[1].name}</strong>. Just like Schrödinger's cat, you're simultaneously both... until you decide to go back and collapse the wave function!</p>
-            `;
+        <p><h2>Congratulations!</h2></p>
+        <p><h3>You've embraced the quantum realm.</h3></p> 
+        <p>Your Particle Persona exists in a superposition of two states: <strong>${topTwoPersonas[0].name}</strong> and <strong>${topTwoPersonas[1].name}</strong>. Just like Schrödinger's cat, you're simultaneously both... until you decide to go back and collapse the wave function!</p>
+    `;
             document.getElementById('question-page').style.display = 'none';
             document.getElementById('superposition-results-page').style.display = 'block';
         }
@@ -317,6 +333,7 @@
             const modalImg = document.getElementById('modal-image');
 
             modalImg.src = `profiles/${key}.png`;
+            modalImg.alt = `${name}`;
             modal.style.display = "flex";  // Changed from "block" to "flex"
         }
 
@@ -348,6 +365,7 @@
                 container.appendChild(profile);
             });
         }
+
     </script>
 </body>
 
