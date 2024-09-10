@@ -424,7 +424,12 @@ button:hover {
     }
 
     /* Ensure proper scrolling and spacing in results/superposition containers */
-    .collapse-profiles-container, .superposition-profiles-container {
+    .collapse-profiles-container {
+        height: 60vh; /* Adjust the height to fit content */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .superposition-profiles-container {
         height: 30vh; /* Adjust the height to fit content */
         padding: 10px; /* Reduce padding for smaller screens */
     }
