@@ -43,8 +43,8 @@ const questions = [
         // F/T
         question: "You’re trying out a new hobby. What’s your approach?",
         answers: [
-            { text: "Letting your feelings guide you and see where it leads", types: ["F"] },
-            { text: "Staying open and flexible, learning as you go", types: ["T"] }
+            { text: "Exploring what feels rewarding or personally enriching as you learn", types: ["F"] },
+            { text: "Researching the most effective methods and testing different strategies", types: ["T"] }
         ]
     },
     {
@@ -148,7 +148,7 @@ const questions = [
         question: "Which of these tasks would you choose from your boss?",
         answers: [
             { text: "Task 1: The process is clear, but the difficulty is beyond your abilities", types: ["J"] },
-            { text: "Task 2: The process of the task is unknown and you need to figure it out while doing it", types: ["P"] }
+            { text: "Task 2: The difficulty is just right for you, but process of the task is unknown and you need to figure it out while doing it", types: ["P"] }
         ]
     },
     {
@@ -209,12 +209,12 @@ const questions = [
     },
     {
         // E/I
-        question: "What do you typically do after a long week of work?",
+        question: "When watching a movie, how do you engage with it?",
         answers: [
-            { text: "Plan a fun outing with friends or family", types: ["E"] },
-            { text: "Relax at home and enjoy some alone time", types: ["I"] }
+            { text: "React out loud, commenting on scenes as they happen or laughing along", types: ["E"] },
+            { text: "Absorb the experience quietly, focusing deeply on the story", types: ["I"] }
         ]
-    },
+    },    
     {
         // N/S
         question: "Which company would you prefer to work for?",
