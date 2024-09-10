@@ -275,8 +275,8 @@ button:hover {
     padding: 15px;
     box-shadow: var(--box-shadow);
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-    gap: 5px;
+    grid-template-columns: 1fr 1fr; /* Always use two columns */
+    gap: 15px; /* Adjust gap between the items */
 }
 
 /* Modal Styles */
