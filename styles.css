@@ -32,15 +32,15 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 5vw;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-h2 { font-size: 24px; }
+h2 { font-size: 4vw; }
 
 p {
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 3vw;
 }
 
 /* Container and Layout */
@@ -48,9 +48,9 @@ p {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: var(--border-radius);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 30px;
+    padding: 5%;
+    width: 90%;
     max-width: 750px;
-    width: 100%;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -61,9 +61,9 @@ button {
     background-color: var(--secondary-color);
     color: white;
     border: none;
-    padding: 10px 24px;
-    font-size: 18px;
-    margin: 10px 5px;
+    padding: 3vw 6vw;
+    font-size: 3vw;
+    margin: 2vw 1vw;
     cursor: pointer;
     border-radius: 25px;
     transition: all 0.3s ease;
@@ -71,7 +71,7 @@ button {
 }
 
 #return-to-start, #return-to-results {
-    margin: 45px 5px 0px 5px;
+    margin-top: 5vw;
 }
 
 button:hover {
@@ -89,23 +89,19 @@ button:hover {
 
 #answer-buttons button {
     width: 100%;
-    max-width: 450px;
-    padding: 15px 24px;
-    margin: 10px 0;
+    max-width: 90%;
+    padding: 3vw 6vw;
+    margin: 2vw 0;
     background-color: #fff;
     color: var(--text-color);
     border: 2px solid var(--secondary-color);
-}
-
-#answer-buttons button:hover {
-    background-color: #e1f5fe;
 }
 
 /* Results and Images */
 #result-image, #superposition-images img, .profile img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 5px;
+    margin-bottom: 2vw;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
@@ -115,10 +111,10 @@ button:hover {
     width: 100%;
     background-color: #e0e0e0;
     border-radius: 15px;
-    margin-top: 20px;
+    margin-top: 4vw;
     overflow: hidden;
     position: relative;
-    height: 10px;
+    height: 2vw;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
@@ -135,8 +131,8 @@ button:hover {
 
 #progress-text {
     text-align: center;
-    margin-top: 10px;
-    font-size: 14px;
+    margin-top: 2vw;
+    font-size: 2.5vw;
     color: #555;
     font-weight: 500;
 }
@@ -144,10 +140,10 @@ button:hover {
 /* Particle Carousel */
 #particle-carousel {
     width: 100%;
-    height: 80px;
+    height: 15vw;
     position: relative;
     overflow: hidden;
-    margin: 20px 0;
+    margin: 4vw 0;
 }
 
 .carousel-inner {
@@ -158,30 +154,30 @@ button:hover {
 }
 
 .particle-icon {
-    width: 80px;
-    height: 80px;
+    width: 15vw;
+    height: 15vw;
     flex-shrink: 0;
 }
 
 /* Profiles Page */
 #profiles-page {
     text-align: center;
-    padding: 20px;
+    padding: 0vw;
 }
 
 #profiles-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2vw;
     max-height: 70vh;
     overflow-y: auto;
-    padding: 10px;
+    padding: 2vw;
 }
 
 .profile {
     background-color: #fff;
     border-radius: var(--border-radius);
-    padding: 15px;
+    padding: 3vw;
     box-shadow: var(--box-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
@@ -196,27 +192,8 @@ button:hover {
 }
 
 .profile h3 {
-    font-size: 16px;
+    font-size: 3vw;
     color: var(--primary-color);
-}
-
-/* Scrollbar Styles */
-#profiles-container::-webkit-scrollbar {
-    width: 10px;
-}
-
-#profiles-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-#profiles-container::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
-
-#profiles-container::-webkit-scrollbar-thumb:hover {
-    background: #555;
 }
 
 /* Modal Styles */
@@ -236,10 +213,10 @@ button:hover {
 
 .modal-content {
     background-color: #fefefe;
-    padding: 25px;
+    padding: 5vw;
     border: 1px solid #888;
-    height: 90vh; /* Full height modal with padding */
-    width: auto;
+    height: 90vh;
+    width: 90%;
     border-radius: var(--border-radius);
     text-align: center;
     position: relative;
@@ -252,25 +229,18 @@ button:hover {
 .close {
     color: #aaa;
     position: absolute;
-    top: -4px;
-    right: 8px;
-    font-size: 28px;
+    top: -2vw;
+    right: 1vw;
+    font-size: 6vw;
     font-weight: bold;
     cursor: pointer;
     z-index: 1;
 }
 
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-}
-
-/* Update for Modal Image */
 #modal-image {
-    width: calc(100% - 4px); /* Full width minus padding (25px on each side) */
-    height: calc(100% - 4px); /* Full height minus padding (25px on each side) */
-    object-fit: contain; /* Ensure the image fits without distortion */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
     margin: 0 auto;
 }
 
@@ -278,31 +248,31 @@ button:hover {
 .superposition-profiles-container {
     width: 90%;
     max-width: 800px;
-    height: 500px;
+    height: 70vh;
     overflow-y: auto;
-    margin: 0 auto 20px;
+    margin: 0 auto 4vw;
     border: 2px solid var(--secondary-color);
     border-radius: var(--border-radius);
-    padding: 10px;
+    padding: 2vw;
     box-shadow: var(--box-shadow);
 }
 
 #superposition-description {
-    font-size: 18px;
-    color: black; /* Set default text color to black */
+    font-size: 3.5vw;
+    color: black;
 }
 
 #superposition-description strong {
-    font-size: 18px;
-    color: var(--primary-color); /* Apply blue color only to strong elements */
+    font-size: 3.5vw;
+    color: var(--primary-color);
 }
 
 .superposition-profiles-container .profile {
-    margin-bottom: 15px;
+    margin-bottom: 3vw;
 }
 
 .superposition-profiles-container .profile img {
-    max-width: 600px;
+    max-width: 100%;
 }
 
 /* Animations */
@@ -318,7 +288,21 @@ button:hover {
 #start-quiz { animation-delay: 0s; }
 #learn-more-start { animation-delay: 1s; }
 
+/* Media Queries for better responsiveness */
+@media screen and (min-width: 768px) {
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    p { font-size: 16px; }
+    button { font-size: 18px; padding: 10px 24px; }
+    #progress-container { height: 10px; }
+    #progress-text { font-size: 14px; }
+    .profile h3 { font-size: 16px; }
+    #superposition-description, #superposition-description strong { font-size: 18px; }
+}
 
-/* ------------------------------------------------- */
-/* Add responsive styles for iPhone 15 specifically  */
-/* ------------------------------------------------- */
+@media screen and (min-width: 1024px) {
+    #quiz-container { padding: 30px; }
+    #profiles-container { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+    .modal-content { width: auto; padding: 25px; }
+    .close { font-size: 28px; top: -4px; right: 8px; }
+}
