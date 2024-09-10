@@ -27,7 +27,9 @@ body {
 }
 
 /* Typography */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: var(--primary-color);
     margin-bottom: 15px;
 }
@@ -43,8 +45,8 @@ h1 {
     margin-bottom: 15px;
 }
 
-h2 { 
-    font-size: 20px; 
+h2 {
+    font-size: 20px;
     margin-bottom: 10px;
 }
 
@@ -75,25 +77,29 @@ p {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: auto; /* Change to allow height to adjust with content */
+    height: auto;
+    /* Change to allow height to adjust with content */
 }
 
 /* Ensure responsive scaling */
 @media screen and (min-width: 600px) {
     #quiz-container {
-        max-width: 600px; /* Set max width for larger screens */
+        max-width: 600px;
+        /* Set max width for larger screens */
     }
 }
 
 @media screen and (min-width: 768px) {
     #quiz-container {
-        max-width: 750px; /* Further adjust max width */
+        max-width: 750px;
+        /* Further adjust max width */
     }
 }
 
 @media screen and (min-width: 1024px) {
     #quiz-container {
-        max-width: 850px; /* Adjust for larger screens */
+        max-width: 850px;
+        /* Adjust for larger screens */
     }
 }
 
@@ -117,7 +123,8 @@ button {
     box-shadow: var(--box-shadow);
 }
 
-#start-quiz, #learn-more-start {
+#start-quiz,
+#learn-more-start {
     margin-bottom: 0;
 }
 
@@ -146,18 +153,21 @@ button:hover {
     font-size: 16px;
 }
 
-#return-to-start, #return-to-results {
+#return-to-start,
+#return-to-results {
     margin-top: 20px;
 }
 
 /* Results Pages */
-#results-page, #superposition-results-page {
+#results-page,
+#superposition-results-page {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-#result-description, #superposition-description {
+#result-description,
+#superposition-description {
     margin-bottom: 15px;
 }
 
@@ -167,7 +177,8 @@ button:hover {
     color: var(--primary-color);
 }
 
-.collapse-profiles-container, .superposition-profiles-container {
+.collapse-profiles-container,
+.superposition-profiles-container {
     width: 95%;
     max-width: 550px;
     height: 50vh;
@@ -179,8 +190,10 @@ button:hover {
     box-shadow: var(--box-shadow);
     display: block;
     justify-content: center;
-    align-items: flex-start; /* Ensure content aligns to the top */
-    flex-direction: column;  /* Align content vertically */
+    align-items: flex-start;
+    /* Ensure content aligns to the top */
+    flex-direction: column;
+    /* Align content vertically */
 }
 
 .profile {
@@ -194,7 +207,8 @@ button:hover {
     margin-bottom: 15px;
 }
 
-#result-image, .profile img {
+#result-image,
+.profile img {
     max-width: 100%;
     height: auto;
     border-radius: var(--border-radius);
@@ -263,20 +277,25 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%; /* Fill the available space */
+    height: 100%;
+    /* Fill the available space */
 }
 
 .scrollable-profiles-container {
     width: 100%;
-    height: 60vh; /* Set a fixed height to ensure scroll functionality */
-    overflow-y: auto; /* Enable vertical scrolling */
+    height: 60vh;
+    /* Set a fixed height to ensure scroll functionality */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
     border: 2px solid var(--secondary-color);
     border-radius: var(--border-radius);
     padding: 15px;
     box-shadow: var(--box-shadow);
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Always use two columns */
-    gap: 15px; /* Adjust gap between the items */
+    grid-template-columns: 1fr 1fr;
+    /* Always use two columns */
+    gap: 15px;
+    /* Adjust gap between the items */
 }
 
 /* Modal Styles */
@@ -289,7 +308,7 @@ button:hover {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
 }
@@ -329,40 +348,93 @@ button:hover {
 
 /* Animations */
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
-#start-quiz, #learn-more-start {
+#start-quiz,
+#learn-more-start {
     animation: float 2s ease-in-out infinite;
 }
 
-#start-quiz { animation-delay: 0s; }
-#learn-more-start { animation-delay: 1s; }
+#start-quiz {
+    animation-delay: 0s;
+}
+
+#learn-more-start {
+    animation-delay: 1s;
+}
 
 /* Media Queries for better responsiveness */
 @media screen and (min-width: 768px) {
-    body { padding: 20px; }
-    h1 { font-size: 28px; }
-    h2 { font-size: 24px; }
-    p { font-size: 16px; }
-    button { font-size: 18px; padding: 14px 28px; }
-    .profile h3 { font-size: 18px; }
-    #superposition-description, #superposition-description strong { font-size: 16px; }
-    #quiz-container { 
-        max-width: 650px; 
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 14px 28px;
+    }
+
+    .profile h3 {
+        font-size: 18px;
+    }
+
+    #superposition-description,
+    #superposition-description strong {
+        font-size: 16px;
+    }
+
+    #quiz-container {
+        max-width: 650px;
         padding: 30px;
         height: auto;
         max-height: none;
     }
-    .particle-icon { width: 60px; height: 60px; }
+
+    .particle-icon {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 @media screen and (min-width: 1024px) {
-    #quiz-container { max-width: 750px; padding: 40px; }
-    .modal-content { max-width: 700px; }
-    .superposition-profiles-container { max-width: 700px; }
-    .particle-icon { width: 75px; height: 75px; }
+    #quiz-container {
+        max-width: 750px;
+        padding: 40px;
+    }
+
+    .modal-content {
+        max-width: 700px;
+    }
+
+    .superposition-profiles-container {
+        max-width: 700px;
+    }
+
+    .particle-icon {
+        width: 75px;
+        height: 75px;
+    }
 }
 
 /* Media Queries for better responsiveness */
@@ -370,94 +442,130 @@ button:hover {
 
     /* Enable full-page scrolling */
     body {
-        overflow-y: auto; /* Enable vertical scrolling on mobile */
-        height: 80%; /* Ensure body fills the viewport */
+        overflow-y: auto;
+        /* Enable vertical scrolling on mobile */
+        height: 80%;
+        /* Ensure body fills the viewport */
     }
 
     /* Ensure the quiz container fits the screen */
     #quiz-container {
-        width: 95%; /* Full width on mobile */
+        width: 95%;
+        /* Full width on mobile */
         height: auto;
-        padding: 20px 15px; /* Adjust padding for smaller screens */
-        max-width: none; /* Remove the max-width restriction */
+        padding: 20px 15px;
+        /* Adjust padding for smaller screens */
+        margin: 0 auto;
+        /* Center the container */
+        display: block;
+        /* Ensure it's treated as a block element */
     }
 
     /* Adjust heading sizes for smaller screens */
-    h1, h2 {
-        font-size: 20px; /* Smaller font size for headings */
+    h1,
+    h2 {
+        font-size: 20px;
+        /* Smaller font size for headings */
     }
 
     p {
-        font-size: 14px; /* Adjust paragraph font size */
-        padding: 0 8px; /* Add padding to ensure readability */
+        font-size: 14px;
+        /* Adjust paragraph font size */
+        padding: 0 8px;
+        /* Add padding to ensure readability */
     }
 
     /* Make buttons larger and full width */
     button {
-        width: 40%; /* Full width buttons */
-        padding: 10px 0; /* Smaller padding */
-        font-size: 14px; /* Slightly smaller text */
+        width: 40%;
+        /* Full width buttons */
+        padding: 10px 0;
+        /* Smaller padding */
+        font-size: 14px;
+        /* Slightly smaller text */
     }
 
-    #learn-more-result, #restart-quiz {
-        width: 35%; /* Full width buttons */
-        padding: 10px 0; /* Smaller padding */
-        font-size: 14px; /* Slightly smaller text */
+    #learn-more-result,
+    #restart-quiz {
+        width: 35%;
+        /* Full width buttons */
+        padding: 10px 0;
+        /* Smaller padding */
+        font-size: 14px;
+        /* Slightly smaller text */
     }
 
     /* Adjust image sizes for better fit */
-    #result-image, .profile img {
-        max-width: 100%; /* Ensure images fit the container */
+    #result-image,
+    .profile img {
+        max-width: 100%;
+        /* Ensure images fit the container */
         height: auto;
     }
 
     /* Optimize profiles page layout for mobile (single column) */
     .scrollable-profiles-container {
-        grid-template-columns: 1fr; /* Single column layout */
-        gap: 10px; /* Adjust gap for better spacing */
+        grid-template-columns: 1fr;
+        /* Single column layout */
+        gap: 10px;
+        /* Adjust gap for better spacing */
     }
 
     /* Ensure modal content fits on mobile */
     .modal-content {
-        width: 90%; /* Full width of the mobile screen */
-        height: auto; /* Allow the modal to adjust its height */
+        width: 90%;
+        /* Full width of the mobile screen */
+        height: auto;
+        /* Allow the modal to adjust its height */
     }
 
     /* Ensure proper scrolling and spacing in results/superposition containers */
     .collapse-profiles-container {
-        height: 60vh; /* Adjust the height to fit content */
-        padding: 10px; /* Reduce padding for smaller screens */
+        height: 60vh;
+        /* Adjust the height to fit content */
+        padding: 10px;
+        /* Reduce padding for smaller screens */
     }
 
     .superposition-profiles-container {
-        height: 30vh; /* Adjust the height to fit content */
-        padding: 10px; /* Reduce padding for smaller screens */
+        height: 30vh;
+        /* Adjust the height to fit content */
+        padding: 10px;
+        /* Reduce padding for smaller screens */
     }
 
     /* Adjust text size and margins in results descriptions */
-    #result-description, #superposition-description {
-        font-size: 16px; /* Smaller text for mobile */
-        margin-bottom: 10px; /* Adjust margin for spacing */
+    #result-description,
+    #superposition-description {
+        font-size: 16px;
+        /* Smaller text for mobile */
+        margin-bottom: 10px;
+        /* Adjust margin for spacing */
     }
 
     /* Adjust progress bar for mobile */
     #progress-container {
-        width: 100%; /* Full width for progress bar */
+        width: 100%;
+        /* Full width for progress bar */
     }
 
     /* Make the particle carousel more responsive */
     .carousel-inner {
-        transform: none; /* Disable transform on mobile */
-        overflow-x: scroll; /* Allow horizontal scrolling for particles */
+        transform: none;
+        /* Disable transform on mobile */
+        overflow-x: scroll;
+        /* Allow horizontal scrolling for particles */
     }
 
     /* Adjust particle icons in the carousel */
     .particle-icon {
-        width: 60px; /* Smaller icons for mobile */
+        width: 60px;
+        /* Smaller icons for mobile */
         height: 60px;
     }
 
     #answer-buttons button {
-        font-size: clamp(12px, 3.5vw, 14px); /* Dynamically adjust text size */
+        font-size: clamp(12px, 3.5vw, 14px);
+        /* Dynamically adjust text size */
     }
 }
