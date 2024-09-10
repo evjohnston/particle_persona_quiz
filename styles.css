@@ -372,13 +372,13 @@ button:hover {
     #quiz-container {
         width: 95%; /* Full width on mobile */
         height: auto;
-        padding: 15px; /* Adjust padding for smaller screens */
+        padding: 20px 15px; /* Adjust padding for smaller screens */
         max-width: none; /* Remove the max-width restriction */
     }
 
     /* Adjust heading sizes for smaller screens */
     h1, h2 {
-        font-size: 18px; /* Smaller font size for headings */
+        font-size: 20px; /* Smaller font size for headings */
     }
 
     p {
@@ -388,7 +388,13 @@ button:hover {
 
     /* Make buttons larger and full width */
     button {
-        width: 30%; /* Full width buttons */
+        width: 35%; /* Full width buttons */
+        padding: 10px 0; /* Smaller padding */
+        font-size: 14px; /* Slightly smaller text */
+    }
+
+    #learn-more-result, #restart-quiz {
+        width: 35%; /* Full width buttons */
         padding: 10px 0; /* Smaller padding */
         font-size: 14px; /* Slightly smaller text */
     }
@@ -421,13 +427,6 @@ button:hover {
     #result-description, #superposition-description {
         font-size: 16px; /* Smaller text for mobile */
         margin-bottom: 10px; /* Adjust margin for spacing */
-    }
-
-    /* Center buttons better on mobile */
-    .button-container {
-        display: flex;
-        flex-direction: column; /* Stack buttons vertically */
-        gap: 10px; /* Add space between buttons */
     }
 
     /* Adjust progress bar for mobile */
