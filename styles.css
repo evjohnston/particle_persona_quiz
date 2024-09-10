@@ -41,7 +41,7 @@ h2 { font-size: 20px; }
 
 p {
     margin-bottom: 15px;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 /* Container and Layout */
@@ -103,7 +103,7 @@ button:hover {
 
 #answer-buttons button {
     width: 100%;
-    max-width: 450px;
+    max-width: 600px;
     padding: 15px 20px;
     margin: 10px 0;
     background-color: #fff;
