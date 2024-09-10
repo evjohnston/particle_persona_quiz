@@ -370,7 +370,8 @@ button:hover {
 
     /* Ensure the quiz container fits the screen */
     #quiz-container {
-        width: 100%; /* Full width on mobile */
+        width: 95%; /* Full width on mobile */
+        height: auto;
         padding: 15px; /* Adjust padding for smaller screens */
         max-width: none; /* Remove the max-width restriction */
     }
@@ -381,15 +382,15 @@ button:hover {
     }
 
     p {
-        font-size: 12px; /* Adjust paragraph font size */
+        font-size: 14px; /* Adjust paragraph font size */
         padding: 0 8px; /* Add padding to ensure readability */
     }
 
     /* Make buttons larger and full width */
     button {
-        width: 80%; /* Full width buttons */
+        width: 30%; /* Full width buttons */
         padding: 10px 0; /* Smaller padding */
-        font-size: 16px; /* Slightly smaller text */
+        font-size: 14px; /* Slightly smaller text */
     }
 
     /* Adjust image sizes for better fit */
