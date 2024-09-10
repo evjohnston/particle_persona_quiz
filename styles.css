@@ -356,7 +356,6 @@ button:hover {
         max-height: none;
     }
     .particle-icon { width: 60px; height: 60px; }
-    #profiles-container { grid-template-columns: repeat(auto-fill, minmax(1fr, 1fr)); }
 }
 
 @media screen and (min-width: 1024px) {
