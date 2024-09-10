@@ -52,9 +52,10 @@
         </div>
 
         <div id="results-page" style="display: none;">
+            <h2 id="particle-persona-name"></h2> <!-- New heading for particle persona -->
             <h2 id="result-description"></h2>
-            <div id="result-image-container">
-                <img id="result-image" src="" alt="Your Particle Persona">
+            <div id="result-image-container" class="collapse-profiles-container">
+                <!-- Container for the result profile image -->
             </div>
             <div class="button-container">
                 <button id="restart-quiz">Try Again</button>
@@ -217,8 +218,14 @@
         }
 
         function showCollapseResults(resultPersona) {
-            document.getElementById('result-image').src = `profiles/${resultPersona.key}.png`;
-            document.getElementById('result-description').textContent = `Your Particle Persona is... ${resultPersona.name}!`;
+            document.getElementById('particle-persona-name').textContent = `Your Particle Persona is ${resultPersona.name}!`; // Update heading
+            const collapseImageContainer = document.getElementById('result-image-container');
+            collapseImageContainer.innerHTML = `
+        <div class="profile">
+            <img src="profiles/${resultPersona.key}.png" alt="${resultPersona.name}">
+            <h3>Your Particle Persona is... ${resultPersona.name}!</h3>
+        </div>
+    `;
             document.getElementById('question-page').style.display = 'none';
             document.getElementById('results-page').style.display = 'block';
         }
@@ -226,21 +233,21 @@
         function showSuperpositionResults(topTwoPersonas) {
             const superpositionImages = document.getElementById('superposition-images');
             superpositionImages.innerHTML = `
-        <div class="superposition-profiles-container">
-            <div class="profile">
-                <img src="profiles/${topTwoPersonas[0].key}.png" alt="${topTwoPersonas[0].name}">
-                <h3>${topTwoPersonas[0].name}</h3>
-            </div>
-            <div class="profile">
-                <img src="profiles/${topTwoPersonas[1].key}.png" alt="${topTwoPersonas[1].name}">
-                <h3>${topTwoPersonas[1].name}</h3>
-            </div>
-        </div>
-    `;
+                <div class="superposition-profiles-container">
+                    <div class="profile">
+                        <img src="profiles/${topTwoPersonas[0].key}.png" alt="${topTwoPersonas[0].name}">
+                        <h3>${topTwoPersonas[0].name}</h3>
+                    </div>
+                    <div class="profile">
+                        <img src="profiles/${topTwoPersonas[1].key}.png" alt="${topTwoPersonas[1].name}">
+                        <h3>${topTwoPersonas[1].name}</h3>
+                    </div>
+                </div>
+            `;
             document.getElementById('superposition-description').innerHTML = `
-        <p><h2>Congratulations! You've embraced the quantum realm.</h2></p> 
-        <p>Your Particle Persona exists in a superposition of two states: <strong>${topTwoPersonas[0].name}</strong> and <strong>${topTwoPersonas[1].name}</strong>. Just like Schrödinger's cat, you're simultaneously both... until you decide to go back and collapse the wave function!</p>
-    `;
+                <p><h2>Congratulations! You've embraced the quantum realm.</h2></p> 
+                <p>Your Particle Persona exists in a superposition of two states: <strong>${topTwoPersonas[0].name}</strong> and <strong>${topTwoPersonas[1].name}</strong>. Just like Schrödinger's cat, you're simultaneously both... until you decide to go back and collapse the wave function!</p>
+            `;
             document.getElementById('question-page').style.display = 'none';
             document.getElementById('superposition-results-page').style.display = 'block';
         }
