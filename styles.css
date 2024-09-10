@@ -37,8 +37,8 @@ h1 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    font-size: 20px;
+h2 { 
+    font-size: 20px; 
 }
 
 p {
@@ -54,16 +54,32 @@ p {
     padding: 25px;
     width: 95%;
     max-width: 100%;
-    height: calc(100vh - 20px);
-    max-height: 800px;
     text-align: center;
     position: relative;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
+    height: auto; /* Change to allow height to adjust with content */
 }
 
-/* Question Styles */
+/* Ensure responsive scaling */
+@media screen and (min-width: 600px) {
+    #quiz-container {
+        max-width: 600px; /* Set max width for larger screens */
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #quiz-container {
+        max-width: 750px; /* Further adjust max width */
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #quiz-container {
+        max-width: 850px; /* Adjust for larger screens */
+    }
+}
+
 #quiz-container .question {
     margin-bottom: 20px;
     font-size: 18px;
@@ -128,15 +144,6 @@ button:hover {
     margin-bottom: 15px;
 }
 
-#particle-persona-name {
-    font-size: 22px;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* Common Styles for Collapse and Superposition Containers */
 .collapse-profiles-container, .superposition-profiles-container {
     width: 95%;
     max-width: 550px;
@@ -147,7 +154,7 @@ button:hover {
     border-radius: var(--border-radius);
     padding: 15px;
     box-shadow: var(--box-shadow);
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: flex-start; /* Ensure content aligns to the top */
     flex-direction: column;  /* Align content vertically */
@@ -162,7 +169,6 @@ button:hover {
     flex-direction: column;
     align-items: center;
     margin-bottom: 15px;
-    text-align: center;
 }
 
 #result-image, .profile img {
@@ -231,15 +237,23 @@ button:hover {
 #profiles-page {
     text-align: center;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; /* Fill the available space */
 }
 
-#profiles-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-    max-height: calc(100% - 100px);
-    overflow-y: auto;
+.scrollable-profiles-container {
+    width: 100%;
+    height: 60vh; /* Set a fixed height to ensure scroll functionality */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--border-radius);
     padding: 15px;
+    box-shadow: var(--box-shadow);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 5px;
 }
 
 /* Modal Styles */
@@ -263,7 +277,6 @@ button:hover {
     border: 1px solid #888;
     height: 90vh;
     width: 90%;
-    max-width: 600px;
     border-radius: var(--border-radius);
     text-align: center;
     position: relative;
@@ -276,8 +289,8 @@ button:hover {
 .close {
     color: #aaa;
     position: absolute;
-    top: 0px;
-    right: 10px;
+    top: -4px;
+    left: 3px;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
@@ -293,78 +306,39 @@ button:hover {
 
 /* Animations */
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
 }
 
 #start-quiz, #learn-more-start {
     animation: float 2s ease-in-out infinite;
 }
 
-#start-quiz {
-    animation-delay: 0s;
-}
-
-#learn-more-start {
-    animation-delay: 1s;
-}
+#start-quiz { animation-delay: 0s; }
+#learn-more-start { animation-delay: 1s; }
 
 /* Media Queries for better responsiveness */
 @media screen and (min-width: 768px) {
-    body {
-        padding: 20px;
-    }
-    h1 {
-        font-size: 28px;
-    }
-    h2 {
-        font-size: 24px;
-    }
-    p {
-        font-size: 16px;
-    }
-    button {
-        font-size: 18px;
-        padding: 14px 28px;
-    }
-    .profile h3 {
-        font-size: 18px;
-    }
-    #superposition-description, #superposition-description strong {
-        font-size: 16px;
-    }
-    #quiz-container {
-        max-width: 650px;
+    body { padding: 20px; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    p { font-size: 16px; }
+    button { font-size: 18px; padding: 14px 28px; }
+    .profile h3 { font-size: 18px; }
+    #superposition-description, #superposition-description strong { font-size: 16px; }
+    #quiz-container { 
+        max-width: 650px; 
         padding: 30px;
         height: auto;
         max-height: none;
     }
-    .particle-icon {
-        width: 60px;
-        height: 60px;
-    }
-    #profiles-container {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
+    .particle-icon { width: 60px; height: 60px; }
+    #profiles-container { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
 }
 
 @media screen and (min-width: 1024px) {
-    #quiz-container {
-        max-width: 750px;
-        padding: 40px;
-    }
-    .modal-content {
-        max-width: 700px;
-    }
-    .superposition-profiles-container, .collapse-profiles-container {
-        max-width: 700px;
-    }
-    .particle-icon {
-        width: 75px;
-        height: 75px;
-    }
+    #quiz-container { max-width: 750px; padding: 40px; }
+    .modal-content { max-width: 700px; }
+    .superposition-profiles-container { max-width: 700px; }
+    .particle-icon { width: 75px; height: 75px; }
 }

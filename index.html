@@ -73,7 +73,7 @@
 
         <div id="profiles-page" style="display: none;">
             <h2>All Particle Personas</h2>
-            <div id="profiles-container"></div>
+            <div id="profiles-container" class="scrollable-profiles-container"></div>
             <button id="return-to-start" style="display: none;">Return to Start</button>
             <button id="return-to-results" style="display: none;">Return to Results</button>
         </div>
@@ -223,7 +223,6 @@
             collapseImageContainer.innerHTML = `
         <div class="profile">
             <img src="profiles/${resultPersona.key}.png" alt="${resultPersona.name}">
-            <h3>Your Particle Persona is... ${resultPersona.name}!</h3>
         </div>
     `;
             document.getElementById('question-page').style.display = 'none';
